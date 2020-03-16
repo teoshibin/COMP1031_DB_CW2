@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="dist/assets/css/header.css">
 </head>
 <body>
+
     <?php 
         include_once('dist/header.html');
     ?>
-    <h1>Sakila</h1>
+
     <h2>sakila the film renting website</h2>
     <a href="dist/login.php">login</a>
     <p>currently login as guest</p>
