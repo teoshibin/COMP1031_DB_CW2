@@ -12,6 +12,7 @@
     <?php 
         include_once('dist/header.html');
     ?>
+    pork lego guy
 
     <h2>sakila the film renting website</h2>
     <a href="dist/login.php">login</a>
