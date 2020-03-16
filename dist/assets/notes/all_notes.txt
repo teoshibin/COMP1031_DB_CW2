@@ -1,0 +1,71 @@
+
+Do ctrl f to search for phrase
+
+====== PHP RELATED ======
+
+session_start :
+$_SESSION :
+why start a new session, when password is correct : 
+https://www.w3schools.com/php/php_sessions.asp
+https://www.php.net/manual/en/function.session-start.php
+
+$_POST :
+https://www.w3schools.com/php/php_superglobals_post.asp
+
+header("") :
+https://www.tutorialspoint.com/what-is-header-function-in-php
+
+htmlspecialchars :
+https://www.1keydata.com/php-tutorial/htmlspecialchars.php
+
+php_self :
+https://html.form.guide/php-form/php-form-action-self.html
+
+isset :
+empty :
+is_null :
+https://www.w3schools.com/php/func_var_isset.asp
+https://www.virendrachandak.com/techtalk/php-isset-vs-empty-vs-is_null/
+
+include_once :
+require_once :
+https://www.w3resource.com/php/statement/require_once.php
+
+trim :
+https://www.w3resource.com/php/function-reference/trim.php
+
+mysqli_prepare :
+http://www.nusphere.com/kb/phpmanual/function.mysqli-prepare.htm
+https://www.w3resource.com/php/function-reference/mysqli_prepare.php
+https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection        (query injection)
+
+mysqli_stmt_bind_param :
+https://www.php.net/manual/en/mysqli-stmt.bind-param.php
+http://www.nusphere.com/kb/phpmanual/function.mysqli-stmt-bind-param.htm
+
+mysqli_stmt_execute :
+
+mysqli_stmt_store_result :
+
+mysqli_stmt_num_rows :
+
+mysqli_stmt_bind_result :
+
+mysqli_stmt_fetch :
+
+password_verify :
+
+mysqli_stmt_close :
+
+ mysqli_close :
+
+
+
+
+====== CSS RELATED ======
+
+bootstrap remote script : (do ctrl f in this url)
+https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
+
+all bootstrap 3.3.7 component :
+https://getbootstrap.com/docs/3.3/components/

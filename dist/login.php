@@ -1,15 +1,16 @@
 <?php
 // Initialize the session
+// so that we can get user info from $_SESSION["something"]
 session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("location: welcome.php");
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prevent user from editing url to get in the logged in page
+  header("location: welcome.php");// redirect function in php
   exit;
 }
  
 // Include config file
-require_once "config.php";
+require_once "config.php";//link
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -107,7 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
+                <span class="help-block"><?php echo $username_err; ?></span> <!-- help-block class change the color of help box-->
             </div>    
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                 <label>Password</label>
