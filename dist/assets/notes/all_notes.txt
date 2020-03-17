@@ -1,22 +1,23 @@
 
-Do ctrl f to search for phrase
+Do ctrl f to search for keywords or functions
 
 ====== PHP RELATED ======
 
 session_start :
-$_SESSION :
+$_SESSION { require session_start}: //storing user information to be used across multiple pages
 why start a new session, when password is correct : 
 https://www.w3schools.com/php/php_sessions.asp
 https://www.php.net/manual/en/function.session-start.php
 
 $_POST :
+//fetch method post input from html
 https://www.w3schools.com/php/php_superglobals_post.asp
 
 header("") :
 https://www.tutorialspoint.com/what-is-header-function-in-php
 
 htmlspecialchars :
-https://www.1keydata.com/php-tutorial/htmlspecialchars.php
+https://www.1keydata.com/php-tutorial/htmlspecialchars.php (html security)
 
 php_self :
 https://html.form.guide/php-form/php-form-action-self.html
@@ -34,31 +35,58 @@ https://www.w3resource.com/php/statement/require_once.php
 trim :
 https://www.w3resource.com/php/function-reference/trim.php
 
-mysqli_prepare :
-http://www.nusphere.com/kb/phpmanual/function.mysqli-prepare.htm
-https://www.w3resource.com/php/function-reference/mysqli_prepare.php
-https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection        (query injection)
 
-mysqli_stmt_bind_param :
-https://www.php.net/manual/en/mysqli-stmt.bind-param.php
-http://www.nusphere.com/kb/phpmanual/function.mysqli-stmt-bind-param.htm
+-- mysql query in php --
+*we are using only procedural style of all mysql query code*
+{
 
-mysqli_stmt_execute :
+    mysqli_prepare(connection, "query") :
+    //prepare a statement from a query
+    http://www.nusphere.com/kb/phpmanual/function.mysqli-prepare.htm
+    https://www.w3resource.com/php/function-reference/mysqli_prepare.php
+    https://websitebeaver.com/prepared-statements-in-php-mysqli-to-prevent-sql-injection (query injection)
 
-mysqli_stmt_store_result :
+    mysqli_stmt_bind_param { run after prepare }: 
+    //bind statement with its datatype { func(statement, string(datatype), variables...) }
+    https://www.php.net/manual/en/mysqli-stmt.bind-param.php
+    http://www.nusphere.com/kb/phpmanual/function.mysqli-stmt-bind-param.htm
 
-mysqli_stmt_num_rows :
+    mysqli_stmt_execute { run after bind param }:
+    //run the query without saving it yet
+    https://www.php.net/manual/en/mysqli-stmt.execute.php
 
-mysqli_stmt_bind_result :
+    mysqli_stmt_store_result { run after execute to function }:
+    //this goes along with execute all the time for queries like (SELECT, SHOW, DESCRIBE, EXPLAIN)
+    https://www.php.net/manual/en/mysqli-stmt.store-result.php
 
-mysqli_stmt_fetch :
+    mysqli_stmt_num_rows { run after store result to function else return 0 }:
+    //return a the number of rows of your excuted stored result table
+    https://www.php.net/manual/en/mysqli-stmt.num-rows.php
 
+    mysqli_stmt_bind_result { run after execute }:
+    //bind result with column name
+    https://www.php.net/manual/en/mysqli-stmt.bind-result.php
+
+    mysqli_stmt_fetch { run after bind result } :
+    //Data are transferred unbuffered without calling mysqli_stmt_store_result() which can decrease performance (but reduces memory cost).
+    //to fetch value row by row from column defined in bind result
+    https://www.php.net/manual/en/mysqli-stmt.fetch.php
+
+    mysqli_stmt_close :
+    //close statement
+
+    mysqli_close :
+    //close connecction of mysqli_connect in config.php
+    //disconnect the database
+
+}
+
+password_hash :
+password_needs_rehash :
 password_verify :
-
-mysqli_stmt_close :
-
- mysqli_close :
-
+password_get_info :
+https://www.atyantik.com/managing-passwords-correct-way-php/
+https://stackoverflow.com/questions/19855715/php-password-hash-and-password-verify-issues-no-match (store hash in code with single quotes)
 
 
 
