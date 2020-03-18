@@ -97,3 +97,11 @@ https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
 
 all bootstrap 3.3.7 component :
 https://getbootstrap.com/docs/3.3/components/
+
+====== js RELATED ======
+
+scrollTop :
+https://www.w3schools.com/jsref/prop_element_scrolltop.asp
+
+documentElement :
+https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement
