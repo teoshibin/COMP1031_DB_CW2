@@ -18,10 +18,13 @@
 }
 
 .page-header-tweak h1{
+    padding: 0 5px;
     text-align: center;
     font-size: 8rem;
     background-color: white;
-    opacity: 70%;
+    opacity: 80%;
+
+    transition: 0.2s;
 }
 
 .video-container {
