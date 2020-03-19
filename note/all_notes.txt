@@ -1,6 +1,12 @@
 
 Do ctrl f to search for keywords or functions
 
+====== html RELATED ======
+
+path syntax :
+https://www.w3schools.com/html/html_filepaths.asp
+
+
 ====== PHP RELATED ======
 
 session_start :
