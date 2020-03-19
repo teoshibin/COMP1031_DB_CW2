@@ -6,6 +6,7 @@
     <title>Sakila</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/body.css">
     <script src="../js/header.js"></script>
 </head>
 <body class="body-tweak">
@@ -21,4 +22,3 @@
             </video>
         </div>
     </div>
-

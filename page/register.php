@@ -93,18 +93,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
-<body>
+<?php 
+    require_once('../include/header.php');
+?>
+    <div class="body-wrapper">
+        <ol class="breadcrumb breadcrumb-tweak">
+            <li><a href="main.php">Home</a></li>
+            <li><a href="main.php">Login</a></li>
+            <li class="active">Register</li>
+        </ol>
+    </div>
     <div class="wrapper">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>

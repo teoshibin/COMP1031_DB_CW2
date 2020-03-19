@@ -1,9 +1,21 @@
 
-.main-tweak {
-    text-align: left;
+/* form box */
+.wrapper {
+    font: 14px sans-serif; 
+    padding: 5% 10%;
+    margin: 0 20%;
 }
 
-.box-container {
-    padding: 10%;
-    margin: 5% 20%;
+
+/* body box */
+.body-wrapper {
+    margin: 2% 5%;
+}
+
+.breadcrumb-tweak {
+    background-color: white;
+}
+
+.btn-width-tweak {
+    width: 200px !important;
 }
