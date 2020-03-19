@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakila</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/assets/css/header.css">
+    <link rel="stylesheet" href="../css/header.css">
     <script src="dist/assets/js/header.js"></script>
 </head>
 <body class="body-tweak">
@@ -17,7 +17,7 @@
         </div>
         <div class="video-container">
             <video autoplay loop muted>
-                <source src="dist/assets/mp4/header-video.mp4" type="video/mp4">
+                <source src="../video/header-video.mp4" type="video/mp4">
             </video>
         </div>
     </div>

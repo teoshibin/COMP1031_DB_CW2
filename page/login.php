@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prev
 }
  
 // Include config file
-require_once "config.php";//link
+require_once "../include/config.php";//link
  
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: inner-main.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body> -->
 <?php 
-    require_once('./header.php');
+    require_once('../include/header.php');
 ?>
     <div class="wrapper">
         <h2>Login</h2>
@@ -122,7 +122,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="submit" class="btn btn-primary" value="Login">
             </div>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-            <a href="index.php">go back</a>
+            <a href="main.php">go back</a>
         </form>
     </div>    
 </body>
