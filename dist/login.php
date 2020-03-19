@@ -102,7 +102,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body> -->
 <?php 
-    require_once('dist/header.html');
+    require_once('./header.php');
 ?>
     <div class="wrapper">
         <h2>Login</h2>

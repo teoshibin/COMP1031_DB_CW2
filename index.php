@@ -1,5 +1,5 @@
 <?php 
-    require_once('dist/header.html');
+    require_once('./dist/header.php');
 ?>
     <div class="main-body">
         <hr>
