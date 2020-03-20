@@ -35,7 +35,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             <a href="read.php"><strong>Search</strong></a> - Search a Student
         </li>
         <li>
-            <a href="#"><strong>Search</strong></a> - Edit Student Information
+            <a href="#"><strong>Edit</strong></a> - Edit Student Information
+        </li>
+        <li>
+            <a href="#"><strong>Delete</strong></a> - Delete Student Information
         </li>
     </u1>
 </body>
