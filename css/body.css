@@ -1,21 +1,15 @@
 
 /* form box */
-.wrapper {
+.my-form {
     font: 14px sans-serif; 
     padding: 5% 10%;
     margin: 0 20%;
 }
 
-
-/* body box */
-.body-wrapper {
+.my-body {
     margin: 2% 5%;
 }
 
-.breadcrumb-tweak {
-    background-color: white;
-}
-
-.btn-width-tweak {
+.my-btn-width *{
     width: 200px !important;
 }

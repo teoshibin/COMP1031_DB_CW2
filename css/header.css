@@ -1,9 +1,5 @@
 
-.body-tweak {
-    margin: 0;
-}
-
-.header-container {
+.my-header {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -13,27 +9,30 @@
     overflow: hidden;
 }
 
-.page-header-tweak {
+.my-header-text {
     z-index: 1;
 }
 
-.page-header-tweak h1{
+.my-header-text h3{
     padding: 0 5px;
     text-align: center;
-    font-size: 8rem;
+    font-size: 5rem;
     background-color: white;
     opacity: 80%;
-
     transition: 0.2s;
 }
 
-.video-container {
+.my-header-text small{
+    font-size: 3rem;
+}
+
+.my-header-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-.video-container video {
+.my-header-video video {
     width: 100%;
 }
