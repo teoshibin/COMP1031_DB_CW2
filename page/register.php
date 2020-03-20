@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="body-wrapper">
         <ol class="breadcrumb breadcrumb-tweak">
             <li><a href="main.php">Home</a></li>
-            <li><a href="main.php">Login</a></li>
+            <li><a href="login.php">Login</a></li>
             <li class="active">Register</li>
         </ol>
     </div>

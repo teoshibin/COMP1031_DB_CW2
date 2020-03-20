@@ -1,11 +1,16 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
    <head>
       <title>HTML Meta Tag</title>
       <meta http-equiv = "refresh" content = "2; url = page/main.php" />
    </head>
-   <body>
+   <body> -->
        <!-- put our loading animation here -->
-       <p>loading....</p>
+       <!-- <p>loading....</p>
    </body>
-</html>
+</html> -->
+
+<?php
+header("Location: page/main.php");
+exit();
+?>

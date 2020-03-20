@@ -98,11 +98,17 @@ https://stackoverflow.com/questions/19855715/php-password-hash-and-password-veri
 
 ====== CSS RELATED ======
 
-bootstrap remote script : (do ctrl f in this url)
+bootstrap 3.7.7 CDN :
 https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css
 
-all bootstrap 3.3.7 component :
+bootstrap 3.3.7 component :
 https://getbootstrap.com/docs/3.3/components/
+
+bootstrap 4.4.1 CDN :
+https://getbootstrap.com/docs/4.4/getting-started/download/
+
+bootstrap 4.4.1 component :
+https://getbootstrap.com/docs/4.4/components/alerts/
 
 ====== js RELATED ======
 
