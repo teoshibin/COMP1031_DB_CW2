@@ -10,6 +10,13 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
  
 // Include config file
 require_once "../include/config.php";
+
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());//print error return from .mysqli_connect_error close this script
+}
  
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
