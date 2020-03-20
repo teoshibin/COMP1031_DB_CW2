@@ -5,7 +5,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prevent user from editing url to get in the logged in page
-  header("location: logged-in.php");// redirect function in php
+  header("location: inner-main.php");// redirect function in php
   exit;
 }
  
