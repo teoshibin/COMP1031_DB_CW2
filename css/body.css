@@ -13,3 +13,7 @@
 .my-btn-width *{
     width: 200px !important;
 }
+
+html {
+    scroll-behavior: smooth;
+}

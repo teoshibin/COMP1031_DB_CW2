@@ -108,7 +108,7 @@ bootstrap 4.4.1 CDN :
 https://getbootstrap.com/docs/4.4/getting-started/download/
 
 bootstrap 4.4.1 component :
-https://getbootstrap.com/docs/4.4/components/alerts/
+https://getbootstrap.com/docs/4.4/c omponents/alerts/
 
 ====== js RELATED ======
 

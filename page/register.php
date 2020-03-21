@@ -103,38 +103,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php 
     require_once('../include/header.php');
 ?>
-    <div class="body-wrapper">
-        <ol class="breadcrumb breadcrumb-tweak">
-            <li><a href="main.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li class="active">Register</li>
-        </ol>
+    <div class="my-body">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white">
+                <li class="breadcrumb-item"><a href="main.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="login.php">Login</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Register</li>
+            </ol>
+        </nav>
+        <div class="my-form">
+            <h2>Sign Up</h2>
+            <p>Please fill this form to create an account.</p>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Username">
+                    <div class="invalid-feedback">
+                        <big><?php echo $username_err; ?></big>
+                    </div>
+                </div>    
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control  <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" placeholder="Password">
+                    <div class="invalid-feedback">
+                        <big><?php echo $password_err; ?></big>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" placeholder="Comfirm Password">
+                    <div class="invalid-feedback">
+                        <big><?php echo $confirm_password_err; ?></big>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-dark" value="Submit">
+                    <input type="reset" class="btn btn-outline-dark" value="Undo">
+                </div>
+                <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            </form>
+        </div>
     </div>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-                <span class="help-block"><?php echo $username_err; ?></span>
-            </div>    
-            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-                <span class="help-block"><?php echo $password_err; ?></span>
-            </div>
-            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-                <span class="help-block"><?php echo $confirm_password_err; ?></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
-            </div>
-            <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
-</body>
-</html>
+    
+<?php
+    require_once "../include/footer.php";
+?>
