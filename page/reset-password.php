@@ -171,5 +171,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </div> 
 <?php
-    require_once "../include/header.php";
+    require_once "../include/footer.php";
 ?>

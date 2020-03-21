@@ -111,7 +111,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <?php 
     require_once('../include/header.php');
 ?>
-    <div class="my-body">
+
+    <div class="my-body" id="anchor-1">
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-white">
@@ -139,9 +140,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-dark" value="Login">
+                    <input type="submit" class="btn btn-dark" name="submit" value="Login">
                 </div>
-                <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+                <p>Don't have an account? <a href="register.php#anchor-2">Sign up now</a>.</p>
             </form>
         </div>  
         <br>
