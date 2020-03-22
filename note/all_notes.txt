@@ -1,16 +1,29 @@
 
 Do ctrl f to search for keywords or functions
+Do ctrl f to search for keywords or functions
+Do ctrl f to search for keywords or functions
+Do ctrl f to search for keywords or functions
+Do ctrl f to search for keywords or functions
 
 ====== html RELATED ======
 
 path syntax :
 https://www.w3schools.com/html/html_filepaths.asp
 
+anchor :
+https://www.rapidtables.com/web/html/link/html-anchor-link.html
+
+onload event : //i use it for auto anchor
+https://www.w3schools.com/jsref/event_onload.asp
+
 
 ====== PHP RELATED ======
 
 preg_matches : (contain only letter and spaces)
 https://stackoverflow.com/questions/15346284/php-letters-and-spaces-only-validation/15346328
+
+filter_var :
+https://www.stechies.com/php-filtervar/
 
 session_start :
 $_SESSION { require session_start}: //storing user information to be used across multiple pages
@@ -23,6 +36,7 @@ $_POST :
 https://www.w3schools.com/php/php_superglobals_post.asp
 
 header("") :
+//it will destroy most of the variable while fowarding, use $_SESSION to prevent data lost
 https://www.tutorialspoint.com/what-is-header-function-in-php
 
 htmlspecialchars :
