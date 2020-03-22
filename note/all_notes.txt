@@ -9,6 +9,9 @@ https://www.w3schools.com/html/html_filepaths.asp
 
 ====== PHP RELATED ======
 
+preg_matches : (contain only letter and spaces)
+https://stackoverflow.com/questions/15346284/php-letters-and-spaces-only-validation/15346328
+
 session_start :
 $_SESSION { require session_start}: //storing user information to be used across multiple pages
 why start a new session, when password is correct : 
