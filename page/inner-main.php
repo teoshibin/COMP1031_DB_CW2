@@ -19,41 +19,53 @@ require_once "../include/header.php";
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#header">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Edit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Profile
+                    Tables
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#" onclick="<?php ?>">Actor</a>
+                    <a class="dropdown-item" href="#">Address</a>
+                    <a class="dropdown-item" href="#">Category</a>
+                    <a class="dropdown-item" href="#">city</a>
+                    <a class="dropdown-item" href="#">country</a>
+                    <a class="dropdown-item" href="#">custormer</a>
+                    <a class="dropdown-item" href="#">film</a>
+                    <a class="dropdown-item" href="#">film actor</a>
+                    <a class="dropdown-item" href="#">film category</a>
+                    <a class="dropdown-item" href="#">film text</a>
+                    <a class="dropdown-item" href="#">inventory</a>
+                    <a class="dropdown-item" href="#">language</a>
+                    <a class="dropdown-item" href="#">payment</a>
+                    <a class="dropdown-item" href="#">rental</a>
+                    <a class="dropdown-item" href="#">staff</a>
+                    <a class="dropdown-item" href="#">store</a>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php echo htmlspecialchars($_SESSION["first_name"])." ".htmlspecialchars($_SESSION["last_name"]); ?>
+                </a>
+                
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="reset-password.php">Change Password</a>
+                    <a class="dropdown-item" href="../include/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
     </div>
 </nav>
 
-<div class="my-body">
+<div class="my-body vh-100">
 
 
-    <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site. ignore this ugly part</h1>
-    </div>
-    <p>
-        <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="../include/logout.php" class="btn btn-danger">Sign Out of Your Account</a>
-    </p>
-    <u1>
+
+    <!-- <u1>
         <li>
             <a href="create.php"><strong>Create</strong></a> - Register a Student
         </li>
@@ -66,7 +78,7 @@ require_once "../include/header.php";
         <li>
             <a href="#"><strong>Delete</strong></a> - Delete Student Information
         </li>
-    </u1>
+    </u1> -->
 </div>
 
 <?php

@@ -125,7 +125,10 @@ bootstrap 4.4.1 CDN :
 https://getbootstrap.com/docs/4.4/getting-started/download/
 
 bootstrap 4.4.1 component :
-https://getbootstrap.com/docs/4.4/c omponents/alerts/
+https://getbootstrap.com/docs/4.4/components/alerts/
+
+navbar stick to right :
+https://stackoverflow.com/questions/40178386/bootstrap-4-navbar-items-on-right-side
 
 ====== js RELATED ======
 

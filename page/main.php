@@ -13,8 +13,8 @@
             <h1>Welcome to Sakila</h1>
             <p>Login to see personal rental and more</p>
             <div class="btn-group my-btn-width">
-                <button type="button" class="btn btn-outline-dark" onclick="location.href='login.php#anchor-1'">Login</button>
-                <button type="button" class="btn btn-outline-dark" onclick="location.href='register.php#anchor-2'">Register</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='login.php'">Login</button>
+                <button type="button" class="btn btn-outline-dark" onclick="location.href='register.php'">Register</button>
             </div>
         </div>
     </div>
