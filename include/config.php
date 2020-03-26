@@ -4,12 +4,12 @@ server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'database_sakila');// #TODO create database called login with a table named user
+define('DB_NAME', 'sakila');// #TODO create database called login with a table named user
 
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "database_sakila";
+$dbname = "sakila";
 $dsn = "mysql:host=$host;dbname=$dbname";
 $options = array(
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
