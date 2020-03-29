@@ -47,11 +47,12 @@
 
 
 <?php
+    require_once "../../include/login-check.php";
     require_once "../../include/header.php";
     require_once "../../include/navbar.php";
 ?>
 
-<a class="btn btn-primary" href="../../form/customer/insert.php" role="button"><strong>Insert</strong></a>
+<a class="btn btn-primary" href="insert.php" role="button"><strong>Insert</strong></a>
 
 <h2 class="text-center">Customer</h2>
 
@@ -96,7 +97,7 @@
                 <td class="custom-control-inline border-0">
     
                     <a type="buttons" class="btn btn-warning btn-rounded btn-sm mr-1" name="update"
-                        href="../../form/customer/update.php?id=<?php echo escape($row["customer_id"]); ?>"><i
+                        href="update.php?id=<?php echo escape($row["customer_id"]); ?>"><i
                             class="far fa-edit"></i></a>
                     </br>
                     <a type="buttons" class="btn btn-danger btn-rounded btn-sm" name="delete" type="submit"

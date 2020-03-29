@@ -137,7 +137,7 @@ if(isset($_POST['insert'])){
     </form>
 </div>
     <center>
-    <a href=../../table/customer/view.php> Main Page </a>
+    <a href="view.php#anchor"> Main Page </a>
     </center>
 
 

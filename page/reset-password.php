@@ -35,8 +35,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate new password
     if(empty(trim($_POST["new_password"]))){
         $new_password_err = "Please enter the new password.";     
-    } elseif(strlen(trim($_POST["new_password"])) < 6){
-        $new_password_err = "Password must have atleast 6 characters.";
+    } elseif(strlen(trim($_POST["new_password"])) < 5){
+        $new_password_err = "Password must have atleast 5 characters.";
     } else{
         $new_password = trim($_POST["new_password"]);
     }
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         session_start();
         
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT staff_id, username, password FROM staff WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -77,7 +77,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($old_password, $hashed_password)){
                             
                             // Prepare an update statement
-                            $sql = "UPDATE users SET password = ? WHERE id = ?";
+                            $sql = "UPDATE staff SET password = ? WHERE staff_id = ?";
         
                             if($stmt = mysqli_prepare($link, $sql)){
                                 // Bind variables to the prepared statement as parameters
@@ -100,9 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 // Close statement
                                 mysqli_stmt_close($stmt);
                             }
-                            
-                            // Redirect user to welcome page
-                            header("location: inner-main.php");
+
                         } else{
                             // Display an error message if password is not valid
                             $old_password_err = "The password you entered was not valid.";
@@ -165,7 +163,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-dark" value="Submit">
-                    <a class="btn btn-outline-dark" href="inner-main.php">Cancel</a>
+                    <a class="btn btn-outline-dark" href="../table/customer/view.php#anchor">Cancel</a>
                 </div>
             </form>
         </div>

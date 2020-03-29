@@ -1,7 +1,6 @@
-<?php session_start() ?>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="anchor">
-    <a class="navbar-brand" href="/Sakila/DB_CW2/page/inner-main.php">SAKILA</a>
+    <a class="navbar-brand" href="/Sakila/DB_CW2/page/login.php">SAKILA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

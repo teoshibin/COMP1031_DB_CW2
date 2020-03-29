@@ -101,16 +101,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($first_name_err) && empty($last_name_err) && empty($email_err)) {
 
         // Prepare an insert statement
-        $sql = "INSERT INTO staff (first_name, last_name, email, username, password) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO staff (staff_id, first_name, last_name, address_id, picture, email, store_id, active,  username, password, last_update) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? , NOW())";
 
         if ($stmt = mysqli_prepare($link, $sql)) {
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssss", $param_first_name, $param_last_name, $param_email, $param_username, $param_password);
+            mysqli_stmt_bind_param($stmt, "issibsiiss",$param_staff_id, $param_first_name, $param_last_name, $param_address_id, $param_picture, $param_email, $param_store_id, $param_active,  $param_username, $param_password);
 
             // Set parameters
             $param_first_name = $first_name;
             $param_last_name = $last_name;
+            $param_address_id = 1;
+            $param_picture = $picture;
             $param_email = $email;
+            $param_store_id = 1;
+            $param_active = 0;
             $param_username = $username;
             $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
