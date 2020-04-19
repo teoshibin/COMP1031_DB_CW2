@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="anchor">
-    <a class="navbar-brand" href="/Sakila/DB_CW2/page/login.php">SAKILA</a>
+    <a class="navbar-brand" href="/DB_CW2/page/login.php">SAKILA</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,7 +17,7 @@
                     <a class="dropdown-item" href="#">Category</a>
                     <a class="dropdown-item" href="#">city</a>
                     <a class="dropdown-item" href="#">country</a>
-                    <a class="dropdown-item" href="/Sakila/DB_CW2/table/customer/view.php#anchor">custormer</a>
+                    <a class="dropdown-item" href="/DB_CW2/table/customer/view.php#anchor">custormer</a>
                     <a class="dropdown-item" href="#">film</a>
                     <a class="dropdown-item" href="#">film actor</a>
                     <a class="dropdown-item" href="#">film category</a>
@@ -39,8 +39,8 @@
                 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="/Sakila/DB_CW2/page/reset-password.php">Change Password</a>
-                    <a class="dropdown-item" href="/Sakila/DB_CW2/include/logout.php">Logout</a>
+                    <a class="dropdown-item" href="/DB_CW2/page/reset-password.php">Change Password</a>
+                    <a class="dropdown-item" href="/DB_CW2/include/logout.php">Logout</a>
                 </div>
             </li>
         </ul>

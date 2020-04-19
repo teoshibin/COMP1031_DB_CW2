@@ -3,7 +3,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="/Sakila/DB_CW2/page/main.php"> Sakila.com</a>.
+            <a href="/DB_CW2/page/main.php"> Sakila.com</a>.
         </div>
         <!-- Copyright -->
 
@@ -15,7 +15,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script language="JavaScript" type="text/javascript" src="/Sakila/DB_CW2/js/tablesort.js"></script>
-    <script src="/Sakila/DB_CW2/js/header.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/DB_CW2/js/tablesort.js"></script>
+    <script src="/DB_CW2/js/header.js"></script>
 </body>
 </html>
