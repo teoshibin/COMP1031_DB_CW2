@@ -1,0 +1,97 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background-color: rgb(40, 39, 39);
+}
+
+a{
+    color: #999;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+a:hover{
+    color: #E4AFC0;
+}
+
+.navbar{
+    background: rgb(34, 34, 34);
+    height: 60px;
+    width: 100%;
+    position:fixed;
+    top: 0;
+    z-index: 1;
+}
+
+
+.logout{
+    font-size: 1.4rem;
+    margin-left: 50px;
+}
+
+.checkbtn{
+    font-size: 33px;
+    color: #999;
+    transition: .3s;
+    float: left;
+    margin:8px 20px;
+    cursor: pointer;
+    display: block;
+
+}
+
+.checkbtn:hover{
+    color: #E4AFC0;
+}
+
+#check{
+    display: none;
+}
+
+nav > img{
+    display: none;
+}
+.logo{
+    display:inline-block;
+    width: 50px;
+}
+ul{
+    position: fixed;
+    margin: 0px;
+    width: 14%;
+    height: 100vh;
+    top: 30px;
+    left: -24%;
+    background: rgb(34, 34, 34);
+    text-align: center;
+    transition: all .3s;
+}
+nav > ul{
+    margin-top: 30px;
+    margin-left: 0px;
+
+}
+nav > ul > li{
+    display: block;
+    margin: 50px 0;
+    line-height: 20px;
+}
+nav > ul > li > a{
+    font-size: 1.2rem;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+.logout{
+    margin: 0;
+}
+    

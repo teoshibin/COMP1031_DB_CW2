@@ -49,7 +49,6 @@
 <?php
     require_once "../../include/login-check.php";
     require_once "../../include/header.php";
-    require_once "../../include/navbar.php";
 ?>
 
 <a class="btn btn-primary" href="insert.php" role="button"><strong>Insert</strong></a>
