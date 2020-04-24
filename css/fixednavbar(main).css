@@ -7,6 +7,12 @@
     
 }
 
+.nav-line{
+    border: 1px solid #999;
+    margin: 0;
+    line-height: 0;
+}
+
 body{
     font-family: 'Poppins', sans-serif;
     color: white;
@@ -58,7 +64,12 @@ a:hover{
 }
 
 nav > img{
-    display: none;
+    display: block;
+    width: 45px;
+    margin-top: 7px;
+    margin-left: 48.2%;
+    margin-right: 50%;
+    
 }
 .logo{
     display:inline-block;
@@ -68,12 +79,14 @@ ul{
     position: fixed;
     margin: 0px;
     width: 14%;
-    height: 100vh;
+    height: 100%;
     top: 30px;
     left: -24%;
     background: rgb(34, 34, 34);
     text-align: center;
     transition: all .3s;
+    overflow-y: scroll;
+    margin-bottom: 50px;
 }
 nav > ul{
     margin-top: 30px;
@@ -82,11 +95,11 @@ nav > ul{
 }
 nav > ul > li{
     display: block;
-    margin: 50px 0;
-    line-height: 20px;
+    margin: 20px 0;
+    line-height: 12px;
 }
 nav > ul > li > a{
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 #check:checked ~ ul{
     left: 0;

@@ -21,7 +21,7 @@ if (isset($_POST["reset-request-submit"])){
     //authenticate user
     $token = random_bytes(32);
     //website link eg. www.sakiladatabase.com
-    $url = "../page/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+    $url = "localhost/db_cw2/page/create-new-password.php?selector=" . $selector . "&validator=" . bin2hex($token);
 
     $expires = date("U") + 1800;
     //database info

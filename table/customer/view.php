@@ -1,4 +1,3 @@
-
 <?php
     //view customer information
     require "../../include/config.php";
@@ -50,20 +49,20 @@
     require_once "../../include/login-check.php";
     require_once "../../include/header.php";
 ?>
+<div class="top">
+    <h2 class="title">Customer</h2>
+    <a class="insertbtn" href="insert.php" role="button"><strong>Insert</strong></a>
+</div>
+<div class="table-container">
 
-<a class="btn btn-primary" href="insert.php" role="button"><strong>Insert</strong></a>
-
-<h2 class="text-center">Customer</h2>
-
-<div class="m-5 border-light">
-    
     <!-- print HTML table with the data from SELECT statement -->
     <!-- <table border="1" cellpadding="10" class="table"> -->
-    
-    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
-    
+
+    <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" cellspacing="0"
+        width="100%">
+
         <thead>
-            <tr class="bg-primary text-white">
+            <tr class="th-back">
                 <th>Customer ID</th>
                 <th>Store ID</th>
                 <th>First Name</th>
@@ -76,10 +75,10 @@
                 <th>Action</th>
             </tr>
         </thead>
-    
+
         <tbody>
             <?php foreach ($result as $row): ?>
-            <tr>
+            <tr class="tr-back">
                 <td><?php echo escape($row["customer_id"]); ?></td>
                 <td><?php echo escape($row["store_id"]); ?></td>
                 <td><?php echo escape($row["first_name"]); ?></td>
@@ -93,16 +92,16 @@
                 <button class="btn btn-danger" name="delete" type="submit" onClick='return confirm("Are you sure?");'>
                 <a class="col-xs-4" style="color:white" href="view.php?id=<?php echo escape($row["customer_id"]); ?>"><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
                 </td> -->
-                <td class="custom-control-inline border-0">
-    
+                <td class="custom-control-inline border-0 btn-cell">
+
                     <a type="buttons" class="btn btn-warning btn-rounded btn-sm mr-1" name="update"
-                        href="update.php?id=<?php echo escape($row["customer_id"]); ?>"><i
-                            class="far fa-edit"></i></a>
-                    </br>
+                        href="update.php?id=<?php echo escape($row["customer_id"]); ?>"><i class="far fa-edit" style=" margin-left:10px; margin-right:15px;"></i>
+                    </a>
                     <a type="buttons" class="btn btn-danger btn-rounded btn-sm" name="delete" type="submit"
                         href="view.php?id=<?php echo escape($row["customer_id"]); ?>"
-                        onClick='return confirm("Are you sure?");'><i class="fa fa-trash" aria-hidden="true"></i></a>
-    
+                        onClick='return confirm("Are you sure?");'><i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -110,7 +109,7 @@
     </table>
 </div>
 
-    
+
 <?php
     require_once "../../include/footer.php" 
 ?>
