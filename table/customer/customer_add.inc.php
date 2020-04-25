@@ -11,7 +11,7 @@
  */
 if(isset($_POST['insert'])){
     require "../../include/config.php";
-    require "../../inlcude/common.php";
+    require "../../include/common.php";
     $statement=false;
     $new_customer = array(
         "customer_id"       => $_POST['customer_id'],
