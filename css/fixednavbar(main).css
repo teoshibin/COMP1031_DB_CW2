@@ -39,11 +39,6 @@ a:hover{
 }
 
 
-.logout{
-    font-size: 1.4rem;
-    margin-left: 50px;
-}
-
 .checkbtn{
     font-size: 33px;
     color: #999;
@@ -71,10 +66,15 @@ nav > img{
     margin-right: 50%;
     
 }
-.logo{
-    display:inline-block;
-    width: 50px;
+
+#logout{
+    display: block;
+    float: right;
+    font-size: 2.3rem;
+    margin-top: -37px;
+    margin-right: 20px;
 }
+
 ul{
     position: fixed;
     margin: 0px;

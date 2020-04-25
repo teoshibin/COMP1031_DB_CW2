@@ -54,10 +54,10 @@ body{
     color: #E4AFC0;
 }
 
-.input-div.focus > div > h5{
+/* .input-div.focus > div > h5{
     top: -5px;
     font-size: 13px;
-}
+} */
 
 .input-div.focus:before, .input-div.focus:after{
 	width: 50%;
@@ -78,13 +78,12 @@ body{
 
 /* animation */
 .input-div > div h5{
+    top: -5px;
     position: absolute;
     left: 10px;
-    top: 50%;
     transform: translateY(-50%);
     color: #999;
-    font-size: 17px;
-    transition: .3s;
+    font-size: 15px;
 }
 
 .input-div > div > input{
@@ -99,7 +98,7 @@ body{
     padding: 0.5rem 0.7rem;
     font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
-    color: rgb(255, 255, 255);
+    color: #E4AFC0;
 }
 
 
@@ -218,7 +217,7 @@ body{
     z-index: 1;
   }
 
-  @media (max-width: 800px) {
+@media (max-width: 800px) {
     .toggle input + label {
       padding: 0.75rem 0.25rem;
       -webkit-box-flex: 0;
