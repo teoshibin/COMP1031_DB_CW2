@@ -44,7 +44,7 @@ try {
     <!-- outer most one - transparent -->
 
     <div class="top">
-        <a class="insertbtn" href="address_add.php" role="button"><strong>Create New Address</strong></a>
+        <a class="insertbtn" href="address_add.php" role="button" style="width: 14%;"><strong>Create New Address</strong></a>
         <h2 class="title">Address</h2>
     </div>
 

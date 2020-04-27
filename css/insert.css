@@ -159,26 +159,25 @@ body{
     margin-top: 15px;
 }
 
-/* Radio style */
 .toggle {
-    margin-left: 200px; 
+    margin-top: 10px;
     box-sizing: border-box;
     font-size: 0;
     display: -webkit-box;
-    display: flex;
+    display: block;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
             flex-flow: row nowrap;
     -webkit-box-pack: start;
             justify-content: flex-start;
-    -webkit-box-align: stretch;
+    -webkit-box-align: center;
             align-items: stretch;
+    user-select: none; 
   }
   .toggle input {
     width: 0;
     height: 0;
     position: absolute;
-    left: -9999px;
   }
   .toggle input + label {
     margin: 0;
@@ -218,7 +217,7 @@ body{
     z-index: 1;
   }
 
-  @media (max-width: 800px) {
+@media (max-width: 800px) {
     .toggle input + label {
       padding: 0.75rem 0.25rem;
       -webkit-box-flex: 0;
@@ -231,4 +230,3 @@ body{
               align-items: center;
     }
   }
-  

@@ -83,7 +83,11 @@
   ?>
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <?php echo escape($_POST['last_name']); ?> successfully updated.
+    <?php 
+      echo escape($_POST['last_name'].'successfully updated.'); 
+      header("location: customer.php");
+      exit();
+    ?> 
   <?php endif; ?>
 
   <form method="post">
@@ -93,17 +97,8 @@
       <?php 
         foreach ($customer as $key => $value): 
           if($key == 'active'){
-      ?>
-
-            <h5 class="active-label">Active?</h5>
-            <div class="toggle">
-                  <input type="radio" name="active" id="sizeWeight" <?php echo(($value=='1')?"checked='checked'":"") ?> value="1" />
-                  <label for="sizeWeight">Yes</label>
-                  <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo(($value=='0')?"checked='checked'":"") ?>/>
-                  <label for="sizeDimensions">No</label>
-            </div>
-
-      <?php
+            $col_name = $key;
+            $col_value = $value;
             continue;
           }
       ?>
@@ -112,7 +107,7 @@
             <div class="i">
             </div>
             <div class="div">
-              <h5><?php echo ucfirst($key) ?></h5>
+              <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
               <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'customer_id'||$key == 'create_date'||$key=='last_update') ? 'readonly' : '') ?>>
             </div>
           </div>
@@ -127,11 +122,17 @@
       </div> -->
 
 
+      <h5 class="active-label">Active?</h5>
+      <div class="toggle">
+            <input type="radio" name="active" id="sizeWeight" <?php echo(($col_value=='1')?"checked='checked'":"") ?> value="1" />
+            <label for="sizeWeight">Yes</label>
+            <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo(($col_value=='0')?"checked='checked'":"") ?>/>
+            <label for="sizeDimensions">No</label>
+      </div>
 
 
-
-      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 20px"/>
-      <a href="customer.php" class="btn-back">BACK</a>
+      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
+      <a href="customer.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>
 </body>

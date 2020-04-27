@@ -46,7 +46,6 @@ try {
 }
 
 ?>
-
 <section class="content">
     <!-- outer most one - transparent -->
 
@@ -87,7 +86,7 @@ try {
                         <td><?php echo escape($row["last_update"]); ?> </td>
                         <td align="left">
 
-                            <a type="buttons" class="btn" name="update" href="customer_view.php?id=<?php echo escape($row["customer_id"]); ?>">
+                            <a type="buttons" class="btn" name="view" href="customer_view.php?id=<?php echo escape($row["customer_id"]); ?>">
                                 <i class="fas fa-info-circle button" aria-hidden="true">
                                 </i>
                             </a>
@@ -97,7 +96,7 @@ try {
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="delete" type="submit" href="customer.php?id=<?php echo escape($row["customer_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
+                            <a type="buttons" class="btn" name="delete" type="submit" href="customer.php?id=<?php echo escape($row["customer_id"]); ?>" onClick='return confirm("Are you sure want to delete <?php echo escape($row["first_name"]); ?> <?php echo escape($row["last_name"]); ?> ?");'>
                                 <i class="fa fa-trash button" aria-hidden="true">
                                 </i>
                             </a>

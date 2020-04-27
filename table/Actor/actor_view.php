@@ -29,15 +29,15 @@
   if (isset($_GET['id'])) {
     try {
       $connection = new PDO($dsn, $username, $password, $options);
-      $statement = $connection->prepare("SELECT * FROM customer WHERE customer_id= :customer_id");
-      $statement->bindValue(':customer_id', $_GET['id']);
+      $statement = $connection->prepare("SELECT * FROM actor WHERE actor_id = :actor_id");
+      $statement->bindValue(':actor_id', $_GET['id']);
       $statement->execute();
 
-      $customer = $statement->fetch(PDO::FETCH_ASSOC);
+      $actor = $statement->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
-    //echo $_GET['customer_id']; 
+    //echo $_GET['actor_id']; 
   } else {
     echo "Something went wrong!";
     exit;
@@ -46,37 +46,22 @@
 
   <form method="post">
     <div class="content">
-      <h3 class="title">Customer Information</h3>
+      <h3 class="title">Actor Information</h3>
 
-      <?php 
-        foreach ($customer as $key => $value): 
-          if($key == 'active'){
-            $col_name = $key;
-            $col_value = $value;
-            continue;
-          }
-      ?>
+      <?php foreach ($actor as $key => $value): ?>
 
         <div class="input-div">
           <div class="i">
           </div>
           <div class="div">
-            <h5><?php echo str_replace('_',' ',ucfirst($key))  ?></h5>
+            <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
             <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" readonly>
           </div>
         </div>
 
       <?php endforeach; ?>
 
-      <h5 class="active-label">Active?</h5>
-      <div class="toggle" style="margin-bottom: 15px;">
-            <input type="radio" name="active" id="sizeWeight" value="1" <?php echo(($col_value=='1')?"checked='checked'":"") ?> disabled/>
-            <label for="sizeWeight">Yes</label>
-            <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo(($col_value =='0')?"checked='checked'":"") ?> disabled/>
-            <label for="sizeDimensions">No</label>
-      </div>
-
-      <a href="customer.php" class="btn-back" style="margin-bottom: 15px;">BACK</a>
+      <a href="actor.php" class="btn-back" style="margin-bottom: 15px;">BACK</a>
     </div>
   </form>
 </body>

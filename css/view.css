@@ -36,7 +36,12 @@
     display: none;
 }
 
-
+body{
+    background-image: url("/DB_CW2/img/stripe.png");
+    background-position: center;
+    background-size: 1400px;
+    opacity: 0.89;
+}
 
 .content{
     margin-left: 20px;
@@ -49,12 +54,12 @@
 }
 
 .title {
-    margin-left: 43.5%;
-    margin-right: 35%;
+    align-items: center;
+    justify-content: center;
     font-family: 'Poppins', sans-serif, Arial, Helvetica;
     font-size: xx-large;
     color: #E4AFC0;
-    display: inline-block;
+    display: flex;
 }
 
 /* .insertbtn {
@@ -68,6 +73,7 @@
     width: 15%;
     margin-top: 8px;
 } */
+
 
 .insertbtn{
     display: inline-block;

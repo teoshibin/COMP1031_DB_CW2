@@ -1,82 +1,3 @@
-<html>
-<head>
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="../../css/insert.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/qpy2aGtSgsYPZzCoYWjcaBCo/recaptcha__en_gb.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    <!-- <script defer type="text/javascript" src="../../js/main.js"></script> -->
-</head>
-    <!-- <h2> <i class="fas fa-address-card" style="color:red; font-size: 70px"></i>Register a Student </h2> -->
-    <div class="content">
-            <h3 class="title">New Customer</h3>
-
-            <form method="post" action="customer_add.inc.php "id="form" onclick="return ValidateForm()">
-                
-                <div class="input-div">
-                    <div class="i">
-                    </div>
-                    <div class="div">
-                    <h5>First name</h5>
-                    <input type="text" name="first_name" id="first_name" class="input">
-                    </div>
-                </div>
-
-                <div class="input-div">
-                    <div class="i">
-                    </div>
-                    <div class="div">
-                    <h5>Last name</h5>
-                    <input type="text" name="last_name" id="last_name" class="input">
-                    </div>
-                </div>
-
-                <div class="input-div">
-                    <div class="i">
-                    </div>
-                    <div class="div">
-                    <h5>E-mail</h5>
-                    <input type="text" name="email" id="email" class="input">
-                    </div>
-                </div>
-
-                <div class="input-div">
-                    <div class="i">
-                    </div>
-                    <div class="div">
-                    <h5>Address ID</h5>
-                    <input type="text" name="address_id" id="address_id" class="input">
-                    </div>
-                </div>
-
-                <div class="input-div">
-                    <div class="i">
-                    </div>
-                    <div class="div">
-                    <h5>Store ID</h5>
-                    <input type="text" name="store_id" id="store_id" class="input">
-                    </div>
-                </div>
-
-
-                <h5 class="active-label">Active?</h5>
-                <div class="toggle">
-                    <input type="radio" name="active" value="0" id="sizeWeight" checked="checked" />
-                    <label for="sizeWeight">Yes</label>
-                    <input type="radio" name="active" value="1" id="sizeDimensions" />
-                    <label for="sizeDimensions">No</label>
-                </div>
-
-                <input class="btn btn-primary" type="Submit" name="insert" onclick="return ">
-
-                <br>
-                <a href="customer.php" class="btn-back">BACK</a>
-            </form>
-</div>
-
-<script>
    // Defining a function to display error message
    function printError(elemId, hintMsg) {
     document.getElementById(elemId).innerHTML = hintMsg;
@@ -88,32 +9,49 @@ function validateForm() {
     //defining alert error message
 var error_msg="";
 // Retrieving the values of form elements 
-    var first_name = document.form.first_name.value;
-    var last_name = document.form.last_name.value;
+    var school_num = document.form.school_num.value;
+    var name = document.form.name.value;
     var email = document.form.email.value;
-    var address_id = document.form.address_id.value;
-    var store_id = document.form.store_id.value;
-
+    var ic_num = document.form.ic_num.value;
+    var school = document.form.school.value;
+    var bank = document.form.bank.value;
+    var account_num = document.form.account_num.value;
+    var account_name = document.form.account_name.value;
+    var relationship = document.form.relationship.value;
+    var nts = document.form.nts.value;
+    var pesta = document.form.pesta.value;
+    var refund = document.form.refund.value;
+    var remarks = document.form.remarks.value;
 
 // Defining error variables with a default value
-var first_nameErr = last_nameErr = emailErr = address_idErr = store_idErr = true;
+var school_numErr = nameErr = emailErr = ic_numErr = schoolErr = bankErr = account_numErr = account_nameErr = relationshipErr = ntsErr =  pestaErr = true;
 
+// Validate name
+if(school_num == "") {
+    printError("school_numErr", "Please enter your School Number");
+    error_msg+=("Please insert your school number\n");
+    $('#school_num').addClass('errorBox');
+}else {
+    printError("school_numErr", "");
+    school_numErr = false;
+    $('#school_num').removeClass('errorBox');
+}
 
-// Validate first name
-if(first_name == "") {
-    printError("first_nameErr", "Please enter your name");
+// Validate name
+if(name == "") {
+    printError("nameErr", "Please enter your name");
     error_msg+=("Please insert your name\n");
-    $('#first_name').addClass('errorBox');
+    $('#name').addClass('errorBox');
 } else {
     var regex = /^[a-zA-Z\s]+$/;                
-    if(regex.test(first_name) === false) {
-        printError("first_nameErr", "Please enter a valid name");
+    if(regex.test(name) === false) {
+        printError("nameErr", "Please enter a valid name");
         error_msg+=("Please enter a valid name\n");
-        $('#first_name').addClass('errorBox');
+        $('#name').addClass('errorBox');
     } else {
-        printError("first_nameErr", "");
+        printError("nameErr", "");
         nameErr = false;
-        $('#first_name').removeClass('errorBox');
+        $('#name').removeClass('errorBox');
     }
 }
 
@@ -275,7 +213,3 @@ else {
 
 
 };
-</script>
-
-</body>
-</html>
