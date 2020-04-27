@@ -14,7 +14,7 @@
         </nav>
 
         <div class="my-form">
-            <h2>Reset Password</h2>
+            <h2>Change Password</h2>
             <p>Please fill out this form to change your password.</p>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">

@@ -68,15 +68,13 @@
         <li><a href="/DB_CW2/table/film/film.php">Film</a></li>
         <li><a href="/DB_CW2/table/film_actor/film_actor.php">Film Actor</a></li>
         <li><a href="/DB_CW2/table/film_category/film_category.php">Film Category</a></li>
-        <li><a href="#">Film Text</a></li>
-        <li><a href="#">Inventory</a></li>
-        <li><a href="#">Language</a></li>
-        <li><a href="#">Payment</a></li>
-        <li><a href="#">Rental</a></li>
-        <li><a href="#">Staff</a></li>
-        <li><a href="#">Store</a></li>
-        <hr class="nav-line">
-        <li><a href="/DB_CW2/page/changepassword.php">Change Password</a></li>
+        <li><a href="/DB_CW2/table/film_text/film_text.php">Film Text</a></li>
+        <li><a href="/DB_CW2/table/inventory/inventory.php">Inventory</a></li>
+        <li><a href="/DB_CW2/table/language/language.php">Language</a></li>
+        <li><a href="/DB_CW2/table/payment/payment.php">Payment</a></li>
+        <li><a href="/DB_CW2/table/rental/rental.php">Rental</a></li>
+        <li><a href="/DB_CW2/table/staff/staff.php">Staff</a></li>
+        <li><a href="/DB_CW2/table/store/store.php">Store</a></li>
     </ul>
     </nav>
 
