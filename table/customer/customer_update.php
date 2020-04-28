@@ -90,7 +90,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form method="post" >
     <div class="content">
       <h3 class="title">Update Customer Information</h3>
 
@@ -131,9 +131,15 @@
       </div>
 
 
-      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
+      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px" onclick="update()" />
       <a href="customer.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>
 </body>
+
+<script>
+function update() {
+  alert("You have successfully updated the record!");
+}
+</script>
 </html>

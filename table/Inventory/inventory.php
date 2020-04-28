@@ -12,13 +12,13 @@ if (isset($_GET["id"])) {
     try {
         $connection = new PDO($dsn, $username, $password, $options);
         //sql command to delete student
-        $statement = $connection->prepare("DELETE FROM film WHERE film_id= :film_id");
-        $statement->bindValue(':film_id', $_GET["id"]);
+        $statement = $connection->prepare("DELETE FROM inventory WHERE inventory_id= :inventory_id");
+        $statement->bindValue(':inventory_id', $_GET["id"]);
         //execute with PDO
         $statement->execute();
 
         //store a string in variable
-        $success = "Film successfully deleted";
+        $success = "Inventory successfully deleted";
     } catch (PDOException $error) {
         echo "<br>" . $error->getMessage();
     }
@@ -27,7 +27,7 @@ if (isset($_GET["id"])) {
 try {
     $connection = new PDO($dsn, $username, $password, $options);
 
-    $statement = $connection->prepare("SELECT * FROM film");
+    $statement = $connection->prepare("SELECT inventory.inventory_id, inventory.film_id, inventory.store_id, inventory.last_update FROM inventory");
 
     //execute with PDO
     $statement->execute();
@@ -44,8 +44,8 @@ try {
     <!-- outer most one - transparent -->
 
     <div class="top">
-        <a class="insertbtn" href="film_add.php" role="button" style="width:10%;"><strong>Add New Film</strong></a>
-        <h2 class="title">Film</h2>
+        <a class="insertbtn" href="inventory_add.php" role="button" style="width: 15%;"><strong>Create New Inventory</strong></a>
+        <h2 class="title">Inventory</h2>
     </div>
 
     <div style="overflow-x:auto!important;">
@@ -53,18 +53,9 @@ try {
             <thead>
                 <!-- <tr class="bg-primary text-white"> -->
                 <tr class="th-back">
-                    <th>Film ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Release Year</th>
-                    <th>Language ID</th>
-                    <th>Original Language ID</th>
-                    <th>Rental Duration</th>
-                    <th>Rental Length</th>
-                    <th>Length</th>
-                    <th>Replacement Cost</th>
-                    <th>Rating</th>
-                    <th>Special Features</th>
+                    <th>Inventory ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Last Update</th>
                     <th>Action</th>
                 </tr>
@@ -73,32 +64,23 @@ try {
             <tbody>
                 <?php foreach ($result as $row) : ?>
                     <tr class="tr-back">
+                        <td><?php echo escape($row["inventory_id"]); ?></td>
                         <td><?php echo escape($row["film_id"]); ?></td>
-                        <td><?php echo escape($row["title"]); ?></td>
-                        <td><?php echo escape($row["description"]); ?></td>
-                        <td><?php echo escape($row["release_year"]); ?></td>
-                        <td><?php echo escape($row["language_id"]); ?></td>
-                        <td><?php echo escape($row["original_language_id"]); ?></td>
-                        <td><?php echo escape($row["rental_duration"]); ?></td>
-                        <td><?php echo escape($row["rental_rate"]); ?></td>
-                        <td><?php echo escape($row["length"]); ?></td>
-                        <td><?php echo escape($row["replacement_cost"]); ?></td>
-                        <td><?php echo escape($row["rating"]); ?></td>
-                        <td><?php echo escape($row["special_features"]); ?></td>
+                        <td><?php echo escape($row["store_id"]); ?></td>
                         <td><?php echo escape($row["last_update"]); ?> </td>
                         <td align="left">
 
-                            <a type="buttons" class="btn" name="view" href="film_view.php?id=<?php echo escape($row["film_id"]); ?>">
+                            <a type="buttons" class="btn" name="view" href="inventory_view.php?id=<?php echo escape($row["inventory_id"]); ?>">
                                 <i class="fas fa-info-circle button" aria-hidden="true">
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="update" href="film_update.php?id=<?php echo escape($row["film_id"]); ?>">
+                            <a type="buttons" class="btn" name="update" href="inventory_update.php?id=<?php echo escape($row["inventory_id"]); ?>">
                                 <i class="far fa-edit button">
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="delete" type="submit" href="film.php?id=<?php echo escape($row["film_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
+                            <a type="buttons" class="btn" name="delete" type="submit" href="inventory.php?id=<?php echo escape($row["inventory_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
                                 <i class="fa fa-trash button" aria-hidden="true">
                                 </i>
                             </a>

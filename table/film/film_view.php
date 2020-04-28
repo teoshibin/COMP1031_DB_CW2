@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,9 +14,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/update.css">
 </head>
-
 <body>
   <?php
+  /**
+   * Use an HTML form to edit an entry in the
+   * users table.
+   *
+   */
 
   require "../../include/config.php";
   require "../../include/common.php";
@@ -26,15 +29,15 @@
   if (isset($_GET['id'])) {
     try {
       $connection = new PDO($dsn, $username, $password, $options);
-      $statement = $connection->prepare("SELECT * FROM customer WHERE customer_id= :customer_id");
-      $statement->bindValue(':customer_id', $_GET['id']);
+      $statement = $connection->prepare("SELECT * FROM film WHERE film_id = :film_id");
+      $statement->bindValue(':film_id', $_GET['id']);
       $statement->execute();
 
-      $customer = $statement->fetch(PDO::FETCH_ASSOC);
+      $film = $statement->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
-    //echo $_GET['customer_id']; 
+    //echo $_GET['film_id']; 
   } else {
     echo "Something went wrong!";
     exit;
@@ -43,39 +46,23 @@
 
   <form method="post">
     <div class="content">
-      <h3 class="title">Customer Information</h3>
+      <h3 class="title">Film Information</h3>
 
-      <?php
-      foreach ($customer as $key => $value) :
-        if ($key == 'active') {
-          $col_name = $key;
-          $col_value = $value;
-          continue;
-        }
-      ?>
+      <?php foreach ($film as $key => $value): ?>
 
         <div class="input-div">
           <div class="i">
           </div>
           <div class="div">
-            <h5><?php echo str_replace('_', ' ', ucfirst($key))  ?></h5>
+            <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
             <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" readonly>
           </div>
         </div>
 
       <?php endforeach; ?>
 
-      <h5 class="active-label">Active?</h5>
-      <div class="toggle" style="margin-bottom: 15px;">
-        <input type="radio" name="active" id="sizeWeight" value="1" <?php echo (($col_value == '1') ? "checked='checked'" : "") ?> disabled />
-        <label for="sizeWeight">Yes</label>
-        <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo (($col_value == '0') ? "checked='checked'" : "") ?> disabled />
-        <label for="sizeDimensions">No</label>
-      </div>
-
-      <a href="customer.php" class="btn-back" style="margin-bottom: 15px;">BACK</a>
+      <a href="film.php" class="btn-back" style="margin-bottom: 15px;">BACK</a>
     </div>
   </form>
 </body>
-
 </html>

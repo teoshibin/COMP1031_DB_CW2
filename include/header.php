@@ -54,7 +54,7 @@
             <i class="fas fa-bars"></i>
         </label>
         <img src="/DB_CW2/img/logo.png" alt="Sakila logo">
-        <a href="/DB_CW2/page/changepassword.php"><i class="fas fa-lock" id = change-pass></i></a>
+        <a href="/DB_CW2/page/changepassword.php"><i class="fa fa-key" id = change-pass></i></a>
         <a href="/DB_CW2/include/logout.inc.php"><i class="fa fa-sign-out-alt" id="logout"></i></a>
     <ul>
         <li><a href="main.php">Home</a></li>

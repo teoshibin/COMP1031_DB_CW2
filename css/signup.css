@@ -45,6 +45,11 @@ body{
     height: 100px;
 }
 
+.login-content > .content-background{
+    background-color: rgb(40, 39, 39);
+    margin: 40px;
+    opacity: 0.9;
+}
 
 .img img{
     width: 500px;
