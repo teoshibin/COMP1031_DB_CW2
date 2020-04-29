@@ -66,7 +66,7 @@ try {
                     <tr class="tr-back">
                         <td><?php echo escape($row["city_id"]); ?></td>
                         <td><?php echo escape($row["city"]); ?></td>
-                        <td><?php echo escape($row["city_id"]); ?></td>
+                        <td><?php echo escape($row["country_id"]); ?></td>
                         <td><?php echo escape($row["last_update"]); ?> </td>
                         <td align="left">
 

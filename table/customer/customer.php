@@ -50,7 +50,7 @@ try {
     <!-- outer most one - transparent -->
 
     <div class="top">
-        <a class="insertbtn" href="customer_add.php" role="button"><strong>Create New Customer</strong></a>
+        <a class="insertbtn" href="customer_add.php" role="button" style="width:15%"><strong>Create New Customer</strong></a>
         <h2 class="title">Customer</h2>
     </div>
 

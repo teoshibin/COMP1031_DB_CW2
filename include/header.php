@@ -57,7 +57,7 @@
         <a href="/DB_CW2/page/changepassword.php"><i class="fa fa-key" id = change-pass></i></a>
         <a href="/DB_CW2/include/logout.inc.php"><i class="fa fa-sign-out-alt" id="logout"></i></a>
     <ul>
-        <li><a href="main.php">Home</a></li>
+        <li><a href="/DB_CW2/page/home.php">Home</a></li>
         <hr class="nav-line">
         <li><a href="/DB_CW2/table/actor/actor.php">Actor</a></li>
         <li><a href="/DB_CW2/table/address/address.php">Address</a></li>

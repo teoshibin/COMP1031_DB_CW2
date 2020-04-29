@@ -1,6 +1,4 @@
-<?php
-require "actor_add.inc.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +17,7 @@ require "actor_add.inc.php";
 
 <div class="content">
     <h3 class="title">New Actor</h3>
-    <form name="myform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return validateForm()" method="post">
+    <form name="myform" action="actor_add.inc.php" onsubmit="return validateForm()" method="post">
 
         <div class="input-div">
             <div class="i">

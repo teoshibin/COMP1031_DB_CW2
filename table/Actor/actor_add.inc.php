@@ -30,7 +30,9 @@ if(isset($_POST['submit'])){
 
     if (isset($_POST['submit']) && $statement) {
 
-        echo '<h1 class="">Data successfully added</p>';
+        // echo '<h1 class="">Data successfully added</p>';
+        header("Location: actor.php");
+        exit();
 
     } else {
 

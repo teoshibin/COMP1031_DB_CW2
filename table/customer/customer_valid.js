@@ -6,19 +6,19 @@ function validateForm() {
     var error_msg="";
 
     // Retrieving the values of form elements
-    // var first_name = document.form.first_name.value;
-    // var last_name = document.form.last_name.value;
-    // var email = document.form.email.value;
-    // var address_id = document.form.address_id.value;
-    // var store_id = document.form.store_id.value;
-    // var active = document.form.active.value;
+    var first_name = document.myform.first_name.value;
+    var last_name = document.myform.last_name.value;
+    var email = document.myform.email.value;
+    var address_id = document.myform.address_id.value;
+    var store_id = document.myform.store_id.value;
+    var active = document.myform.active.value;
     
     // Retrieving the values of form elements
-    var first_name = document.forms["myform"]["first_name"].value;
-    var last_name = document.forms["myform"]["last_name"].value;
-    var email = document.forms["myform"]["email"].value;
-    var address_id = document.forms["myform"]["address_id"].value;
-    var store_id = document.forms["myform"]["store_id"].value;
+    // var first_name = document.forms["myform"]["first_name"].value;
+    // var last_name = document.forms["myform"]["last_name"].value;
+    // var email = document.forms["myform"]["email"].value;
+    // var address_id = document.forms["myform"]["address_id"].value;
+    // var store_id = document.forms["myform"]["store_id"].value;
     // var active = document.forms["myform"]["active"].value;
 
 
@@ -95,20 +95,14 @@ function validateForm() {
     }
 
     // Validate store ID
-    if(store_id == '') {
+    if(store_id == '-') {
         
-        error_msg+=("Please insert the Store ID\n");
+        error_msg+=("Please select the Store ID\n");
     
     } else {
-        var regex = /^[0-9]*$/;
-        if(regex.test(store_id) === false) {
-            
-            error_msg+=("Please insert a valid digit Store ID\n");
         
-        } else{
+        store_idErr=false;
         
-            store_idErr=false;
-        }
     }
 
     // // Validate active
@@ -127,20 +121,27 @@ function validateForm() {
 
     //Prevent the form from being submitted if there are any errors
     if((first_nameErr || last_nameErr || emailErr || address_idErr || store_idErr) == true) {
+        // alert(error_msg);
         return false;
     } else {
+        // alert("i love you");
         // Creating a string from input data for preview
         var dataPreview = "You've entered the following details: \n" +
-                        "First Name: " + first_name + "\n" +
-                        "Last Name: " + last_name + "\n" +
-                        "Email Address: " + email + "\n" +
-                        "Address ID: " + address_id + "\n" +
-                        "Store ID: " + store_id + "\n" +
-                        "Active: " + active + "\n" ;
+                          "First Name: " + first_name + "\n" +
+                          "Last Name: " + last_name + "\n" +
+                          "Email Address: " + email + "\n" +
+                          "Address ID: " + address_id + "\n" +
+                          "Store ID: " + store_id + "\n" +
+                          "Active: " + active + "\n" ;
+       
+
+        // var dataPreview = "Success";
 
         // Display input data in a dialog box before submitting the form
         alert(dataPreview);
     }
+
+
 
 
 }

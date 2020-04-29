@@ -1,10 +1,8 @@
 <?php 
 
 if(isset($_POST['submit'])){
-
     require "../../include/config.php";
     require "../../include/common.php";
-
     $statement=false;
 
     try{
@@ -13,32 +11,27 @@ if(isset($_POST['submit'])){
         $connection = new PDO ($dsn,$username,$password,$options);
         
         //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("INSERT INTO country ( country,last_update) 
-        VALUES (?,NOW()) ");
+        $statement = $connection->prepare("INSERT INTO film_actor (actor_id,fil_id,last_update) 
+        VALUES (?,?,NOW()) ");
 
-        $statement ->bindParam(1,$_POST['country'],PDO::PARAM_STR);
-      
+        $statement ->bindParam(1,$_POST['actor_id'],PDO::PARAM_INT);
+        $statement ->bindParam(2,$_POST['film_id'],PDO::PARAM_INT);
+
     
         //$statement = $connection->prepare($sql);
         $statement->execute();
 
     } catch (PDOException $error){
 
-        echo "<br>".$error->getMessage();
+            echo "<br>".$error->getMessage();
 
     }
 
     if (isset($_POST['submit']) && $statement) {
-
-        // echo '<h1 class="">Data successfully added</p>';
-        header("Location: country.php");
+        header("Location: film_actor.php");
         exit();
-
     } else {
-
         echo '<p style="color:white">Please fill in all the details correctly</p>';
-
     } 
 }
-
 ?>

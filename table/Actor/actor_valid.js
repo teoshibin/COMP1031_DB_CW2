@@ -4,8 +4,8 @@ function validateForm() {
     var error_msg = "";
 
     // Retrieving the values of form elements
-    var first_name = document.forms["myform"]["first_name"].value;
-    var last_name = document.forms["myform"]["last_name"].value;
+    var first_name = document.myform.first_name.value;
+    var last_name = document.myform.last_name.value;
 
     // Defining error variables with a default value
     var first_nameErr = last_nameErr = true;
@@ -45,18 +45,19 @@ function validateForm() {
     }
 
     //show out the alert messages
-    if (error_msg != '') {
-        alert(error_msg);
-    }
+    // if (error_msg != '') {
+    //     alert(error_msg);
+    // }
 
     //Prevent the form from being submitted if there are any errors
-    if ((first_nameErr || last_nameErr || emailErr || address_idErr || store_idErr) == true) {
+    if ((first_nameErr || last_nameErr) == true) {
+        alert(error_msg);
         return false;
     } else {
         // Creating a string from input data for preview
         var dataPreview = "You've entered the following details: \n" +
             "First Name: " + first_name + "\n" +
-            "Last Name: " + last_name + "\n"
+            "Last Name: " + last_name + "\n";
 
         // Display input data in a dialog box before submitting the form
         alert(dataPreview);

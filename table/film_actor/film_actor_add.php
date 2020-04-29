@@ -10,11 +10,17 @@
         $connection = new PDO ($dsn,$username,$password,$options);
         
         //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("SELECT country_id, country FROM country");
+        $statement = $connection->prepare("SELECT film_id, title FROM film");
 
        
         $statement->execute();
-        $result = $statement->fetchAll();
+        $film_result = $statement->fetchAll();
+
+
+        $statement = $connection->prepare("SELECT actor_id, first_name, last_name FROM actor");
+
+        $statement->execute();
+        $actor_result = $statement->fetchAll();
 
     } catch (PDOException $error){
 
@@ -22,7 +28,6 @@
 
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,39 +40,34 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script defer type="text/javascript" src="../../js/main.js"></script>
-    <script type="text/javascript" src="city_valid.js"></script>
+    <!-- <script type="text/javascript" src="insert.js"></script> -->
+    <script type="text/javascript" src="film_actor_valid.js"></script>
 </head>
 
 <div class="content">
-    <h3 class="title">New City</h3>
-    <form name="myform" action="city_add.inc.php" onsubmit="return validateForm()" method="post">
+    <h3 class="title">New Film Actor</h3>
+    <form name="myform" action="film_actor_add.inc.php" onsubmit="return validateForm()" method="post">
 
         <div class="input-div">
             <div class="i">
             </div>
             <div class="div">
-                <h5>City name</h5>
-                <input type="text" name="city" id="city" class="input">
+                <h5>Actor</h5>
+                <select type="text" name="actor_id" id="actor_id" class="input">
+                    <option value="-" selected> --NULL-- </option>
+                    <?php foreach($actor_result as $actor) { echo "<option value =$actor[actor_id]>$actor[first_name] $actor[last_name]</option>";}?>
+                </select>
             </div>
         </div>
 
-        <!-- <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Country id</h5>
-                <input type="text" name="country_id" id="country_id" class="input">
-            </div>
-        </div> -->
-
         <div class="input-div">
             <div class="i">
             </div>
             <div class="div">
-                <h5>Country</h5>
-                <select type="text" name="country_id" id="country_id" class="input">
-                    <option value="-" selected> - </option>
-                    <?php foreach($result as $country) { echo "<option value =$country[country_id]>$country[country]</option>";}?>
+                <h5>Film</h5>
+                <select type="text" name="film_id" id="film_id" class="input">
+                    <option value="NULL" selected> --NULL-- </option>
+                    <?php foreach($film_result as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
                 </select>
             </div>
         </div>
@@ -76,7 +76,7 @@
 
         <br>
 
-        <a href="city.php" class="btn-back">BACK</a>
+        <a href="film_actor.php" class="btn-back">BACK</a>
         
     </form>
 </div>

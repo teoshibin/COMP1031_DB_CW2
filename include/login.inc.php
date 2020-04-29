@@ -6,7 +6,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prevent user from editing url to get in the logged in page
-  header("location: ../table/customer/customer.php");// redirect function in php
+  header("location: ../page/home.php");// redirect function in php
   exit();
 }
  
@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["last_name"] = $last_name;
                             
                             // Redirect user to welcome page
-                            header("location: ../table/customer/customer.php");
+                            header("location: ../page/home.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";

@@ -13,11 +13,10 @@ if(isset($_POST['submit'])){
         $connection = new PDO ($dsn,$username,$password,$options);
         
         //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("INSERT INTO country ( country,last_update) 
+        $statement = $connection->prepare("INSERT INTO category ( name, last_update) 
         VALUES (?,NOW()) ");
 
-        $statement ->bindParam(1,$_POST['country'],PDO::PARAM_STR);
-      
+        $statement ->bindParam(1,$_POST['name'],PDO::PARAM_STR);
     
         //$statement = $connection->prepare($sql);
         $statement->execute();
@@ -30,8 +29,7 @@ if(isset($_POST['submit'])){
 
     if (isset($_POST['submit']) && $statement) {
 
-        // echo '<h1 class="">Data successfully added</p>';
-        header("Location: country.php");
+        header("Location: category.php");
         exit();
 
     } else {
