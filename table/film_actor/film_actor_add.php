@@ -1,32 +1,30 @@
-<?php 
-    require "../../include/config.php";
-    require "../../include/common.php";
+<?php
+require "../../include/config.php";
+require "../../include/common.php";
 
-    $statement=false;
+$statement = false;
 
-    try{
+try {
 
-        //#1 Open Connection
-        $connection = new PDO ($dsn,$username,$password,$options);
-        
-        //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("SELECT film_id, title FROM film");
+    //#1 Open Connection
+    $connection = new PDO($dsn, $username, $password, $options);
 
-       
-        $statement->execute();
-        $film_result = $statement->fetchAll();
+    //#2 Prepare Sql QUery 
+    $statement = $connection->prepare("SELECT film_id, title FROM film");
 
 
-        $statement = $connection->prepare("SELECT actor_id, first_name, last_name FROM actor");
+    $statement->execute();
+    $film_result = $statement->fetchAll();
 
-        $statement->execute();
-        $actor_result = $statement->fetchAll();
 
-    } catch (PDOException $error){
+    $statement = $connection->prepare("SELECT actor_id, first_name, last_name FROM actor");
 
-        echo "<br>".$error->getMessage();
+    $statement->execute();
+    $actor_result = $statement->fetchAll();
+} catch (PDOException $error) {
 
-    }
+    echo "<br>" . $error->getMessage();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,36 +46,28 @@
     <h3 class="title">New Film Actor</h3>
     <form name="myform" action="film_actor_add.inc.php" onsubmit="return validateForm()" method="post">
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Actor</h5>
-                <select type="text" name="actor_id" id="actor_id" class="input">
-                    <option value="-" selected> --NULL-- </option>
-                    <?php foreach($actor_result as $actor) { echo "<option value =$actor[actor_id]>$actor[first_name] $actor[last_name]</option>";}?>
-                </select>
-            </div>
-        </div>
+        <select name="actor_id" id="actor_id">
+            <option value="hide">Actor</option>
+            <?php foreach ($actor_result as $actor): ?>
+                <option value =<?php echo($actor["actor_id"]) ?>><?php echo($actor["first_name"].' '.$actor["last_name"]) ?></option>
+            <?php endforeach;?>
+        </select>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Film</h5>
-                <select type="text" name="film_id" id="film_id" class="input">
-                    <option value="NULL" selected> --NULL-- </option>
-                    <?php foreach($film_result as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
-                </select>
-            </div>
-        </div>
+        <div></div>
+
+        <select name="film_id" id="film_id">
+            <option value="hide">Film</option>
+            <?php foreach ($film_result as $film): ?>
+                <option value =<?php echo($film["film_id"])?>><?php echo($film["title"]) ?></option>
+            <?php endforeach; ?>
+        </select>
 
         <input class="btn btn-primary" type="submit" name="submit">
 
         <br>
 
         <a href="film_actor.php" class="btn-back">BACK</a>
-        
+
     </form>
 </div>
 </body>

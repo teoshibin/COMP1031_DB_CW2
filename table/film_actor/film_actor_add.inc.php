@@ -11,7 +11,7 @@ if(isset($_POST['submit'])){
         $connection = new PDO ($dsn,$username,$password,$options);
         
         //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("INSERT INTO film_actor (actor_id,fil_id,last_update) 
+        $statement = $connection->prepare("INSERT INTO film_actor (actor_id, film_id, last_update) 
         VALUES (?,?,NOW()) ");
 
         $statement ->bindParam(1,$_POST['actor_id'],PDO::PARAM_INT);

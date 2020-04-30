@@ -83,39 +83,12 @@ nav > img{
     margin-right: 75px;
 }
 
-ul{
-    position: fixed;
-    margin: 0px;
-    width: 14%;
-    height: 100%;
-    top: 30px;
-    left: -24%;
-    background: rgb(34, 34, 34);
-    text-align: center;
-    transition: all .3s;
-    overflow-y: scroll;
-    margin-bottom: 50px;
-}
-nav > ul{
-    margin-top: 30px;
-    margin-left: 0px;
-
-}
-nav > ul > li{
-    display: block;
-    margin: 20px 0;
-    line-height: 12px;
-}
-nav > ul > li > a{
-    font-size: 0.9rem;
-}
 #check:checked ~ ul{
     left: 0;
 }
 .logout{
     margin: 0;
 }
-
 
 .title{
     color: #E4AFC0;
@@ -144,7 +117,7 @@ p{
     flex-wrap: wrap;
     padding: 0 4px;
     margin-top: 3%;
-    margin-left: 10%;
+    margin-left: 11%;
   }
   
   /* Create four equal columns that sits next to each other */
@@ -168,6 +141,7 @@ p{
     margin-top: 25px;
     text-align: center;
     font-size: 22px;
+    color: rgb(40, 39, 39);
   }
 
   .tile:hover{

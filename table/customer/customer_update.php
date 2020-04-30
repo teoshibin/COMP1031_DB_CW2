@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
 </head>
+
 <body>
 
   <?php
@@ -27,6 +29,23 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+
+  try{
+
+    //#1 Open Connection
+    $connection = new PDO ($dsn,$username,$password,$options);
+    
+    //#2 Prepare Sql QUery 
+    $statement = $connection->prepare("SELECT store_id  FROM store");
+   
+    $statement->execute();
+    $customer_result = $statement->fetchAll();
+
+} catch (PDOException $error){
+
+    echo "<br>".$error->getMessage();
+
+}
   //update custoer info
   if (isset($_POST['submit'])) {
     try {
@@ -83,34 +102,47 @@
   ?>
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <?php 
-      echo escape($_POST['last_name'].'successfully updated.'); 
-      header("location: customer.php");
-      exit();
-    ?> 
+    <?php
+    echo escape($_POST['last_name'] . 'successfully updated.');
+    header("location: customer.php");
+    exit();
+    ?>
   <?php endif; ?>
 
-  <form method="post" >
+  <form method="post">
     <div class="content">
       <h3 class="title">Update Customer Information</h3>
 
-      <?php 
-        foreach ($customer as $key => $value): 
-          if($key == 'active'){
-            $col_name = $key;
-            $col_value = $value;
-            continue;
-          }
+      <?php
+      foreach ($customer as $key => $value) :
+        if ($key == 'store_id') {
+          $col_name = $key;
+          $col_value = $value;
       ?>
+          <select type="text" name="store_id" id="store_id" class="input">
+            <option value="hide" selected>Store ID</option>
+            <?php foreach ($customer_result as $customer) {
+              echo "<option value =$customer[store_id]>$customer[store_id]</option>";
+            } ?>
+          </select>
+        <?php
+          continue;
+        } else if ($key == 'active') {
+          $col_name = $key;
+          $col_value = $value;
+          continue;
+        }
+        ?>
 
-          <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-              <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
-              <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'customer_id'||$key == 'create_date'||$key=='last_update') ? 'readonly' : '') ?>>
-            </div>
+
+        <div class="input-div">
+          <div class="i">
           </div>
+          <div class="div">
+            <h5><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
+            <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'customer_id' || $key == 'create_date' || $key == 'last_update') ? 'readonly' : '') ?>>
+          </div>
+        </div>
       <?php endforeach; ?>
 
       <!-- <h5 class="active-label">Active?</h5>
@@ -124,10 +156,10 @@
 
       <h5 class="active-label">Active?</h5>
       <div class="toggle">
-            <input type="radio" name="active" id="sizeWeight" <?php echo(($col_value=='1')?"checked='checked'":"") ?> value="1" />
-            <label for="sizeWeight">Yes</label>
-            <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo(($col_value=='0')?"checked='checked'":"") ?>/>
-            <label for="sizeDimensions">No</label>
+        <input type="radio" name="active" id="sizeWeight" <?php echo (($col_value == '1') ? "checked='checked'" : "") ?> value="1" />
+        <label for="sizeWeight">Yes</label>
+        <input type="radio" name="active" id="sizeDimensions" value="0" <?php echo (($col_value == '0') ? "checked='checked'" : "") ?> />
+        <label for="sizeDimensions">No</label>
       </div>
 
 
@@ -138,8 +170,9 @@
 </body>
 
 <script>
-function update() {
-  alert("You have successfully updated the record!");
-}
+  function update() {
+    alert("You have successfully updated the record!");
+  }
 </script>
+
 </html>

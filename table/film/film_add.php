@@ -52,14 +52,8 @@
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Description</h5>
-                <textarea type="text" placeholder="Type your description over here"name="description" id="description" class="input" cols="10" rows="5" maxlength="6000"></textarea>
-            </div>
-        </div>
+                <textarea type="text" placeholder="Description"name="description" 
+                id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"></textarea>
 
         <div class="input-div">
             <div class="i">
@@ -71,29 +65,16 @@
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Language</h5>
                 <select type="text" name="language_id" id="language_id" class="input">
-                    <option value="-" selected> --NULL-- </option>
+                    <option value="-" selected> --Language-- </option>
                     <?php foreach($result as $language) { echo "<option value =$language[language_id]>$language[name]</option>";}?>
                 </select>
-            </div>
-        </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Original Language</h5>
                 <select type="text" name="original_language_id" id="original_language_id" class="input">
-                    <option value="NULL" selected> --NULL-- </option>
+                    <option value="NULL" selected> Original Language </option>
                     <?php foreach($result as $language) { echo "<option value =$language[language_id]>$language[name]</option>";}?>
                 </select>
-            </div>
-        </div>
+
 
         <div class="input-div">
             <div class="i">
@@ -131,44 +112,62 @@
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Rating</h5>
+
                 <select  type="text" name="rating" id="rating" class="input">
-                    <option value="-" selected> --NULL-- </option>
+                    <option value="-" selected> --Rating-- </option>
                     <option value="G">G</option>
                     <option value="R">R</option>
                     <option value="PG">PG</option>
                     <option value="PG-13">PG-13</option>
                     <option value="NC-17">NC-17</option>
-                  
                 </select>
-            </div>
-        </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
+
+            <!-- <div class="checkbox">
                 <h5>Special Features</h5>
-                <select multiple type="text" name="special_features" id="special_features" class="input">
-                    <option value="-" selected> --NULL-- </option>
-                    <option value="Behind the scenes">Behind the scenes</option>
-                    <option value="Trailers">Trailers</option>
-                    <option value="Commentaries">Commentaries</option>
-                    <option value="Deleted Scenes">Deleted Scenes</option>
-                </select>
-            </div>
-        </div>
+                <input type="checkbox" name="special_features" id="special_features" value="Behind the scenes" class="check" id="check" multiple>
+                    <label for="check">Behind the scenes</label>
+                <input type="checkbox" name="special_features" id="special_features" value="Trailers" class="check" id="check" multiple>
+                    <label for="Trailers">Trailers</label>
+                <input type="checkbox" name="special_features" id="special_features" value="Commentaries" class="check" id="check" multiple>
+                    <label for="Commentaries">Commentaries</label>
+                <input type="checkbox" name="special_features" id="special_features" value="Deleted scenes" class="check" id="check" multiple>
+                    <label for="Deleted scenes">Deleted scenes</label>
+                </input>
+            </div> -->
+
+                <h5 class="checkbox-title">Special Features</h5>
+                    <div class="checkbox">
+                    <input class="check" type="checkbox"  name="special_features" id="special_features1"/>
+                    <label for="special_features1"></label>
+                    </div>
+                    <h5 class="checkbox-label">Behind the scenes</h5>
+                    
+
+                    <div class="checkbox">
+                    <input class="check" type="checkbox"  name="special_features" id="special_features2"/>
+                    <label for="special_features2"></label>
+                    </div>
+                    <h5 class="checkbox-label">Trailers</h5>
+
+                    <div class="checkbox">
+                    <input class="check" type="checkbox"  name="special_features" id="special_features3"/>
+                    <label for="special_features3"></label>
+                    </div>
+                    <h5 class="checkbox-label">Commentaries</h5>
+                    
+                    <div class="checkbox">
+                    <input class="check" type="checkbox"  name="special_features" id="special_features4"/>
+                    <label for="special_features4"></label>
+                    </div>
+                    <h5 class="checkbox-label">Deleted scenes</h5>
 
 
-        <input class="btn btn-primary" type="submit" name="submit">
+        <input class="btn btn-primary" type="submit" name="submit" style="margin-top:30px">
 
         <br>
 
-        <a href="film.php" class="btn-back">BACK</a>
+        <a href="film.php" class="btn-back" style="margin-bottom:100px;">BACK</a>
         
     </form>
 </div>

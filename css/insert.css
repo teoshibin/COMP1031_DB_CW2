@@ -2,7 +2,7 @@
 /* total width */
 *::-webkit-scrollbar {
     background-color:rgba(40, 39, 39, 0);
-    width:9px
+    width:5px
 }
 
 /* background of the scrollbar except button or resizer */
@@ -40,11 +40,10 @@
     padding: 0%;
     margin: 0%;
     box-sizing: border-box;
-    
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
     background-color: rgb(40, 39, 39);
 }
 
@@ -173,6 +172,7 @@ body{
     border-radius: 25px;
     margin: 0 0 0 40%;
     font-size: 0.9rem;
+    margin-top: -10px;
     outline: none;
     border: none;
     background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(219, 219, 219),rgb(255, 255, 255));
@@ -191,83 +191,135 @@ body{
     background-position: right;
 }
 
-.active-label{
+.active-label {
     font-size: 1.2rem;
     color: #E4AFC0;
     margin-top: 15px;
 }
 
-.toggle {
-    margin-top: 10px;
-    box-sizing: border-box;
-    font-size: 0;
-    display: -webkit-box;
-    display: block;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-            flex-flow: row nowrap;
-    -webkit-box-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-            align-items: stretch;
-    user-select: none; 
-  }
-  .toggle input {
-    width: 0;
-    height: 0;
-    position: absolute;
-  }
-  .toggle input + label {
-    margin: 0;
-    padding: 0.75rem 2rem;
-    box-sizing: border-box;
-    position: relative;
-    display: inline-block;
-    border: solid 1px #ddd;
-    background-color: rgb(219, 219, 219);
-    font-size: 1rem;
-    line-height: 100%;
-    font-weight: 600;
-    text-align: center;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
-    -webkit-transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
-    transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
-    /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
-    /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
-    /* ----- */
-  }
-  .toggle input + label:first-of-type {
-    border-radius: 8px 0 0 8px;
-    border-right: none;
-  }
-  .toggle input + label:last-of-type {
-    border-radius: 0 8px 8px 0;
-    border-left: none;
-  }
-  .toggle input:hover + label {
-    border-color: #213140;
-  }
-  .toggle input:checked + label {
-    background-color: #E4AFC0;
-    color: #fff;
-    box-shadow: 0 0 10px rgb(188, 142, 157);
-    border-color: #E4AFC0;
-    z-index: 1;
-  }
+/* checkbox css */
+.checkbox-title{
+  font-size: 1.2rem;
+  color: #E4AFC0;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
 
-@media (max-width: 800px) {
-    .toggle input + label {
-      padding: 0.75rem 0.25rem;
-      -webkit-box-flex: 0;
-              flex: 0 0 50%;
-      display: -webkit-box;
-      display: flex;
-      -webkit-box-pack: center;
-              justify-content: center;
-      -webkit-box-align: center;
-              align-items: center;
-    }
+.checkbox-label{
+  display: flex;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: -30px;
+  margin-left: 210px;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.checkbox {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 150px;
+}
+
+.checkbox .check {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+}
+.checkbox .check + label {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #f0f0f0;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: inset 1px 2px 7px 2px rgba(0, 0, 0, 0.6), 4px 4px 4px 0px rgba(51, 51, 51, 0.4);
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+.checkbox .check:checked + label {
+  border-width: 8px;
+  box-shadow: 4px 4px 4px 0px rgba(51, 51, 51, 0.4);
+  background: -webkit-gradient(linear, left top, right top, from(#E4AFC0), to(#cd9dac));
+  background: linear-gradient(90deg, #E4AFC0, #cd9dac);
+  -webkit-animation: jelly .5s ease-in-out;
+          animation: jelly .5s ease-in-out;
+}
+
+@-webkit-keyframes jelly {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
   }
+  25% {
+    -webkit-transform: scale(1.5, 0.75);
+            transform: scale(1.5, 0.75);
+  }
+  35% {
+    -webkit-transform: scale(0.75, 1.5);
+            transform: scale(0.75, 1.5);
+  }
+  50% {
+    -webkit-transform: scale(1.25, 0.75);
+            transform: scale(1.25, 0.75);
+  }
+  65% {
+    -webkit-transform: scale(0.75, 1.25);
+            transform: scale(0.75, 1.25);
+  }
+  75% {
+    -webkit-transform: scale(1.25, 0.75);
+            transform: scale(1.25, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+@keyframes jelly {
+  0% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  25% {
+    -webkit-transform: scale(1.5, 0.75);
+            transform: scale(1.5, 0.75);
+  }
+  35% {
+    -webkit-transform: scale(0.75, 1.5);
+            transform: scale(0.75, 1.5);
+  }
+  50% {
+    -webkit-transform: scale(1.25, 0.75);
+            transform: scale(1.25, 0.75);
+  }
+  65% {
+    -webkit-transform: scale(0.75, 1.25);
+            transform: scale(0.75, 1.25);
+  }
+  75% {
+    -webkit-transform: scale(1.25, 0.75);
+            transform: scale(1.25, 0.75);
+  }
+  100% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+  /* checkbox css */
 
 /* dropdown select css */
   .select-hidden {
@@ -334,6 +386,7 @@ body{
     background-color: #e4afc0f0;
     width: 97%;
     margin-left: 1.5%;
+    border-radius: 6px;
   }
   .select-options li {
     overflow: hidden;
@@ -358,4 +411,131 @@ ul {
     max-height: 300px;
     overflow-y: scroll;
 }
+/*dropdown select css */
 
+/* textarea css */
+textarea {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+  min-height: 8rem;
+  padding: 1rem 1.5rem;
+  line-height: 2rem;
+  font-size: 1.1rem;
+  background: #323131;
+  border: none;
+  border-radius: 1rem;
+  outline: none;
+  box-shadow: 8px 8px 14px #e4afc0f0, -8px -8px 14px #E4AFC0;
+  resize: vertical;
+  transition: ease-out 0.3s;
+  cursor: pointer;
+  color: white;
+}
+
+textarea::placeholder {
+  color: rgba(228, 175, 192, 0.674);
+}
+
+textarea:focus {
+  min-height: 12rem;
+  box-shadow: inset 4px 4px 10px #e4afc0f0, inset -4px -4px 10px rgb(225, 217, 219);
+}
+
+/* Chrome/Opera/Safari */
+::-webkit-input-placeholder {
+  color: transparent;
+}
+/* Firefox 19+ */
+::-moz-placeholder {
+  color: transparent;
+}
+/* IE 10+ */
+:-ms-input-placeholder {
+  color: transparent;
+}
+/* Firefox 18- */
+:-moz-placeholder {
+  color: transparent;
+}
+
+textarea:placeholder-shown {
+  background: none;
+}
+
+/* textarea css */
+
+/* radio button css */
+/* Radio style */
+.toggle {
+  margin-top: 10px;
+  box-sizing: border-box;
+  font-size: 0;
+  display: -webkit-box;
+  display: block;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+          align-items: stretch;
+  user-select: none; 
+}
+.toggle input {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.toggle input + label {
+  margin: 0;
+  padding: 0.75rem 2rem;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #ddd;
+  background-color: rgb(219, 219, 219);
+  font-size: 1rem;
+  line-height: 100%;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  -webkit-transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  /* ADD THESE PROPERTIES TO SWITCH FROM AUTO WIDTH TO FULL WIDTH */
+  /*flex: 0 0 50%; display: flex; justify-content: center; align-items: center;*/
+  /* ----- */
+}
+.toggle input + label:first-of-type {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+.toggle input + label:last-of-type {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+.toggle input:hover + label {
+  border-color: #213140;
+}
+.toggle input:checked + label {
+  background-color: #E4AFC0;
+  color: #fff;
+  box-shadow: 0 0 10px rgb(188, 142, 157);
+  border-color: #E4AFC0;
+  z-index: 1;
+}
+
+@media (max-width: 800px) {
+  .toggle input + label {
+    padding: 0.75rem 0.25rem;
+    -webkit-box-flex: 0;
+            flex: 0 0 50%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+  }
+}
+
+/* radio button css */

@@ -54,8 +54,8 @@ try {
                 <!-- <tr class="bg-primary text-white"> -->
                 <tr class="th-back">
                     <th>Inventory ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Film ID</th>
+                    <th>Store ID</th>
                     <th>Last Update</th>
                     <th>Action</th>
                 </tr>

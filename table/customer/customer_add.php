@@ -56,20 +56,13 @@
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Store ID</h5>
                 <!-- <input type="text" name="store_id" id="store_id" class="input"> -->
                 <select type="text" name="store_id" id="store_id" class="input">
-                    <option value="-" selected> - </option>
+                    <option value="hide" selected>Store ID</option>
                     <option value="1" > 1 </option>
                     <option value="2" > 2 </option>
                 </select>
-            </div>
-        </div>
-
+            
         <h5 class="active-label">Active?</h5>
         <div class="toggle">
             <input class="activeYes" type="radio" name="active" value=1 id="sizeWeight" checked="checked" />

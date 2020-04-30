@@ -42,7 +42,7 @@ function validateForm() {
     }
 
     // Validate City
-    if(city_id == 'Please select your city') {
+    if(city_id == 'hide') {
         
         error_msg+=("Please select your city\n");
     

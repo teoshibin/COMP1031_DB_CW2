@@ -1,26 +1,24 @@
-<?php 
-    require "../../include/config.php";
-    require "../../include/common.php";
+<?php
+require "../../include/config.php";
+require "../../include/common.php";
 
-    $statement=false;
+$statement = false;
 
-    try{
+try {
 
-        //#1 Open Connection
-        $connection = new PDO ($dsn,$username,$password,$options);
-        
-        //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("SELECT city_id, city FROM city");
+    //#1 Open Connection
+    $connection = new PDO($dsn, $username, $password, $options);
 
-       
-        $statement->execute();
-        $result = $statement->fetchAll();
+    //#2 Prepare Sql QUery 
+    $statement = $connection->prepare("SELECT city_id, city FROM city");
 
-    } catch (PDOException $error){
 
-        echo "<br>".$error->getMessage();
+    $statement->execute();
+    $result = $statement->fetchAll();
+} catch (PDOException $error) {
 
-    }
+    echo "<br>" . $error->getMessage();
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,15 +68,17 @@
                 <input type="text" name="district" id="district" class="input">
             </div>
         </div>
-            
-            
-            
-            <select name="city_id" id="city_id">
-                <option value="hide">City</option>
-                <!-- <select type="text" name="city_id" id="city_id" class="input">
+
+
+
+        <select name="city_id" id="city_id">
+            <option value="hide">City</option>
+            <!-- <select type="text" name="city_id" id="city_id" class="input">
                     <option value="-" selected> Please select your city </option> -->
-                    <?php foreach($result as $city) { echo "<option value =$city[city_id]>$city[city]</option>";}?>
-                </select>
+            <?php foreach ($result as $city) {
+                echo "<option value =$city[city_id]>$city[city]</option>";
+            } ?>
+        </select>
 
 
         <div class="input-div">
@@ -106,7 +106,7 @@
         <br>
 
         <a href="address.php" class="btn-back">BACK</a>
-        
+
     </form>
 </div>
 </body>

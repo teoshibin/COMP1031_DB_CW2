@@ -1,4 +1,3 @@
-
 <?php
 
 //view customer information
@@ -7,7 +6,7 @@ require "../../include/config.php";
 require "../../include/common.php";
 require "../../include/header.php";
 
-if (isset($_GET["actor_id"])&&isset($_GET["film_id"])) {
+if (isset($_GET["actor_id"]) && isset($_GET["film_id"])) {
 
     try {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -45,14 +44,13 @@ try {
     <!-- outer most one - transparent -->
 
     <div class="top">
-        <a class="insertbtn" href="film_actor_add.php" role="button"><strong>Create New Film Actor</strong></a>
+        <a class="insertbtn" href="film_actor_add.php" role="button"><strong>Add New Film Actor</strong></a>
         <h2 class="title">Film Actor</h2>
     </div>
 
     <div style="overflow-x:auto!important;">
         <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm" role="grid" cellspacing="0" width="100%">
             <thead>
-                <!-- <tr class="bg-primary text-white"> -->
                 <tr class="th-back">
                     <th>Actor ID</th>
                     <th>Film ID</th>
@@ -69,12 +67,12 @@ try {
                         <td><?php echo escape($row["last_update"]); ?> </td>
                         <td align="left">
 
-                            <a type="buttons" class="btn" name="view" href="film_actor.php?actor_id=<?php echo escape($row["actor_id"]); ?>&film_id=<?php echo escape($row["film_id"]); ?>">
+                            <a type="buttons" class="btn" name="view" href="film_actor_view.php?actor_id=<?php echo escape($row["actor_id"]); ?>&film_id=<?php echo escape($row["film_id"]); ?>">
                                 <i class="fas fa-info-circle button" aria-hidden="true">
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="update" href="film_actor.php?actor_id=<?php echo escape($row["actor_id"]); ?>&film_id=<?php echo escape($row["film_id"]); ?>">
+                            <a type="buttons" class="btn" name="update" href="film_actor_update.php?actor_id=<?php echo escape($row["actor_id"]); ?>&film_id=<?php echo escape($row["film_id"]); ?>">
                                 <i class="far fa-edit button">
                                 </i>
                             </a>
@@ -93,4 +91,5 @@ try {
 </section>
 <script language="JavaScript" type="text/javascript" script src="../../js/tablesort.js"></script>
 </body>
+
 </html>

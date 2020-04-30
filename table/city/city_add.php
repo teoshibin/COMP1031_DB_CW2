@@ -51,26 +51,10 @@
             </div>
         </div>
 
-        <!-- <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Country id</h5>
-                <input type="text" name="country_id" id="country_id" class="input">
-            </div>
-        </div> -->
-
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Country</h5>
                 <select type="text" name="country_id" id="country_id" class="input">
-                    <option value="-" selected> - </option>
+                    <option value="-" selected> Country </option>
                     <?php foreach($result as $country) { echo "<option value =$country[country_id]>$country[country]</option>";}?>
                 </select>
-            </div>
-        </div>
 
         <input class="btn btn-primary" type="submit" name="submit">
 
