@@ -3,43 +3,44 @@
 
 //view customer information
 require "../../include/login-check.php";
-require "../../include/config.php";
+// require "../../include/config.php";
 require "../../include/common.php";
 require "../../include/header.php";
+// require "fetch.php";
 
-if (isset($_GET["id"])) {
+// if (isset($_GET["id"])) {
 
-    try {
-        $connection = new PDO($dsn, $username, $password, $options);
-        //sql command to delete student
-        $statement = $connection->prepare("DELETE FROM payment WHERE payment_id= :payment_id");
-        $statement->bindValue(':payment_id', $_GET["id"]);
-        //execute with PDO
-        $statement->execute();
+//     try {
+//         $connection = new PDO($dsn, $username, $password, $options);
+//         //sql command to delete student
+//         $statement = $connection->prepare("DELETE FROM payment WHERE payment_id= :payment_id");
+//         $statement->bindValue(':payment_id', $_GET["id"]);
+//         //execute with PDO
+//         $statement->execute();
 
-        //store a string in variable
-        $success = "Payment successfully deleted";
-    } catch (PDOException $error) {
-        echo "<br>" . $error->getMessage();
-    }
-}
+//         //store a string in variable
+//         $success = "Payment successfully deleted";
+//     } catch (PDOException $error) {
+//         echo "<br>" . $error->getMessage();
+//     }
+// }
 
-try {
-    $connection = new PDO($dsn, $username, $password, $options);
+// try {
+//     $connection = new PDO($dsn, $username, $password, $options);
 
-    $statement = $connection->prepare("SELECT payment.payment_id, payment.customer_id, payment.staff_id, 
-    payment.rental_id, payment.amount, payment.payment_date,payment.last_update FROM payment");
+//     $statement = $connection->prepare("SELECT payment.payment_id, payment.customer_id, payment.staff_id, 
+//     payment.rental_id, payment.amount, payment.payment_date,payment.last_update FROM payment");
 
-    //execute with PDO
-    $statement->execute();
+//     //execute with PDO
+//     $statement->execute();
 
-    //store result in $result
-    $result = $statement->fetchAll();
-} catch (PDOException $error) {
-    echo "<br>" . $error->getMessage();
-}
+//     //store result in $result
+//     $result = $statement->fetchAll();
+// } catch (PDOException $error) {
+//     echo "<br>" . $error->getMessage();
+// }
 
-?>
+// ?>
 
 <section class="content">
     <!-- outer most one - transparent -->
@@ -66,15 +67,15 @@ try {
             </thead>
 
             <tbody>
-                <?php foreach ($result as $row) : ?>
+              
                     <tr class="tr-back">
-                        <td><?php echo escape($row['payment_id']); ?></td>
-                        <td><?php echo escape($row['customer_id']); ?></td>
-                        <td><?php echo escape($row['staff_id']); ?></td>
-                        <td><?php echo escape($row['rental_id']); ?></td>
-                        <td><?php echo escape($row['amount']); ?></td>
-                        <td><?php echo escape($row['payment_date']); ?></td>
-                        <td><?php echo escape($row['last_update']); ?> </td>
+                        <td><span id ="payment_id"></td>
+                        <td><span id ="customer_id"></td>
+                        <td><span id ="staff_id"></td>
+                        <td><span id ="rental_id"></td>
+                        <td><span id ="amount"></td>
+                        <td><span id ="payment_date"></td>
+                        <td><span id ="last_update"></td>
                         <td align="left">
 
                             <a type="buttons" class="btn" name="view" href="payment_view.php?id=<?php echo escape($row['payment_id']); ?>">
@@ -94,10 +95,39 @@ try {
 
                         </td>
                     </tr>
-                <?php endforeach; ?>
+     
             </tbody>
         </table>
     </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script language="JavaScript" type="text/javascript" script src="../../js/tablesort.js"></script>
+<script>
+    $.ajax({
+    url:"fetch.php",
+    method:"GET",
+    data:{
+        'payment_id' :$('#payment_id').val(),
+        'customer_id' :$('#customer_id').val(),
+        'staff_id' :$('#staff_id').val(),
+        'rental_id' :$('#rental_id').val(),
+        'payment_date' :$('#payment_date').val(),
+        'amount' :$('#amount').val(),
+        'last_update' :$('#last_update').val(),
+    },
+    dataType:"JSON",
+    success:function(data)
+    {
+    //  $('#dtHorizontalVerticalExample').css("display", "block");
+     $('#payment_id').text(data.payment_id);
+     $('#customer_id').text(data.customer_id);
+     $('#staff_id').text(data.staff_id);
+     $('#rental_id').text(data.rental_id);
+     $('#amount').text(data.amount);
+     $('#payment_date').text(data.payment_date);
+     $('#last_update').text(data.last_update);
+    }
+   })
+</script>
+</body>
+</html>

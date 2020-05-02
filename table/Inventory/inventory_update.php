@@ -17,6 +17,32 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+
+  try {
+
+    //#1 Open Connection
+    $connection = new PDO($dsn, $username, $password, $options);
+
+    //#2 Prepare Sql QUery 
+    $statement = $connection->prepare("SELECT film_id, title FROM film");
+
+    $statement->execute();
+    $film_result = $statement->fetchAll();
+
+    $statement = $connection->prepare("SELECT store_id FROM store");
+
+    $statement->execute();
+    $store_result = $statement->fetchAll();
+
+    // $statement = $connection->prepare("SELECT original_language_id,name FROM language");
+
+    // $statement->execute();
+    // $language_result = $statement->fetchAll();
+
+  } catch (PDOException $error) {
+
+    echo "<br>" . $error->getMessage();
+  }
   //update custoer info
   if (isset($_POST['submit'])) {
     try {
@@ -73,17 +99,41 @@
     <div class="content">
       <h3 class="title">Update Inventory Information</h3>
 
-      <?php foreach ($inventory as $key => $value): ?>
+      <?php
+      foreach ($inventory as $key => $value) :
+        if ($key == 'film_id') {
+      ?>
+                <select type="text" name="film_id" id="film_id" class="input">
+                    <option value="hide" selected>Film ID</option>
+                    <?php foreach($film_result as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
+                </select>
+
+                <br>
+
+        <?php
+          continue;
+        } else if ($key == 'store_id') {
+          ?>
+              <select type="text" name="store_id" id="store_id" class="input">
+                  <option value="hide" selected>Store ID</option>
+                  <?php foreach($store_result as $store) { echo "<option value =$store[store_id]>$store[store_id]</option>";}?>
+              </select>
+          <?php
+          continue;
+        }
+        ?>
+        
 
           <div class="input-div">
             <div class="i">
             </div>
             <div class="div">
               <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
-              <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'inventory_id'||$key=='last_update') ? 'readonly' : '') ?>>
+              <input type="text" name="<?php echo $key; ?>" id="<?php echo($key); ?>" class="input" value="<?php echo escape($value); ?>" <?php echo (($key == 'inventory_id'||$key=='last_update') ? 'readonly' : ''); ?>>
             </div>
           </div>
       <?php endforeach; ?>
+
 
       <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
       <a href="inventory.php" class="btn-back" style="margin-bottom: 15px">BACK</a>

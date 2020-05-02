@@ -46,6 +46,7 @@ try {
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="store_valid.js"></script>
 </head>
+<style>.select{font-size:13px; height: 44px;}</style>
 
 <div class="content">
     <h3 class="title">New Store</h3>
@@ -57,24 +58,24 @@ try {
                 <option value=<?php echo ($staff["staff_id"]) ?>><?php echo ('( ID :' . $staff['staff_id'] . ' ) ' . $staff["first_name"] . ' ' . $staff["last_name"]) ?></option>
             <?php endforeach; ?>
         </select>
-
-        <div></div>
+        
+        <br>
 
         <select name="address_id" id="address_id">
             <option value="hide">Store Address</option>
             <?php 
                 foreach ($address_result as $address) :
-                    $available = true; 
-                    foreach ($store_result as $store_row -> $used_address){
-                        if($address["address_id"] == $used_address){
-                            $available = false;
-                        }                      
-                    }
-                    if($available == true){
+                    // $available = true; 
+                    // foreach ($store_result as $store_row -> $used_address){
+                    //     if($address["address_id"] == $used_address){
+                    //         $available = false;
+                    //     }                      
+                    // }
+                    // if($available == true){
             ?>
-                <option value=<?php echo ($address["address_id"]) ?>><?php echo ("( ID : " . $address['address_id'] . " ) " . $address["address"]) ?></option>
+                <option value=<?php echo ($address["address_id"]) ?>><?php echo ("(ID : " . $address['address_id'] . " ) " . $address["address"]) ?></option>
             <?php
-                    }
+                    // }
                 endforeach; 
             ?>
         </select>

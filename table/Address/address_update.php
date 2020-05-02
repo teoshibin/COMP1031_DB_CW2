@@ -106,7 +106,6 @@
       foreach ($address as $key => $value) : 
         if($key == 'city_id'){
       ?>
-
         <select name="city_id" id="city_id">
             <option value="hide">City</option>
             <?php foreach ($city_result as $city) { ?>

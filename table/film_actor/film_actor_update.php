@@ -19,6 +19,24 @@
 
     require "../../include/config.php";
     require "../../include/common.php";
+
+    try{
+
+        //#1 Open Connection
+        $connection = new PDO ($dsn,$username,$password,$options);
+        
+        //#2 Prepare Sql QUery 
+        $statement = $connection->prepare("SELECT actor_id  FROM actor");
+       
+        $statement->execute();
+        $customer_result = $statement->fetchAll();
+    
+    } catch (PDOException $error){
+    
+        echo "<br>".$error->getMessage();
+    
+    }
+
     //update custoer info
     if (isset($_POST['submit'])) {
         try {
@@ -77,7 +95,7 @@
         <div class="content">
             <h3 class="title">Update Film Actor Information</h3>
 
-            <?php foreach ($film_actor as $key => $value) : ?>
+            <!-- <?php foreach ($film_actor as $key => $value) : ?>
 
                 <div class="input-div">
                     <div class="i">
@@ -88,7 +106,23 @@
                     </div>
                 </div>
 
+            <?php endforeach; ?> -->
+
+        <select name="actor_id" id="actor_id">
+            <option value="hide">Actor</option>
+            <?php foreach ($actor_result as $actor): ?>
+                <option value =<?php echo($actor["actor_id"]) ?>><?php echo($actor["first_name"].' '.$actor["last_name"]) ?></option>
+            <?php endforeach;?>
+        </select>
+
+        <div></div>
+
+        <select name="film_id" id="film_id">
+            <option value="hide">Film</option>
+            <?php foreach ($film_result as $film): ?>
+                <option value =<?php echo($film["film_id"])?>><?php echo($film["title"]) ?></option>
             <?php endforeach; ?>
+        </select>
 
             <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px" />
             <a href="film_actor.php" class="btn-back" style="margin-bottom: 15px">BACK</a>

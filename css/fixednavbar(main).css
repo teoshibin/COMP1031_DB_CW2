@@ -96,7 +96,8 @@ ul{
     height: 100%;
     top: 30px;
     left: -24%;
-    background: rgb(34, 34, 34);
+    /* background: rgba(34, 34, 34, 0); */
+    background: rgba(228, 175, 192, 0.229);
     text-align: center;
     transition: all .3s;
     margin-bottom: 50px;
@@ -105,16 +106,15 @@ ul{
 }
 nav > ul{
     margin-left: 0px;
-
 }
 .nav-elem{
     display: block;
     background-color: #E4AFC0;
     line-height: 36px;
-    margin-top: -2px;
+    margin-top: -4px;
     border: 1px solid #E4AFC0;
     transition: all .3s;
-    border-radius: 2px;
+    border-radius: 4px;
     color: rgb(34, 34, 34);
 }
 
@@ -130,6 +130,5 @@ nav > ul{
 .logout{
     margin: 0;
 }
-
 
     

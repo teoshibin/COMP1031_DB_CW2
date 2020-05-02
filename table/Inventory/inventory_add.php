@@ -1,6 +1,7 @@
 <?php 
     require "../../include/config.php";
     require "../../include/common.php";
+    
 
     $statement=false;
 
@@ -46,29 +47,18 @@
   
     <form name="myform" action="inventory_add.inc.php" onsubmit="return validateForm()" method="post">
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Film</h5>
                 <select type="text" name="film_id" id="film_id" class="input">
-                    <option value="-" selected> --NULL-- </option>
+                    <option value="hide" selected>Film ID</option>
                     <?php foreach($result1 as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
                 </select>
-            </div>
-        </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Store ID</h5>
+                <br>
+                
                 <select type="text" name="store_id" id="store_id" class="input">
-                    <option value="-" selected> --NULL-- </option>
+                    <option value="hide" selected>Store ID</option>
                     <?php foreach($result2 as $store) { echo "<option value =$store[store_id]>$store[store_id]</option>";}?>
                 </select>
-            </div>
-        </div>
+
 
         <input class="btn btn-primary" type="submit" name="submit">
 

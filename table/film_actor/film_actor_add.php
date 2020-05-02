@@ -53,8 +53,6 @@ try {
             <?php endforeach;?>
         </select>
 
-        <div></div>
-
         <select name="film_id" id="film_id">
             <option value="hide">Film</option>
             <?php foreach ($film_result as $film): ?>

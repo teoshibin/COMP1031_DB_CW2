@@ -11,6 +11,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <style>.select{font-size:13px; height: 44px;}</style>
 </head>
 
 <body>
@@ -19,6 +20,32 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+
+  try {
+
+    //#1 Open Connection
+    $connection = new PDO($dsn, $username, $password, $options);
+
+    //#2 Prepare Sql QUery 
+    $statement = $connection->prepare("SELECT staff_id, first_name, last_name FROM staff");
+
+    $statement->execute();
+    $staff_result = $statement->fetchAll();
+
+    $statement = $connection->prepare("SELECT address_id, address FROM address");
+
+    $statement->execute();
+    $address_result = $statement->fetchAll();
+
+    // $statement = $connection->prepare("SELECT original_language_id,name FROM language");
+
+    // $statement->execute();
+    // $language_result = $statement->fetchAll();
+
+  } catch (PDOException $error) {
+
+    echo "<br>" . $error->getMessage();
+  }
   //update custoer info
   if (isset($_POST['submit'])) {
     try {
@@ -75,7 +102,33 @@
     <div class="content">
       <h3 class="title">Update Store Information</h3>
 
-      <?php foreach ($store as $key => $value) : ?>
+      <?php
+      foreach ($store as $key => $value) :
+        if ($key == 'manager_staff_id') {
+      ?>
+                <select type="text" name="manager_staff_id" id="manager_staff_id" class="input">
+                    <option value="hide" selected>Manager</option>
+                    <?php foreach ($staff_result as $staff) : ?>
+                      <option value=<?php echo ($staff["staff_id"]) ?>><?php echo ($staff["first_name"].' '. $staff["last_name"]) ?></option>
+                    <?php endforeach; ?>
+                </select>
+
+                <br>
+
+        <?php
+          continue;
+        } else if ($key == 'address_id') {
+          ?>
+              <select type="text" name="address_id" id="address_id" class="input">
+                  <option value="hide" selected>Store Address</option>
+                  <?php foreach ($address_result as $address) : ?>
+                      <option value=<?php echo ($address["address_id"]) ?>><?php echo ('(ID: ' . $address["address_id"].') '. $address["address"]) ?></option>
+                    <?php endforeach; ?>
+              </select>
+          <?php
+          continue;
+        }
+        ?>
 
         <div class="input-div">
           <div class="i">
