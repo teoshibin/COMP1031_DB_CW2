@@ -1,4 +1,4 @@
-// Defining a function to validate form 
+    // Defining a function to validate form 
 function validateForm() {
 
     var error_msg = "";

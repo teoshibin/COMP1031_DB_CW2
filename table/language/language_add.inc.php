@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
         $statement = $connection->prepare("INSERT INTO language (name,last_update) 
         VALUES (?,NOW()) ");
 
-        $statement ->bindParam(1,$_POST['name'],PDO::PARAM_INT);
+        $statement ->bindParam(1,$_POST['name'],PDO::PARAM_STR);
   
         //$statement = $connection->prepare($sql);
         $statement->execute();

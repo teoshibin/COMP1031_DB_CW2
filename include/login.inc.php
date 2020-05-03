@@ -9,7 +9,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prev
   header("location: ../page/home.php");// redirect function in php
   exit();
 }
- 
+
 // Include config file
 require_once "../include/config.php";//link
 

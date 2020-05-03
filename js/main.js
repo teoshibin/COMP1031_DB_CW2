@@ -90,6 +90,3 @@ fileInput.addEventListener( "change", function( event ) {
     the_return.innerHTML = this.value;  
 });  
 
-
-
-

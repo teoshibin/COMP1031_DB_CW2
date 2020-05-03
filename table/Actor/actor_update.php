@@ -10,6 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="actor_valid_update.js"></script>
 </head>
 <body>
 
@@ -85,7 +86,7 @@
           </div>
       <?php endforeach; ?>
 
-      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
+      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px" onClick='return ("You have successfully updated this record");'/>
       <a href="actor.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>

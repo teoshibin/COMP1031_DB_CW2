@@ -34,6 +34,7 @@ try {
 
     //store result in $result
     $result = $statement->fetchAll();
+    
 } catch (PDOException $error) {
     echo "<br>" . $error->getMessage();
 }
@@ -80,7 +81,7 @@ try {
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="delete" type="submit" href="actor.php?id=<?php echo escape($row["actor_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
+                            <a type="buttons" class="btn" name="delete" type="submit" href="actor.php?id=<?php echo escape($row["actor_id"]); ?>" onClick='return confirm("Are you sure want to delete <?php echo escape($row["first_name"]); ?> <?php echo escape($row["first_name"]); ?> ?");'>
                                 <i class="fa fa-trash button" aria-hidden="true">
                                 </i>
                             </a>

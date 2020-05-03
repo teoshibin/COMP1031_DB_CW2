@@ -52,9 +52,9 @@ if (isset($_POST['submit'])) {
 
     if (isset($_POST['submit']) && $statement) {
 
-        // echo '<h1 class="">Data successfully added</p>';
-        // header("Location: staff.php");
-        // exit();
+        echo '<h1 class="">Data successfully added</p>';
+        header("Location: staff.php");
+        exit();
 
     } else {
 

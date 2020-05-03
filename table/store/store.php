@@ -80,7 +80,7 @@ try {
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="delete" type="submit" href="store.php?id=<?php echo escape($row["store_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
+                            <a type="buttons" class="btn" name="delete" type="submit" href="store.php?id=<?php echo escape($row["store_id"]); ?>" onClick='return confirm("Are you sure want to delete this store id <?php echo escape($row["store_id"]); ?>?");'>
                                 <i class="fa fa-trash button" aria-hidden="true">
                                 </i>
                             </a>

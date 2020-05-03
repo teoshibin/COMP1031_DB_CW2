@@ -13,9 +13,9 @@ function validateForm() {
 
 
     // Validate Rating
-    if(name == '-') {
+    if(name == '') {
         
-        error_msg+=("Please select the Film Title\n");
+        error_msg+=("Please enter the language name\n");
     
     } else {
         
@@ -32,7 +32,7 @@ function validateForm() {
         // alert("i love you");
         // Creating a string from input data for preview
         var dataPreview = "You've entered the following details: \n" +
-                          "Language: " + film_id + "\n";
+                          "Language: " + name + "\n";
         // Display input data in a dialog box before submitting the form
         alert(dataPreview);
     }

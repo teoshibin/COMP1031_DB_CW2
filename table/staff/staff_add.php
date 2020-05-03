@@ -39,7 +39,7 @@ try {
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script defer type="text/javascript" src="../../js/main.js"></script>
-    <script type="text/javascript" src="actor_valid.js"></script>
+    <script type="text/javascript" src="staff_valid.js"></script>
 </head>
 
 <div class="content">
@@ -82,7 +82,7 @@ try {
 
 
             <div class="input-file-container">  
-                <input class="input-file" id="my-file" type="file" name="picture">
+                <input class="input-file" id="my-file" type="file" name="picture" onchange="return fileValidation()">
                 <label tabindex="0" for="my-file" class="input-file-trigger">Put your Selfie here :)</label>
             </div>
             <p class="file-return"></p>
@@ -116,7 +116,7 @@ try {
             </div>
             <div class="div">
                 <h5>Password</h5>
-                <input type="text" name="password" class="input">
+                <input type="password" name="password" class="input">
             </div>
         </div>
 

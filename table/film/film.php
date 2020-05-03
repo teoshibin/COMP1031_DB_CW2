@@ -98,7 +98,7 @@ try {
                                 </i>
                             </a>
 
-                            <a type="buttons" class="btn" name="delete" type="submit" href="film.php?id=<?php echo escape($row["film_id"]); ?>" onClick='return confirm("Are you sure want to delete this ?");'>
+                            <a type="buttons" class="btn" name="delete" type="submit" href="film.php?id=<?php echo escape($row["film_id"]); ?>" onClick='return confirm("Are you sure want to delete <?php echo escape($row["title"]); ?> ?");'>
                                 <i class="fa fa-trash button" aria-hidden="true">
                                 </i>
                             </a>
