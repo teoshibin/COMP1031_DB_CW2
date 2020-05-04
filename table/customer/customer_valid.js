@@ -127,13 +127,13 @@ function validateForm() {
         // alert("i love you");
         // Creating a string from input data for preview
         var dataPreview = "You've entered the following details: \n" +
-                          "First Name: " + first_name + "\n" +
-                          "Last Name: " + last_name + "\n" +
-                          "Email Address: " + email + "\n" +
-                          "Address ID: " + address_id + "\n" +
-                          "Store ID: " + store_id + "\n" +
-                          "Active: " + active + "\n" ;
-       
+                        "First Name: " + first_name + "\n" +
+                        "Last Name: " + last_name + "\n" +
+                        "Email Address: " + email + "\n" +
+                        "Address ID: " + address_id + "\n" +
+                        "Store ID: " + store_id + "\n" +
+                        "Active: " + active + "\n" ;
+    
 
         // var dataPreview = "Success";
 

@@ -109,7 +109,7 @@
     ?>
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" action="customer_update.php" onsubmit="return validateForm()" method="post">
     <div class="content">
       <h3 class="title">Update Customer Information</h3>
 

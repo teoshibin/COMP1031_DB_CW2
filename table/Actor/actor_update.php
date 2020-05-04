@@ -10,7 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
-  <script type="text/javascript" src="actor_valid_update.js"></script>
+  <script type="text/javascript" src="actor_valid.js"></script>
 </head>
 <body>
 
@@ -19,30 +19,30 @@
   require "../../include/config.php";
   require "../../include/common.php";
   //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $actor = [
-        "actor_id"            => $_POST['actor_id'],
-        "first_name"          => $_POST['first_name'],
-        "last_name"           => $_POST['last_name'],
-        "last_update"         => $_POST['last_update']
-      ];
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $actor = [
+  //       "actor_id"            => $_POST['actor_id'],
+  //       "first_name"          => $_POST['first_name'],
+  //       "last_name"           => $_POST['last_name'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE actor 
-      SET actor_id     = :actor_id,
-          first_name      = :first_name,
-          last_name       = :last_name,
-          last_update     = NOW()
-      WHERE actor_id   = :actor_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE actor 
+  //     SET actor_id     = :actor_id,
+  //         first_name      = :first_name,
+  //         last_name       = :last_name,
+  //         last_update     = NOW()
+  //     WHERE actor_id   = :actor_id "
+  //     );
 
-      $statement->execute($actor);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($actor);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -70,7 +70,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" action="actor_update.inc.php" onsubmit="return validateForm()" method="post">
     <div class="content">
       <h3 class="title">Update Actor Information</h3>
 

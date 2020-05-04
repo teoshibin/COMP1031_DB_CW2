@@ -10,6 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="category_valid.js"></script>
 </head>
 <body>
 
@@ -18,28 +19,28 @@
   require "../../include/config.php";
   require "../../include/common.php";
   //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $category = [
-        "category_id"            => $_POST['category_id'],
-        "name"           => $_POST['name'],
-        "last_update"         => $_POST['last_update']
-      ];
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $category = [
+  //       "category_id"            => $_POST['category_id'],
+  //       "name"           => $_POST['name'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE category 
-      SET category_id     = :category_id,
-          name            = :name,
-          last_update     = NOW()
-      WHERE category_id   = :category_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE category 
+  //     SET category_id     = :category_id,
+  //         name            = :name,
+  //         last_update     = NOW()
+  //     WHERE category_id   = :category_id "
+  //     );
 
-      $statement->execute($category);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($category);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -67,7 +68,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" method="post" action="category_update.inc.php" onsubmit="return validateForm()">
     <div class="content">
       <h3 class="title">Update Category Information</h3>
 

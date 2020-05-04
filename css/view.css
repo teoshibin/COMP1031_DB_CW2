@@ -191,5 +191,7 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 }
 
+.hidetext { -webkit-text-security: circle; /* Default */ }
+
 
 

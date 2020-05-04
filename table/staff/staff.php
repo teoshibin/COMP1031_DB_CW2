@@ -62,6 +62,8 @@ try {
                     <th>Email</th>
                     <th>Store ID</th>
                     <th>Active</th>
+                    <th>username</th>
+                    <th>password</th>
                     <th>Last Update</th>
                     <th>Action</th>
                 </tr>
@@ -87,6 +89,8 @@ try {
                         <td><?php echo escape($row["email"]); ?></td>
                         <td><?php echo escape($row["store_id"]); ?></td>
                         <td><?php echo escape($row["active"]); ?></td>
+                        <td><?php echo escape($row["username"]); ?></td>
+                        <td class="hidetext"><?php echo escape($row["password"]); ?></td>
                         <td><?php echo escape($row["last_update"]); ?> </td>
                         <td align="left">
 

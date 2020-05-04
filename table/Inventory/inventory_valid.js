@@ -15,7 +15,7 @@ function validateForm() {
 
 
     // Validate Rating
-    if(film_id == '-') {
+    if(film_id == 'hide') {
         
         error_msg+=("Please select the Film Title\n");
     
@@ -26,7 +26,7 @@ function validateForm() {
     }
 
     // Validate special features
-    if(store_id == '-') {
+    if(store_id == 'hide') {
         
         error_msg+=("Please select the Store ID\n");
     

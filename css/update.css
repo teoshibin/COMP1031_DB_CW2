@@ -552,3 +552,54 @@ textarea:placeholder-shown {
   input.errorBox,select.errorBox{
     border: 1px solid red;
   }
+
+  /* profile picture */
+.input-file-container {
+  display: block;
+  width: 35%;
+  margin-top:10px;
+  margin-left: 185px;
+  margin-bottom: 20px;
+} 
+
+.js .input-file-trigger {
+  display: block;
+  padding: 10px;
+  background-image: linear-gradient(to right, #e1c1cb, rgb(194, 141, 158), #e1c1cb);
+  color: #fff;
+  font-size: 0.9em;
+  transition: all .5s;
+  cursor: pointer;
+  background-size: 200%;
+  border-radius: 10px;
+}
+.js .input-file {
+  position: absolute;
+  top: 0; left: 0;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+.js .input-file:hover + .input-file-trigger,
+.js .input-file-trigger:hover,
+.js .input-file-trigger:focus {
+  background-position: right;
+}
+
+.file-return {
+  margin: 0;
+}
+.file-return:not(:empty) {
+  margin: 1em 0;
+}
+.js .file-return {
+  font-style: italic;
+  font-size: .9em;
+  font-weight: bold;
+  color: #fff;
+}
+.js .file-return:not(:empty):before {
+  content: "Selected file: ";
+  font-style: normal;
+  font-weight: normal;
+}

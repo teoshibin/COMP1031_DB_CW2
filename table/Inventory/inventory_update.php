@@ -10,6 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script src="inventory_valid.js"></script>
 </head>
 <body>
 
@@ -18,56 +19,78 @@
   require "../../include/config.php";
   require "../../include/common.php";
 
-  try {
+  try{
 
     //#1 Open Connection
-    $connection = new PDO($dsn, $username, $password, $options);
-
+    $connection = new PDO ($dsn,$username,$password,$options);
+    
     //#2 Prepare Sql QUery 
-    $statement = $connection->prepare("SELECT film_id, title FROM film");
+    $statement1 = $connection->prepare("SELECT film_id,title FROM film");
+    $statement2 = $connection->prepare("SELECT store_id FROM store");
 
-    $statement->execute();
-    $film_result = $statement->fetchAll();
+   
+    $statement1->execute();
+    $statement2->execute();
+    $result1 = $statement1->fetchAll();
+    $result2 = $statement2->fetchAll();
 
-    $statement = $connection->prepare("SELECT store_id FROM store");
+} catch (PDOException $error){
 
-    $statement->execute();
-    $store_result = $statement->fetchAll();
+    echo "<br>".$error->getMessage();
+
+}
+
+  // try {
+
+  //   //#1 Open Connection
+  //   $connection = new PDO($dsn, $username, $password, $options);
+
+  //   //#2 Prepare Sql QUery 
+  //   $statement = $connection->prepare("SELECT film_id, title FROM film");
+
+  //   $statement->execute();
+  //   $film_result = $statement->fetchAll();
+
+  //   $statement = $connection->prepare("SELECT store_id FROM store");
+
+  //   $statement->execute();
+  //   $store_result = $statement->fetchAll();
+  
 
     // $statement = $connection->prepare("SELECT original_language_id,name FROM language");
 
     // $statement->execute();
     // $language_result = $statement->fetchAll();
 
-  } catch (PDOException $error) {
+  // } catch (PDOException $error) {
 
-    echo "<br>" . $error->getMessage();
-  }
+  //   echo "<br>" . $error->getMessage();
+  // }
   //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $inventory = [
-        "inventory_id"            => $_POST['inventory_id'],
-        "film_id"          => $_POST['film_id'],
-        "store_id"           => $_POST['store_id'],
-        "last_update"         => $_POST['last_update']
-      ];
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $inventory = [
+  //       "inventory_id"            => $_POST['inventory_id'],
+  //       "film_id"          => $_POST['film_id'],
+  //       "store_id"           => $_POST['store_id'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE inventory 
-      SET inventory_id     = :inventory_id,
-          film_id      = :film_id,
-          store_id       = :store_id,
-          last_update     = NOW()
-      WHERE inventory_id   = :inventory_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE inventory 
+  //     SET inventory_id     = :inventory_id,
+  //         film_id      = :film_id,
+  //         store_id       = :store_id,
+  //         last_update     = NOW()
+  //     WHERE inventory_id   = :inventory_id "
+  //     );
 
-      $statement->execute($inventory);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($inventory);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -95,7 +118,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" method="post" action="inventory_update.inc.php" onsubmit="return validateForm()" enctype="multipart/form-data">
     <div class="content">
       <h3 class="title">Update Inventory Information</h3>
 
@@ -105,7 +128,7 @@
       ?>
                 <select type="text" name="film_id" id="film_id" class="input">
                     <option value="hide" selected>Film ID</option>
-                    <?php foreach($film_result as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
+                    <?php foreach($result1 as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
                 </select>
 
                 <br>
@@ -116,7 +139,7 @@
           ?>
               <select type="text" name="store_id" id="store_id" class="input">
                   <option value="hide" selected>Store ID</option>
-                  <?php foreach($store_result as $store) { echo "<option value =$store[store_id]>$store[store_id]</option>";}?>
+                  <?php foreach($result2 as $store) { echo "<option value =$store[store_id]>$store[store_id]</option>";}?>
               </select>
           <?php
           continue;
