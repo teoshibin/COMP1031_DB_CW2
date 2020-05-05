@@ -66,12 +66,12 @@
         </div>
 
                 <select type="text" name="language_id" id="language_id" class="input">
-                    <option value="-" selected>Language</option>
+                    <option value="hide" selected>Language</option>
                     <?php foreach($result as $language) { echo "<option value =$language[language_id]>$language[name]</option>";}?>
                 </select>
 
                 <select type="text" name="original_language_id" id="original_language_id" class="input">
-                    <option value="-" selected>Original Language</option>
+                    <option value="hide" selected>Original Language</option>
                     <?php foreach($result as $language) { echo "<option value =$language[language_id]>$language[name]</option>";}?>
                 </select>
 
@@ -114,7 +114,7 @@
 
 
                 <select  type="text" name="rating" id="rating" class="input">
-                    <option value="-" selected>Rating</option>
+                    <option value="hide" selected>Rating</option>
                     <option value="G">G</option>
                     <option value="R">R</option>
                     <option value="PG">PG</option>

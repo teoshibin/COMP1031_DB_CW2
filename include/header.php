@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="/DB_CW2/css/view.css">
     <link rel="stylesheet" href="/DB_CW2/css/loading.css">
     
-    a
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/DB_CW2/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/DB_CW2/favicon/apple-icon-60x60.png">

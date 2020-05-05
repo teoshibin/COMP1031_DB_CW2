@@ -40,40 +40,6 @@
       echo "<br>" . $error->getMessage();
   }
 
-  //update custoer info
-  // if (isset($_POST['submit'])) {
-  //   try {
-  //     $connection = new PDO($dsn, $username, $password, $options);
-  //     $address = [
-  //       "address_id"        => $_POST['address_id'],
-  //       "address"           => $_POST['address'],
-  //       "address2"          => $_POST['address2'],
-  //       "district"          => $_POST['district'],
-  //       "city_id"           => $_POST['city_id'],
-  //       "postal_code"       => $_POST['postal_code'],
-  //       "phone"             => $_POST['phone'],
-  //       "last_update"       => $_POST['last_update']
-  //     ];
-
-  //     $statement = $connection->prepare(
-  //       "UPDATE address 
-  //     SET address_id    = :address_id,
-  //         address       = :address,
-  //         address2      = :address2,
-  //         district      = :district,
-  //         city_id       = :city_id,
-  //         postal_code   = :postal_code,
-  //         phone         = :phone,
-  //         last_update     = NOW()
-  //     WHERE address_id   = :address_id "
-  //     );
-
-  //     $statement->execute($address);
-  //   } catch (PDOException $error) {
-  //     echo "<br>" . $error->getMessage();
-  //   }
-  // }
-
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
     try {
@@ -83,6 +49,7 @@
       $statement->execute();
 
       $address = $statement->fetch(PDO::FETCH_ASSOC);
+
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
@@ -108,13 +75,14 @@
       foreach ($address as $key => $value) : 
         if($key == 'city_id'){
       ?>
+        <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
         <select name="city_id" id="city_id">
             <option value="hide">City</option>
             <?php foreach ($city_result as $city) { ?>
               <option value =<?php echo($city["city_id"])?>><?php echo($city["city"])?></option>
             <?php } ?>
         </select>
-        <script defer>storeValue(<?php echo $value?>,"<?php echo $address_text['address']?>","address_id")</script>
+        <script defer>storeValue(<?php echo $value?>,"city_id")</script>
 
       <?php
         continue;

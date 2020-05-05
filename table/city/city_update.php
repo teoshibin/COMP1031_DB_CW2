@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
   <script src="city_valid.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 <body>
 
@@ -71,6 +72,12 @@
       $statement->execute();
 
       $city = $statement->fetch(PDO::FETCH_ASSOC);
+
+      $statement = $connection->prepare("SELECT country FROM country WHERE country_id= :country_id");
+      $statement->bindValue(':country_id', $city['country_id']);
+      $statement->execute();
+
+      $country_text = $statement->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
@@ -88,7 +95,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post" name="myform" action="city_update.inc.php" onsubmit="return validateForm()" method="post">
+  <form name="myform" action="city_update.inc.php" onsubmit="return validateForm()" method="post">
     <div class="content">
       <h3 class="title">Update City Information</h3>
 
@@ -96,11 +103,13 @@
       foreach ($city as $key => $value): 
         if($key == 'country_id'){
       ?>
+        <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
         <select type="text" name="country_id" id="country_id" class="input">
           <option value="hide">Country</option>
           <!-- <?php echo "<option value></option>"?> -->
           <?php foreach($country_result as $country) { echo "<option value =$country[country_id]>$country[country_id]. $country[country]</option>";}?>
         </select>
+        <script defer>storeValue(<?php echo $value?>,"country_id")</script>
       <?php
           continue;
         }
@@ -111,14 +120,14 @@
             </div>
             <div class="div">
               <h5><?php echo str_replace('_',' ',ucfirst($key)) ?></h5>
-              <input type="text" city="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'city_id'||$key=='last_update') ? 'readonly' : '') ?>>
+              <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'city_id'||$key=='last_update') ? 'readonly' : '') ?>>
             </div>
           </div>
       <?php endforeach; ?>
 
 
 
-      <input class="btn btn-dark ml-1" type="submit" city="submit" value="submit" style="margin-bottom: 15px"/>
+      <input class="btn btn-dark ml-1" type="submit" name="submit" value="submit" style="margin-bottom: 15px"/>
       <a href="city.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>

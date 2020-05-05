@@ -3,7 +3,6 @@
 require "../../include/config.php";
 require "../../include/common.php";
 
-//update custoer info
   if (isset($_POST['submit'])) {
     try {
       $connection = new PDO($dsn, $username, $password, $options);
@@ -36,11 +35,9 @@ require "../../include/common.php";
       echo "<br>" . $error->getMessage();
     }
 
-
-
 if (isset($_POST['submit']) && $statement) {
-    header("Location: address.php");
-    exit();
+    // header("Location: address.php");
+    // exit();
 } else {
     echo '<p style="color:white">Please fill in all the details correctly</p>';
 } 

@@ -13,6 +13,7 @@
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="staff_valid.js"></script>
     <script type="text/javascript" src="../../js/dropdown_update.js"></script>
+    <style>.select{font-size:13px; height: 44px;}</style>
 </head>
 
 <body>
@@ -91,7 +92,7 @@
                         <option value=<?php echo ($address["address_id"]) ?> <?php echo(($value == $address["address_id"])?'selected':'')?> ><?php echo ("( ID : " . $address['address_id'] . " ) " . $address["address"]) ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <script defer>storeValue(<?php echo $value?>,"<?php echo $address_text['address']?>","address_id")</script>
+                    <script defer>storeValue(<?php echo $value?>,"address_id")</script>
                 <?php
                     continue;
                 } elseif ($key == 'store_id') {
@@ -102,7 +103,7 @@
                             <option value=<?php echo ($store["store_id"]) ?>><?php echo ($store["store_id"]) ?></option>
                         <?php endforeach; ?>
                     </select>
-                    <script defer>storeValue(<?php echo $value?>,"<?php echo $value?>","store_id")</script>
+                    <script defer>storeValue(<?php echo $value?>,"store_id")</script>
                 <?php
                     continue;
                 } elseif ($key == 'picture') {

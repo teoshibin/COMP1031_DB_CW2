@@ -11,7 +11,7 @@
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script defer type="text/javascript" src="../../js/main.js"></script>
-    <script type="text/javascript" src="film_actor_valid.js"></script>
+    <script type="text/javascript" src="film_category_valid.js"></script>
     <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 
@@ -32,9 +32,9 @@
         $statement->execute();
         $film_result = $statement->fetchAll();
 
-        $statement = $connection->prepare("SELECT actor_id, first_name, last_name FROM actor");
+        $statement = $connection->prepare("SELECT category_id, name FROM category");
         $statement->execute();
-        $actor_result = $statement->fetchAll();
+        $category_result = $statement->fetchAll();
 
     } catch (PDOException $error) {
   
@@ -42,12 +42,12 @@
     }
 
     //use $_GET to retrieve information from the URL 
-    if (isset($_GET["film_id"]) && isset($_GET["actor_id"])) {
+    if (isset($_GET["film_id"]) && isset($_GET["category_id"])) {
         try {
             $connection = new PDO($dsn, $username, $password, $options);
-            $statement = $connection->prepare("SELECT * FROM film_actor WHERE film_id = :film_id and actor_id= :actor_id ");
+            $statement = $connection->prepare("SELECT * FROM film_category WHERE film_id = :film_id and category_id= :category_id ");
             $statement->bindValue(':film_id', $_GET["film_id"]);
-            $statement->bindValue(':actor_id', $_GET["actor_id"]);
+            $statement->bindValue(':category_id', $_GET["category_id"]);
             $statement->execute();
 
             $result = $statement->fetch(PDO::FETCH_ASSOC);
@@ -63,17 +63,17 @@
 
     <?php if (isset($_POST['submit']) && $statement) : ?>
         <?php
-        header("location: film_actor.php");
+        header("location: film_category.php");
         exit();
         ?>
     <?php endif; ?>
 
-    <form name="myform" action="film_actor_update.inc.php" onsubmit="return validateForm()" method="post">
+    <form name="myform" action="film_category_update.inc.php" onsubmit="return validateForm()" method="post">
         <div class="content">
-            <h3 class="title">Update Film Actor Information</h3>
+            <h3 class="title">Update Film Category Information</h3>
 
             <input type="hidden" name="old_film_id" value="<?php echo($_GET['film_id']) ?>">
-            <input type="hidden" name="old_actor_id" value="<?php echo($_GET['actor_id']) ?>">
+            <input type="hidden" name="old_category_id" value="<?php echo($_GET['category_id']) ?>">
 
             <?php foreach ($result as $key => $value) :
                 if ($key == 'film_id') {
@@ -89,16 +89,16 @@
 
                 <?php
                     continue;
-                } elseif ($key == 'actor_id') {
+                } elseif ($key == 'category_id') {
                 ?>
                     <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
-                    <select name="actor_id" id="actor_id">
-                        <option value="hide">Actor</option>
-                        <?php foreach ($actor_result as $actor) { ?>
-                            <option value=<?php echo ($actor["actor_id"]) ?>><?php echo ($actor['actor_id'].'. '.$actor["first_name"].' '.$actor["last_name"]) ?></option>
+                    <select name="category_id" id="category_id">
+                        <option value="hide">Category</option>
+                        <?php foreach ($category_result as $category) { ?>
+                            <option value=<?php echo ($category["category_id"]) ?>><?php echo ($category['category_id'].'. '.$category["name"]) ?></option>
                         <?php } ?>
                     </select>
-                    <script defer>storeValue(<?php echo $value ?>, "actor_id")</script>
+                    <script defer>storeValue(<?php echo $value ?>, "category_id")</script>
                 <?php
                     continue;
                 }
@@ -109,14 +109,14 @@
                     </div>
                     <div class="div">
                         <h5><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
-                        <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'last_update') ? 'readonly' : '') ?>>
+                        <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" class="input" value="<?php echo escape($value) ?>" <?php echo (($key == 'actor_id' || $key == 'last_update') ? 'readonly' : '') ?>>
                     </div>
                 </div>
 
             <?php endforeach; ?>
 
             <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px" />
-            <a href="film_actor.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
+            <a href="film_category.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
         </div>
     </form>
 </body>

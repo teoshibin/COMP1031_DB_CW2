@@ -14,12 +14,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 // require_once "../include/navbar.php";
 ?>
 
-<!-- 
-<div class="my-body vh-100">
-
-
-</div> -->
-
 <?php
 // require_once "../include/footer.php";
 ?>

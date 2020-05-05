@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
   <script type="text/javascript" src="category_valid.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 <body>
 

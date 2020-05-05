@@ -7,9 +7,9 @@ if (isset($_POST['submit'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $city = [
-      "city_id"            => $_POST['city_id'],
-      "city"           => $_POST['city'],
-      "country_id"           => $_POST['country_id'],
+      "city_id"             => $_POST['city_id'],
+      "city"                => $_POST['city'],
+      "country_id"          => $_POST['country_id'],
       "last_update"         => $_POST['last_update']
     ];
 
@@ -27,11 +27,10 @@ if (isset($_POST['submit'])) {
     echo "<br>" . $error->getMessage();
   }
 
-if (isset($_POST['submit']) && $statement) {
+  if (isset($_POST['submit']) && $statement) {
     header("Location: city.php");
     exit();
-} else {
+  } else {
     echo '<p style="color:white">Please fill in all the details correctly</p>';
-} 
-
+  }
 }

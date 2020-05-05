@@ -12,6 +12,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
   <script type="text/javascript" src="customer_valid.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 
 <body>
@@ -91,7 +92,8 @@
       $statement->bindValue(':customer_id', $_GET['id']);
       $statement->execute();
 
-      $customer = $statement->fetch(PDO::FETCH_ASSOC);
+      $customer = $statement->fetch(PDO::FETCH_ASSOC);      
+
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
@@ -126,12 +128,14 @@
           $col_name = $key;
           $col_value = $value;
       ?>
+          <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
           <select type="text" name="store_id" id="store_id" class="input">
             <option value="hide" selected>Store ID</option>
             <?php foreach ($customer_result as $customer) {
               echo "<option value =$customer[store_id]>$customer[store_id]</option>";
             } ?>
           </select>
+          <script defer>storeValue(<?php echo $value?>,"store_id")</script>
         <?php
           continue;
         } else if ($key == 'active') {

@@ -11,6 +11,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
   <script src="inventory_valid.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 <body>
 
@@ -126,10 +127,12 @@
       foreach ($inventory as $key => $value) :
         if ($key == 'film_id') {
       ?>
-                <select type="text" name="film_id" id="film_id" class="input">
+              <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
+                <select type="text" name="film_id" id="film_id" class="input" style="margin-left: 15px;">
                     <option value="hide" selected>Film ID</option>
                     <?php foreach($result1 as $film) { echo "<option value =$film[film_id]>$film[title]</option>";}?>
                 </select>
+                <script defer>storeValue(<?php echo $value?>,"film_id")</script>
 
                 <br>
 
@@ -137,10 +140,12 @@
           continue;
         } else if ($key == 'store_id') {
           ?>
+              <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
               <select type="text" name="store_id" id="store_id" class="input">
                   <option value="hide" selected>Store ID</option>
                   <?php foreach($result2 as $store) { echo "<option value =$store[store_id]>$store[store_id]</option>";}?>
               </select>
+              <script defer>storeValue(<?php echo $value?>,"store_id")</script>
           <?php
           continue;
         }

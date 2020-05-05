@@ -40,6 +40,7 @@ try {
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <script type="text/javascript" src="staff_valid.js"></script>
+    <style>.select{font-size:13px; height: 44px;}</style>
 </head>
 
 <div class="content">

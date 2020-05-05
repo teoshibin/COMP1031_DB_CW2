@@ -74,7 +74,7 @@ function validateForm() {
     }
 
     // Validate language ID
-    if(language_id == '-') {
+    if(language_id == 'hide') {
         
         error_msg+=("Please select the Language\n");
     
@@ -82,6 +82,13 @@ function validateForm() {
         
         language_idErr=false;
         
+    }
+
+    // Validate original language ID
+    if(original_language_id == 'hide') {
+    
+        $('select[name$="original_language_id"]').val('');
+    
     }
 
     // Validate rental duration
@@ -153,7 +160,7 @@ function validateForm() {
     }
 
     // Validate Rating
-    if(rating == '-') {
+    if(rating == 'hide') {
         
         error_msg+=("Please select the rating\n");
     

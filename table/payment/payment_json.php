@@ -7,7 +7,7 @@ require "../../include/config.php";
 require "../../include/common.php";
 require "../../include/header.php";
 // require "fetch.php";
-
+session_start();
 if (isset($_GET["id"])) {
 
     try {
@@ -102,6 +102,9 @@ if (isset($_GET["id"])) {
     </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> -->
+
 
 <script language="JavaScript" type="text/javascript" script src="../../js/tablesort.js"></script>
 <script>
@@ -188,41 +191,84 @@ if (isset($_GET["id"])) {
 //     });
 // });
 
-$(document).ready(function(){
-    $.ajax({
-        type: "GET",
-        url: "http://localhost/DB_CW2/table/payment/fetch.php",
-        data: {},
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",                    
-        cache: false,
-        success: function(data) {  
-            var payment_data = '';
-            $.each(data,function(key,value){
-                payment_data +=    '<tbody><tr class="tr-back"><td>' + value.payment_id + '</td><td>' + value.customer_id +
-                              '</td><td>' + value.staff_id + '</td><td>' + value.rental_id + '</td><td>' + value.amount +
-                               '</td><td>' + value.payment_date + '</td><td>' + value.last_update + '</td></tr></tbody>';
-            // payment_data += '<tbody>';
-            // payment_data += '<tr class="tr-back">';
-            // payment_data += '<td>' + value.payment_id +' </td>';
-            // payment_data += '<td>' + value.customer_id +' </td>';
-            // payment_data += '<td>' + value.staff_id +' </td>';
-            // payment_data += '<td>' + value.rental_id +' </td>';
-            // payment_data += '<td>' + value.amount +' </td>';
-            // payment_data += '<td>' + value.payment_date +' </td>';
-            // payment_data += '<td>' + value.last_update +' </td>';
-            // payment_data += '</tr>';
-            // payment_data += '</tbody>';
+// if ( $.fn.dataTable.isDataTable( '#dtHorizontalVerticalExample' ) ) {
+//     table = $('#dtHorizontalVerticalExample').DataTable();
+// }
+// else {
+//     table = $('#dtHorizontalVerticalExample').DataTable( {
+//         paging: false
+//     } );
+// }
 
-        });
-        $('#dtHorizontalVerticalExample').append(payment_data);
-
+$(document).ready(function() {
+    $('#dtHorizontalVerticalExample').DataTable( {
+        "ajax": {
+            "type": "GET",
+            "url": "http://localhost/DB_CW2/table/payment/fetch.php",
+            "dataSrc": function (data) {
+                var return_data = new Array();
+                for(var i=0;i< data.length; i++){
+                    return_data.push({
+                        'payment_id': data[i].payment_id,
+                        'customer_id': data[i].customer_id,
+                        'staff_id': data[i].staff_id,
+                        'rental_id': data[i].rental_id,
+                        'amount': data[i].amount,
+                        'payment_date': data[i].payment_date,
+                        'last_update': data[i].last_update
+                        })
+                }
+                return return_data;
+            }
         },
-        error:function(e){
-            console.log(data);
-        }
+            "columns": [
+                { "data": "payment_id" },
+                { "data": "customer_id" },
+                { "data": "staff_id" },
+                { "data": "rental_id" },
+                { "data": "amount" },
+                { "data": "payment_date" },
+                { "data": "last_update" }
+            ]
     });
 });
+// $(document).ready(function(){
+//     $.ajax({
+//         type: "GET",
+//         url: "http://localhost/DB_CW2/table/payment/fetch.php",
+//         data: {},
+//         contentType: "application/json; charset=utf-8",
+//         dataType: "json",                    
+//         cache: false,
+//         success: function(data) {  
+//             var payment_data = '';
+//             $.each(data,function(key,value){
+//                 // payment_data +=    '<tbody><tr class="tr-back"><td>' + value.payment_id + '</td><td>' + value.customer_id +
+//                 //               '</td><td>' + value.staff_id + '</td><td>' + value.rental_id + '</td><td>' + value.amount +
+//                 //                '</td><td>' + value.payment_date + '</td><td>' + value.last_update + '</td></tr></tbody>';
+//             payment_data += '<tbody>';
+//             payment_data += '<tr class="tr-back">';
+//             payment_data += '<td>' + value.payment_id +' </td>';
+//             payment_data += '<td>' + value.customer_id +' </td>';
+//             payment_data += '<td>' + value.staff_id +' </td>';
+//             payment_data += '<td>' + value.rental_id +' </td>';
+//             payment_data += '<td>' + value.amount +' </td>';
+//             payment_data += '<td>' + value.payment_date +' </td>';
+//             payment_data += '<td>' + value.last_update +' </td>';
+//             payment_data += '</tr>';
+//             payment_data += '</tbody>';
+
+//         });
+//         $('#dtHorizontalVerticalExample').append(payment_data);
+
+//         },
+//         error:function(e){
+//             console.log(data);
+//         }
+//     });
+// });
+
+
 </script>
 </body>
 </html>
