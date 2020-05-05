@@ -28,7 +28,7 @@ function validateForm() {
     }
 
 
-    if(country_id == '-') {
+    if(country_id == 'hide') {
         
         error_msg+=("Please select the country\n");
     

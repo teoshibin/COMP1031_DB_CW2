@@ -11,6 +11,8 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
+  <script type="text/javascript" src="store_valid.js"></script>
   <style>.select{font-size:13px; height: 44px;}</style>
 </head>
 
@@ -47,30 +49,30 @@
     echo "<br>" . $error->getMessage();
   }
   //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $store = [
-        "store_id"            => $_POST['store_id'],
-        "manager_staff_id"    => $_POST['manager_staff_id'],
-        "address_id"          => $_POST['address_id'],
-        "last_update"         => $_POST['last_update']
-      ];
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $store = [
+  //       "store_id"            => $_POST['store_id'],
+  //       "manager_staff_id"    => $_POST['manager_staff_id'],
+  //       "address_id"          => $_POST['address_id'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE store 
-      SET store_id     =:store_id,
-          manager_staff_id = :manager_staff_id,
-          address_id   =:address_id,
-          last_update  = NOW()
-      WHERE store_id   =:store_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE store 
+  //     SET store_id     =:store_id,
+  //         manager_staff_id = :manager_staff_id,
+  //         address_id   =:address_id,
+  //         last_update  = NOW()
+  //     WHERE store_id   =:store_id "
+  //     );
 
-      $statement->execute($store);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($store);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -81,6 +83,18 @@
       $statement->execute();
 
       $store = $statement->fetch(PDO::FETCH_ASSOC);
+
+      $statement = $connection->prepare("SELECT address FROM address WHERE address_id= :address_id");
+      $statement->bindValue(':address_id', $store['address_id']);
+      $statement->execute();
+
+      $address_text = $statement->fetch(PDO::FETCH_ASSOC);
+
+      $statement = $connection->prepare("SELECT first_name, last_name FROM staff WHERE staff_id= :staff_id");
+      $statement->bindValue(':staff_id', $store['manager_staff_id']);
+      $statement->execute();
+
+      $staff_text = $statement->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
@@ -98,7 +112,7 @@
     ?>
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" method="post" action="store_update.inc.php" onsubmit="return validateForm()">
     <div class="content">
       <h3 class="title">Update Store Information</h3>
 
@@ -112,7 +126,7 @@
                       <option value=<?php echo ($staff["staff_id"]) ?>><?php echo ($staff["first_name"].' '. $staff["last_name"]) ?></option>
                     <?php endforeach; ?>
                 </select>
-
+                <script defer>storeValue(<?php echo $value?>,"<?php echo($staff_text['first_name'].' '.$staff_text['last_name'])?>","manager_staff_id")</script>
                 <br>
 
         <?php
@@ -125,6 +139,7 @@
                       <option value=<?php echo ($address["address_id"]) ?>><?php echo ('(ID: ' . $address["address_id"].') '. $address["address"]) ?></option>
                     <?php endforeach; ?>
               </select>
+              <script defer>storeValue(<?php echo $value?>,"<?php echo $address_text['address']?>","address_id")</script>
           <?php
           continue;
         }

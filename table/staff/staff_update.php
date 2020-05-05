@@ -11,6 +11,8 @@
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script defer type="text/javascript" src="../../js/main.js"></script>
+    <script type="text/javascript" src="staff_valid.js"></script>
+    <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 
 <body>
@@ -51,6 +53,13 @@
             $statement->execute();
 
             $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+            $statement = $connection->prepare("SELECT address FROM address WHERE address_id= :address_id");
+            $statement->bindValue(':address_id', $result['address_id']);
+            $statement->execute();
+      
+            $address_text = $statement->fetch(PDO::FETCH_ASSOC);
+
         } catch (PDOException $error) {
             echo "<br>" . $error->getMessage();
         }
@@ -82,6 +91,7 @@
                         <option value=<?php echo ($address["address_id"]) ?> <?php echo(($value == $address["address_id"])?'selected':'')?> ><?php echo ("( ID : " . $address['address_id'] . " ) " . $address["address"]) ?></option>
                         <?php endforeach; ?>
                     </select>
+                    <script defer>storeValue(<?php echo $value?>,"<?php echo $address_text['address']?>","address_id")</script>
                 <?php
                     continue;
                 } elseif ($key == 'store_id') {
@@ -92,6 +102,7 @@
                             <option value=<?php echo ($store["store_id"]) ?>><?php echo ($store["store_id"]) ?></option>
                         <?php endforeach; ?>
                     </select>
+                    <script defer>storeValue(<?php echo $value?>,"<?php echo $value?>","store_id")</script>
                 <?php
                     continue;
                 } elseif ($key == 'picture') {

@@ -18,7 +18,7 @@
 <div class="content">
     <h3 class="title">New Customer</h3>
     <!-- <form name="myform" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="return validateForm()" method="post"> -->
-    <form method="post">
+    <form method="post" name="myform"  action="customer_add.inc.php" onsubmit="return validateForm()">
 
         <div class="input-div">
             <div class="i">

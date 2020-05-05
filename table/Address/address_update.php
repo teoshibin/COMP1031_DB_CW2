@@ -12,6 +12,7 @@
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
   <script type="text/javascript" src="address_valid.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 
 <body>
@@ -113,6 +114,7 @@
               <option value =<?php echo($city["city_id"])?>><?php echo($city["city"])?></option>
             <?php } ?>
         </select>
+        <script defer>storeValue(<?php echo $value?>,"<?php echo $address_text['address']?>","address_id")</script>
 
       <?php
         continue;

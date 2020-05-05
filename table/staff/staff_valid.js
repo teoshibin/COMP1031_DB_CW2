@@ -122,11 +122,6 @@ function validateForm() {
     //show out the alert messages
     if (error_msg != '') {
         alert(error_msg);
-    }
-
-    //Prevent the form from being submitted if there are any errors
-    if ((first_nameErr || last_nameErr || emailErr || address_idErr || store_idErr) == true) {
-        alert(error_msg);
         return false;
     } else {
 
@@ -136,9 +131,9 @@ function validateForm() {
             "Email Address: " + email + "\n" +
             "Address ID: " + address_id + "\n" +
             "Store ID: " + store_id + "\n" +
-            "Active: " + active + "\n" +
-            "username: " + username +
-            "password: " + password;
+            "Active: " + active + "\n";
+            // "username: " + username +
+            // "password: " + password;
 
 
         // var dataPreview = "Success";

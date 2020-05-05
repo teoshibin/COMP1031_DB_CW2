@@ -59,7 +59,7 @@
     //echo $_GET['actor_id']; 
   } else {
     echo "Something went wrong!";
-    exit;
+    exit();
   }
   ?>
 
@@ -86,7 +86,7 @@
           </div>
       <?php endforeach; ?>
 
-      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px" onClick='return ("You have successfully updated this record");'/>
+      <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
       <a href="actor.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>

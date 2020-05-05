@@ -10,6 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script src="city_valid.js"></script>
 </head>
 <body>
 
@@ -35,31 +36,31 @@
 
   }
 
-  //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $city = [
-        "city_id"            => $_POST['city_id'],
-        "city"           => $_POST['city'],
-        "country_id"           => $_POST['country_id'],
-        "last_update"         => $_POST['last_update']
-      ];
+  // //update custoer info
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $city = [
+  //       "city_id"            => $_POST['city_id'],
+  //       "city"           => $_POST['city'],
+  //       "country_id"           => $_POST['country_id'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE city 
-      SET city_id     = :city_id,
-          city            = :city,
-          country_id            = :country_id,
-          last_update     = NOW()
-      WHERE city_id   = :city_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE city 
+  //     SET city_id     = :city_id,
+  //         city            = :city,
+  //         country_id       = :country_id,
+  //         last_update     = NOW()
+  //     WHERE city_id   = :city_id "
+  //     );
 
-      $statement->execute($city);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($city);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -87,7 +88,7 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form method="post" name="myform" action="city_update.inc.php" onsubmit="return validateForm()" method="post">
     <div class="content">
       <h3 class="title">Update City Information</h3>
 
@@ -96,8 +97,9 @@
         if($key == 'country_id'){
       ?>
         <select type="text" name="country_id" id="country_id" class="input">
-          <option value="hide" selected>Country</option>
-          <?php foreach($country_result as $country) { echo "<option value =$country[country_id]>$country[country]</option>";}?>
+          <option value="hide">Country</option>
+          <!-- <?php echo "<option value></option>"?> -->
+          <?php foreach($country_result as $country) { echo "<option value =$country[country_id]>$country[country_id]. $country[country]</option>";}?>
         </select>
       <?php
           continue;
@@ -116,7 +118,7 @@
 
 
 
-      <input class="btn btn-dark ml-1" type="submit" city="submit" value="Submit" style="margin-bottom: 15px"/>
+      <input class="btn btn-dark ml-1" type="submit" city="submit" value="submit" style="margin-bottom: 15px"/>
       <a href="city.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>

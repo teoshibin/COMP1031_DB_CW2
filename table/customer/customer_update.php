@@ -11,6 +11,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="customer_valid.js"></script>
 </head>
 
 <body>
@@ -46,41 +47,41 @@
     echo "<br>".$error->getMessage();
 
 }
-  //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $customer = [
-        "customer_id"            => $_POST['customer_id'],
-        "store_id"               => $_POST['store_id'],
-        "first_name"             => $_POST['first_name'],
-        "last_name"              => $_POST['last_name'],
-        "email"                  => $_POST['email'],
-        "address_id"             => $_POST['address_id'],
-        "active"                 => $_POST['active'],
-        "create_date"            => $_POST['create_date'],
-        "last_update"            => $_POST['last_update']
-      ];
+  // //update custoer info
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $customer = [
+  //       "customer_id"            => $_POST['customer_id'],
+  //       "store_id"               => $_POST['store_id'],
+  //       "first_name"             => $_POST['first_name'],
+  //       "last_name"              => $_POST['last_name'],
+  //       "email"                  => $_POST['email'],
+  //       "address_id"             => $_POST['address_id'],
+  //       "active"                 => $_POST['active'],
+  //       "create_date"            => $_POST['create_date'],
+  //       "last_update"            => $_POST['last_update']
+  //     ];
 
-      $statement = $connection->prepare(
-        "UPDATE customer 
-      SET customer_id     = :customer_id,
-          store_id        = :store_id,
-          first_name      = :first_name,
-          last_name       = :last_name,
-          email           = :email,
-          address_id      = :address_id,
-          active          = :active,
-          create_date     = :create_date,
-          last_update     = NOW()
-      WHERE customer_id   = :customer_id "
-      );
+  //     $statement = $connection->prepare(
+  //       "UPDATE customer 
+  //     SET customer_id     = :customer_id,
+  //         store_id        = :store_id,
+  //         first_name      = :first_name,
+  //         last_name       = :last_name,
+  //         email           = :email,
+  //         address_id      = :address_id,
+  //         active          = :active,
+  //         create_date     = :create_date,
+  //         last_update     = NOW()
+  //     WHERE customer_id   = :customer_id "
+  //     );
 
-      $statement->execute($customer);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  //     $statement->execute($customer);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -94,22 +95,28 @@
     } catch (PDOException $error) {
       echo "<br>" . $error->getMessage();
     }
-    //echo $_GET['customer_id']; 
   } else {
     echo "Something went wrong!";
-    exit;
   }
   ?>
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
     <?php
-    echo escape($_POST['last_name'] . 'successfully updated.');
-    header("location: customer.php");
-    exit();
-    ?>
+      header("location: customer.php");
+      exit();
+    ?> 
   <?php endif; ?>
 
-  <form name="myform" action="customer_update.php" onsubmit="return validateForm()" method="post">
+  <!-- if (isset($_POST['submit']) && $statement){
+      header("location: customer.php");
+      exit();
+  } else {
+    echo "Something went wrong!";
+    exit;
+  }
+  ?> -->
+
+  <form name="myform" method="post" action="customer_update.inc.php" onsubmit="return validateForm()">
     <div class="content">
       <h3 class="title">Update Customer Information</h3>
 
@@ -168,11 +175,5 @@
     </div>
   </form>
 </body>
-
-<script>
-  function update() {
-    alert("You have successfully updated the record!");
-  }
-</script>
 
 </html>
