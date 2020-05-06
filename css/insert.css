@@ -391,6 +391,8 @@ body{
     width: 97%;
     margin-left: 1.5%;
     border-radius: 6px;
+    max-height: 300px;
+    overflow-y: scroll;
   }
   .select-options li {
     overflow: hidden;
@@ -411,10 +413,6 @@ body{
     display: none;
   }
 
-form > ul {
-    max-height: 300px;
-    overflow-y: scroll;
-}
 /*dropdown select css */
 
 /* textarea css */
@@ -634,7 +632,7 @@ textarea:placeholder-shown {
 
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 850px) {
 
     *{
       margin:0px;
@@ -667,7 +665,7 @@ textarea:placeholder-shown {
   margin-left: 80px;
 }
 
-form > ul {
+.select-options{
   max-height: 150px;
   overflow-y: scroll;
 }

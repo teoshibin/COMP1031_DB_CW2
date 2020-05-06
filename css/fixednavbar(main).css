@@ -131,7 +131,7 @@ nav > .nav-container{
     margin: 0;
 }
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 850px) {
     #logo{
         margin-left: -12px;
         margin-right: 0px;

@@ -29,7 +29,7 @@ try {
     //execute with PDO
     $statement->execute();
     //store result in $result
-    $data = $statement->fetchAll();
+    $data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($data);
 } catch (PDOException $error) {

@@ -40,7 +40,10 @@ try {
 
 ?>
 
+<!-- Insert button mobile view -->
+<style>@media screen and (max-width: 850px) {.insertbtn{width: 100px !important;font-size: 0.8rem;text-align: center;padding-top: 10px;}}</style>
 <section class="content">
+
     <!-- outer most one - transparent -->
 
     <div class="top">

@@ -62,17 +62,6 @@ body{
     display: flex;
 }
 
-/* .insertbtn {
-    display: inline-block;
-    position: absolute;
-    border: 2px solid black;
-    padding: 4px;
-    border-radius: 5px;
-    color: rgb(60, 60, 60);
-    background: rgb(211, 162, 178);
-    width: 15%;
-    margin-top: 8px;
-} */
 
 
 .insertbtn{
@@ -142,6 +131,18 @@ table.dataTable thead .sorting_desc_disabled:before {
     color: #E4AFC0 !important;
 }
 
+tbody > .odd{
+    background-color: rgb(68, 68, 68) !important;
+    padding: 4px, 10px !important;
+    color: #E4AFC0 !important;
+}
+
+tbody > .even{
+    background-color: rgb(68, 68, 68) !important;
+    padding: 4px, 10px !important;
+    color: #E4AFC0 !important;
+}
+
 .th-back {
     background-color: rgb(26, 26, 26);
     color: #E4AFC0;
@@ -193,5 +194,29 @@ table.dataTable thead .sorting_desc_disabled:before {
 
 .hidetext { -webkit-text-security: circle; /* Default */ }
 
+@media screen and (max-width: 850px) {
+    .dataTables_length > label{
+        float: right;
+        margin-bottom: -25px;
+    }
+
+    .dataTables_filter >label{
+        float: left;
+    }
+
+    .insertbtn{
+        width: 100px !important;
+        height: 40px;
+        border-radius: 25px;
+        padding-top: 5px;
+        padding-left: 0px;
+        padding-right: 0px;
+        font-size: 0.7rem;
+        margin-top: 50px;
+        background-size: 200%;
+        text-align: center;
+    }
+
+}
 
 

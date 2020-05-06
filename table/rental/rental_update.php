@@ -73,7 +73,7 @@
   <?php if (isset($_POST['submit']) && $statement) : ?>
     <?php
       header("location: rental.php");
-      exit();
+      // exit();
     ?> 
   <?php endif; ?>
 

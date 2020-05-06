@@ -64,11 +64,14 @@ body{
 }
 
 .content{
-    width: 45%;
-    margin-right: 27.5%;
-    margin-left: 27.5%;
-    top: 50px;
-
+  width: 45%;
+  margin-right: 27.5%;
+  margin-left: 27.5% !important;
+  top: 50px;
+  /* display: flex; */
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
 }
 
 .input-div{
@@ -258,20 +261,6 @@ body{
     border-color: #E4AFC0;
     z-index: 1;
   }
-
-@media (max-width: 800px) {
-    .toggle input + label {
-      padding: 0.75rem 0.25rem;
-      -webkit-box-flex: 0;
-              flex: 0 0 50%;
-      display: -webkit-box;
-      display: flex;
-      -webkit-box-pack: center;
-              justify-content: center;
-      -webkit-box-align: center;
-              align-items: center;
-    }
-  }
   
   /* dropdown select css */
   .select-hidden {
@@ -304,6 +293,7 @@ body{
     transition: all 0.2s ease-in;
     border-radius: 6px;
   }
+
   .select-styled:after {
     content: "";
     width: 0;
@@ -339,6 +329,8 @@ body{
     width: 97%;
     margin-left: 1.5%;
     border-radius: 6px;
+    max-height: 300px;
+    overflow-y: scroll;
   }
   .select-options li {
     overflow: hidden;
@@ -358,11 +350,7 @@ body{
   .select-options li[rel="hide"] {
     display: none;
   }
-
-form > ul {
-    max-height: 300px;
-    overflow-y: scroll;
-}
+  
 
 /* textarea css */
 textarea {
@@ -602,7 +590,7 @@ textarea:placeholder-shown {
 }
 
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 850px) {
 
   *{
     margin:0px;
@@ -610,13 +598,11 @@ textarea:placeholder-shown {
 
   .login-content{
     width: 80%;
-    margin:auto;
 }
 
 .content{
     width: 80%;
-    margin-left: 25%;
-    margin:auto;
+    margin-left: 7% !important;
 }
 
 .title{
@@ -628,6 +614,17 @@ textarea:placeholder-shown {
 }
 
 
+.checkbox-label{
+  margin-left: 120px;
+}
+
+.checkbox {
+  margin-left: 70px;
+}
 
 
+.select-options {
+  max-height: 150px;
+  overflow-y: scroll;
+}
 }

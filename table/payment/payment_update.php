@@ -13,41 +13,43 @@
 </head>
 <body>
 
-  <?php
+<?php
 
   require "../../include/config.php";
   require "../../include/common.php";
   require_once "../../include/login-check.php";
   require_once "../../include/header.php";
-  //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $payment = [
-        "payment_id"            => $_POST['payment_id'],
-        "customer_id"          => $_POST['customer_id'],
-        "staff_id"           => $_POST['staff_id'],
-        "rental_id"           => $_POST['rental_id'],
-        "amount"           => $_POST['amount'],
-        "last_update"         => $_POST['last_update']
-      ];
 
-      $statement = $connection->prepare(
-        "UPDATE payment 
-      SET payment_id     = :payment_id,
-          customer_id      = :customer_id,
-          staff_id       = :staff_id,
-          rental_id       = :rental_id,
-          amount       = :amount,
-          last_update     = NOW()
-      WHERE payment_id   = :payment_id "
-      );
 
-      $statement->execute($payment);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
+  // //update custoer info
+  // if (isset($_POST['submit'])) {
+  //   try {
+  //     $connection = new PDO($dsn, $username, $password, $options);
+  //     $payment = [
+  //       "payment_id"            => $_POST['payment_id'],
+  //       "customer_id"          => $_POST['customer_id'],
+  //       "staff_id"           => $_POST['staff_id'],
+  //       "rental_id"           => $_POST['rental_id'],
+  //       "amount"           => $_POST['amount'],
+  //       "last_update"         => $_POST['last_update']
+  //     ];
+
+  //     $statement = $connection->prepare(
+  //       "UPDATE payment 
+  //     SET payment_id     = :payment_id,
+  //         customer_id      = :customer_id,
+  //         staff_id       = :staff_id,
+  //         rental_id       = :rental_id,
+  //         amount       = :amount,
+  //         last_update     = NOW()
+  //     WHERE payment_id   = :payment_id "
+  //     );
+
+  //     $statement->execute($payment);
+  //   } catch (PDOException $error) {
+  //     echo "<br>" . $error->getMessage();
+  //   }
+  // }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -75,11 +77,12 @@
     ?> 
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" method="post" action="payment_update.inc.php" onsubmit="return validateForm()" enctype="multipart/form-data">
     <div class="content">
       <h3 class="title">Update Payment Information</h3>
 
       <?php foreach ($payment as $key => $value): ?>
+
 
           <div class="input-div">
             <div class="i">
@@ -91,9 +94,16 @@
           </div>
       <?php endforeach; ?>
 
+
       <input class="btn btn-dark ml-1" type="submit" name="submit" value="Submit" style="margin-bottom: 15px"/>
       <a href="payment.php" class="btn-back" style="margin-bottom: 15px">BACK</a>
     </div>
   </form>
+
+
 </body>
+<script>
+
+
+</script>
 </html>

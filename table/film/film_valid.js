@@ -15,7 +15,10 @@ function validateForm() {
     var length = document.myform.length.value;
     var replacement_cost = document.myform.replacement_cost.value;
     var rating = document.myform.rating.value;
-    var special_features = document.myform.special_features.value;
+    var special_features1 = document.myform.special_features1.value;
+    var special_features2 = document.myform.special_features2.value;
+    var special_features3 = document.myform.special_features3.value;
+    var special_features4 = document.myform.special_features4.value;
 
     //CAN BE NULL : description release_year original_language_id length rating special
 
@@ -29,10 +32,10 @@ function validateForm() {
 
         error_msg += ("Please insert the Film Title\n");
 
-
     } else {
         var regex = /^[a-zA-Z0-9\s]+$/;
         if (regex.test(title) === false) {
+
             error_msg += ("Please enter a valid Film Title\n");
 
         } else {
@@ -74,10 +77,10 @@ function validateForm() {
     }
 
     // Validate original language ID
-    if (original_language_id == 'hide') {
+    // if (original_language_id == 'hide') {
 
-        $('select[name$="original_language_id"]').val('');
-    }
+    //     $('select[name$="original_language_id"]').val('');
+    // }
 
     // Validate rental duration
     if (rental_duration == '') {
@@ -144,15 +147,15 @@ function validateForm() {
     }
 
     // Validate Rating
-    if (rating == 'hide') {
+    // if (rating == 'hide') {
 
-        error_msg += ("Please select the rating\n");
+    //     error_msg += ("Please select the rating\n");
 
-    } else {
+    // } else {
 
-        ratingErr = false;
+    //     ratingErr = false;
 
-    }
+    // }
 
     // Validate special features
     // if (special_features == '-') {
@@ -185,7 +188,7 @@ function validateForm() {
             "Length: " + length + "\n" +
             "Replacement Cost: $" + replacement_cost + "\n" +
             "Rating: $" + rating + "\n" +
-            "Special Features: " + special_features + "\n";
+            "Special Features: " + special_features1 + " " + special_features2 + " " + special_features3 + " " + special_features4 + "\n";
 
 
         // var dataPreview = "Success";

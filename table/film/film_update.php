@@ -79,7 +79,7 @@
           // $col_name = $key;
           // $col_value = $value;
       ?>
-          <textarea type="text" placeholder="Description" name="description" id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"><?php echo($value) ?></textarea>
+          <textarea type="text" placeholder="Description" name="description" id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px; color:#E4AFC0;"><?php echo($value) ?></textarea>
 
         <?php
           continue;
@@ -101,12 +101,12 @@
         ?>
           <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
           <select type="text" name="original_language_id" id="original_language_id" class="input">
-            <option value="hide" selected>Original Language</option>
+            <option value="hide">Original Language</option>
             <?php foreach ($language_result as $language) {
               echo "<option value =$language[language_id]>$language[name]</option>";
             } ?>
           </select>
-          <script defer>storeValue(<?php echo $value?>,"original_language_id")</script>
+          <script defer>storeValue(<?php echo($value == '')?'"hide"':$value ?>,"original_language_id")</script>
         <?php
           continue;
         } else if ($key == 'rating') {
@@ -143,25 +143,25 @@
         ?>
           <h5 class="checkbox-title">Special Features</h5>
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features1" <?php echo($special_features1?'checked':'') ?> />
+            <input class="check" type="checkbox" name="special_features1" id="special_features1" <?php echo($special_features1?'checked':'') ?> />
             <label for="special_features1"></label>
           </div>
           <h5 class="checkbox-label">Behind the scenes</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features2" <?php echo($special_features2?'checked':'') ?> />
+            <input class="check" type="checkbox" name="special_features2" id="special_features2" <?php echo($special_features2?'checked':'') ?> />
             <label for="special_features2"></label>
           </div>
           <h5 class="checkbox-label">Trailers</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features3" <?php echo($special_features3?'checked':'') ?> />
+            <input class="check" type="checkbox" name="special_features3" id="special_features3" <?php echo($special_features3?'checked':'') ?> />
             <label for="special_features3"></label>
           </div>
           <h5 class="checkbox-label">Commentaries</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features4" <?php echo($special_features4?'checked':'') ?> />
+            <input class="check" type="checkbox" name="special_features4" id="special_features4" <?php echo($special_features4?'checked':'') ?> />
             <label for="special_features4"></label>
           </div>
           <h5 class="checkbox-label">Deleted scenes</h5>

@@ -54,7 +54,7 @@
         </div>
 
                 <select type="text" name="country_id" id="country_id" class="input">
-                    <option value="-" selected> Country </option>
+                    <option value="hide" selected> Country </option>
                     <?php foreach($result as $country) { echo "<option value =$country[country_id]>$country[country]</option>";}?>
                 </select>
 

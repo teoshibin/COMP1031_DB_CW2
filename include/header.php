@@ -73,6 +73,9 @@
         <li><a href="/DB_CW2/table/rental/rental.php" class="nav-elem">Rental</a></li>
         <li><a href="/DB_CW2/table/staff/staff.php" class="nav-elem">Staff</a></li>
         <li><a href="/DB_CW2/table/store/store.php" class="nav-elem">Store</a></li>
+        <br>
+        <br>
+        <br>
     </ul>
     </nav>
 
