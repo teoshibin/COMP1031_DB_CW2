@@ -152,17 +152,44 @@ p{
   }
   
   /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 1000px) {
     .column {
-      flex: 50%;
-      max-width: 50%;
+      flex: 20%;
+      max-width: 20%;
+      margin: 0px;
     }
+
+    .row {
+        margin-left: 0px;
+      }
+
+      
+    .column > .tile{
+        margin:auto;
+        width: 160px;
+        margin-top: 5px;
+        
+    }
+
   }
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 799px) {
     .column {
       flex: 100%;
       max-width: 100%;
+      margin:0px;
+    }
+
+    .row {
+        margin-left: 0px;
+      }
+
+    .column > .tile{
+       margin: auto;
+       height: 60px;
+       width: 70%;
+       padding: 0px;
+       padding-top: 10px;
     }
   }

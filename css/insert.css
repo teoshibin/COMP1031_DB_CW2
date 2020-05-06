@@ -51,7 +51,7 @@ body{
     font-size: 3rem;
     color: #E4AFC0;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: 30px;
 }
 
@@ -64,6 +64,10 @@ body{
     align-items: center;
     text-align: center;
     justify-content: flex-start;
+}
+
+.login-content{
+  height: 100%;
 }
 
 .input-div{
@@ -407,7 +411,7 @@ body{
     display: none;
   }
 
-ul {
+form > ul {
     max-height: 300px;
     overflow-y: scroll;
 }
@@ -589,4 +593,83 @@ textarea:placeholder-shown {
   content: "Selected file: ";
   font-style: normal;
   font-weight: normal;
+}
+
+@media screen and (max-width: 9999px) {
+
+  *{
+    margin:0px;
+  }
+
+  .login-content{
+    width: 40%;
+    margin:auto;
+}
+
+}
+
+@media screen and (max-width: 1200px) {
+
+  *{
+    margin:0px;
+  }
+
+  .login-content{
+    width: 50%;
+    margin:auto;
+}
+
+  .content{
+    width: 80%;
+    margin:auto;
+}
+
+.title{
+  margin-top: 100px !important;
+  font-size: 2.2rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+}
+
+@media screen and (max-width: 799px) {
+
+    *{
+      margin:0px;
+    }
+
+    .login-content{
+      width: 80%;
+      margin:auto;
+  }
+
+  .content{
+      width: 80%;
+      margin:auto;
+  }
+
+  .title{
+    margin-top: 100px !important;
+    font-size: 2.2rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  
+.checkbox-label{
+  margin-left: 130px;
+}
+
+.checkbox {
+  margin-left: 80px;
+}
+
+form > ul {
+  max-height: 150px;
+  overflow-y: scroll;
+}
+
 }

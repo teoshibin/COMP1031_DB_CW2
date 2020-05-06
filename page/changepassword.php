@@ -8,7 +8,7 @@ require_once "../include/header.php";
 <script defer type="text/javascript" src="../js/main.js"></script>
 
 <div class="content-background" style="background-color: rgb(40,39,39); height: 100vh; opacity: 0.8;">
-    <div class="login-content" style="width: 40%; margin-left:31%;">
+    <div class="login-content">
         <h2 class="title" style="margin-left:6%; margin-top: 25%;">Change Password</h2>
         <!-- <h5 style="margin-left:15%; margin-bottom:5%;">Please fill out this form to change your password.</h5> -->
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

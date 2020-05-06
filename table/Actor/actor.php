@@ -2,9 +2,9 @@
 <?php
 
 //view customer information
-require "../../include/login-check.php";
 require "../../include/config.php";
 require "../../include/common.php";
+require "../../include/login-check.php";
 require "../../include/header.php";
 
 if (isset($_GET["id"])) {

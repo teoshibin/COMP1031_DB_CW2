@@ -52,8 +52,8 @@
             </div>
         </div>
 
-                <textarea type="text" placeholder="Description"name="description" 
-                id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"></textarea>
+        <textarea type="text" placeholder="Description"name="description" 
+        id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"></textarea>
 
         <div class="input-div">
             <div class="i">
@@ -138,26 +138,26 @@
 
                 <h5 class="checkbox-title">Special Features</h5>
                     <div class="checkbox">
-                    <input class="check" type="checkbox"  name="special_features" id="special_features1"/>
+                    <input class="check" type="checkbox"  name="special_features1" id="special_features1"/>
                     <label for="special_features1"></label>
                     </div>
                     <h5 class="checkbox-label">Behind the scenes</h5>
                     
 
                     <div class="checkbox">
-                    <input class="check" type="checkbox"  name="special_features" id="special_features2"/>
+                    <input class="check" type="checkbox"  name="special_features2" id="special_features2"/>
                     <label for="special_features2"></label>
                     </div>
                     <h5 class="checkbox-label">Trailers</h5>
 
                     <div class="checkbox">
-                    <input class="check" type="checkbox"  name="special_features" id="special_features3"/>
+                    <input class="check" type="checkbox"  name="special_features3" id="special_features3"/>
                     <label for="special_features3"></label>
                     </div>
                     <h5 class="checkbox-label">Commentaries</h5>
                     
                     <div class="checkbox">
-                    <input class="check" type="checkbox"  name="special_features" id="special_features4"/>
+                    <input class="check" type="checkbox"  name="special_features4" id="special_features4"/>
                     <label for="special_features4"></label>
                     </div>
                     <h5 class="checkbox-label">Deleted scenes</h5>

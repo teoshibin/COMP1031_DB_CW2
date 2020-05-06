@@ -56,7 +56,7 @@
         <a href="/DB_CW2/page/home.php" class="logo-container"><img src="/DB_CW2/img/logo.png" alt="Sakila logo" id="logo"></a>
         <a href="/DB_CW2/page/changepassword.php"><i class="fa fa-key" id = change-pass></i></a>
         <a href="/DB_CW2/include/logout.inc.php"><i class="fa fa-sign-out-alt" id="logout"></i></a>
-    <ul>
+    <ul class="nav-container">
         <li><a href="/DB_CW2/table/actor/actor.php" class="nav-elem">Actor</a></li>
         <li><a href="/DB_CW2/table/address/address.php" class="nav-elem">Address</a></li>
         <li><a href="/DB_CW2/table/category/category.php" class="nav-elem">Category</a></li>

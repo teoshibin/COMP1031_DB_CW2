@@ -11,6 +11,8 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
+  <script type="text/javascript" src="film_valid.js"></script>
 </head>
 
 <body>
@@ -40,49 +42,6 @@
 
     echo "<br>" . $error->getMessage();
   }
-  //update custoer info
-  if (isset($_POST['submit'])) {
-    try {
-      $connection = new PDO($dsn, $username, $password, $options);
-      $film = [
-        "film_id"            => $_POST['film_id'],
-        "title"          => $_POST['title'],
-        "description"           => $_POST['description'],
-        "release_year"           => $_POST['release_year'],
-        "language_id"           => $_POST['language_id'],
-        "original_language_id"           => $_POST['original_language_id'],
-        "rental_duration"           => $_POST['rental_duration'],
-        "rental_rate"           => $_POST['rental_rate'],
-        "length"           => $_POST['length'],
-        "replacement_cost"           => $_POST['replacement_cost'],
-        "rating"           => $_POST['rating'],
-        "special_features"           => $_POST['special_features'],
-        "last_update"         => $_POST['last_update']
-      ];
-
-      $statement = $connection->prepare(
-        "UPDATE film 
-      SET film_id     = :film_id,
-          title      = :title,
-          description       = :description,
-          release_year       = :release_year,
-          language_id       = :language_id,
-          original_language_id       = :original_language_id,
-          rental_duration       = :rental_duration,
-          rental_rate       = :rental_rate,
-          length       = :length,
-          replacement_cost       = :replacement_cost,
-          rating       = :rating,
-          special_features       = :special_features,
-          last_update     = NOW()
-      WHERE film_id   = :film_id "
-      );
-
-      $statement->execute($film);
-    } catch (PDOException $error) {
-      echo "<br>" . $error->getMessage();
-    }
-  }
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
@@ -110,7 +69,7 @@
     ?>
   <?php endif; ?>
 
-  <form method="post">
+  <form name="myform" action="film_update.inc.php" onsubmit="return validateForm()" method="post">
     <div class="content">
       <h3 class="title">Update Film Information</h3>
 
@@ -120,68 +79,89 @@
           // $col_name = $key;
           // $col_value = $value;
       ?>
-          <textarea type="text" placeholder="Description" name="description" id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"></textarea>
+          <textarea type="text" placeholder="Description" name="description" id="description" class="input" cols="10" rows="5" maxlength="6000" style="margin-top:20px; margin-bottom:20px;"><?php echo($value) ?></textarea>
 
         <?php
           continue;
         } else if ($key == 'language_id') {
 
         ?>
+          <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
           <select type="text" name="language_id" id="language_id" class="input">
             <option value="hide" selected>Language</option>
             <?php foreach ($language_result as $language) {
               echo "<option value =$language[language_id]>$language[name]</option>";
             } ?>
           </select>
+          <script defer>storeValue(<?php echo $value?>,"language_id")</script>
         <?php
           continue;
         } else if ($key == 'original_language_id') {
 
         ?>
+          <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
           <select type="text" name="original_language_id" id="original_language_id" class="input">
             <option value="hide" selected>Original Language</option>
             <?php foreach ($language_result as $language) {
               echo "<option value =$language[language_id]>$language[name]</option>";
             } ?>
           </select>
+          <script defer>storeValue(<?php echo $value?>,"original_language_id")</script>
         <?php
           continue;
         } else if ($key == 'rating') {
-
+            // echo($value);
         ?>
+          <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
           <select type="text" name="rating" id="rating" class="input">
-            <option value="hide" selected>Rating</option>
+            <option value="hide">Rating</option>
             <option value="G">G</option>
             <option value="R">R</option>
             <option value="PG">PG</option>
             <option value="PG-13">PG-13</option>
             <option value="NC-17">NC-17</option>
           </select>
+          <script defer>storeValue("<?php echo $value?>","rating")</script>
         <?php
           continue;
         } else if ($key == 'special_features') {
+          $features_array = explode(",", $value);
+          $special_features1=$special_features2=$special_features3=$special_features4= false;
+          foreach ($features_array as $feature_key => $array_value) {
+            if(strcmp($array_value,"Behind the Scenes") == 0){
+              $special_features1 = true;
+            } elseif(strcmp($array_value,"Trailers") == 0 ){
+              $special_features2 = true;
+            } elseif(strcmp($array_value,"Commentaries") == 0){
+              $special_features3 = true;
+            } elseif(strcmp($array_value,"Deleted Scenes") == 0){
+              $special_features4 = true;
+            }
+            
+          }   
+
         ?>
           <h5 class="checkbox-title">Special Features</h5>
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features1" />
+            <input class="check" type="checkbox" name="special_features" id="special_features1" <?php echo($special_features1?'checked':'') ?> />
             <label for="special_features1"></label>
           </div>
           <h5 class="checkbox-label">Behind the scenes</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features2" />
+            <input class="check" type="checkbox" name="special_features" id="special_features2" <?php echo($special_features2?'checked':'') ?> />
             <label for="special_features2"></label>
           </div>
           <h5 class="checkbox-label">Trailers</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features3" />
+            <input class="check" type="checkbox" name="special_features" id="special_features3" <?php echo($special_features3?'checked':'') ?> />
             <label for="special_features3"></label>
           </div>
           <h5 class="checkbox-label">Commentaries</h5>
 
           <div class="checkbox">
-            <input class="check" type="checkbox" name="special_features" id="special_features4"/>
+            <input class="check" type="checkbox" name="special_features" id="special_features4" <?php echo($special_features4?'checked':'') ?> />
             <label for="special_features4"></label>
           </div>
           <h5 class="checkbox-label">Deleted scenes</h5>

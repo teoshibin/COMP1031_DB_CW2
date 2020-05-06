@@ -1,4 +1,7 @@
-
+<?php
+  require_once "../../include/login-check.php";
+  require_once "../../include/header.php";
+?>
 
 
 <!DOCTYPE html>

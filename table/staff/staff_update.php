@@ -22,6 +22,8 @@
 
     require "../../include/config.php";
     require "../../include/common.php";
+    require_once "../../include/login-check.php";
+    require_once "../../include/header.php";
 
     $statement = false;
 

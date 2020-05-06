@@ -18,6 +18,9 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+  require_once "../../include/login-check.php";
+  require_once "../../include/header.php";
+
   //update custoer info
   // if (isset($_POST['submit'])) {
   //   try {

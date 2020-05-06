@@ -13,6 +13,8 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+  require_once "../../include/login-check.php";
+  require_once "../../include/header.php";
 
   //use $_GET to retrieve information from the URL 
   if (isset($_GET['id'])) {
