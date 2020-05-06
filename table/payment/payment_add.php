@@ -36,12 +36,12 @@
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="../../css/insert.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/qpy2aGtSgsYPZzCoYWjcaBCo/recaptcha__en_gb.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <!-- <script type="text/javascript" src="insert.js"></script> -->
     <script type="text/javascript" src="payment_valid.js"></script>
@@ -68,19 +68,18 @@
 
                 <select type="text" name="rental_id" id="rental_id" class="input">
                     <option value="-" selected>Rental ID</option>
-                    <!-- <?php foreach($result3 as $rental) { echo "<option value =$rental[rental_id]>$rental[rental_id]</option>";}?> -->
                 </select>
 
-                    <br>
+                <br>
 
-            <div class="input-div">
+            <!-- <div class="input-div">
             <div class="i">
             </div>
             <div class="div">
                 <h5>Rental ID</h5>
                 <input type="number" name="rental_id" id="rental" class="input">
             </div>
-        </div>
+        </div> -->
         
         <div class="input-div">
             <div class="i">
@@ -103,22 +102,21 @@
     </form>
 </div>
 </body>
-<script type="text/javascript">
-// function myFunction()
-//   {
+<script>
+// $(document).ready(function(){
+  
 //     $('#rental_id').empty();
 //     $('#rental_id').append("<option>Rental ID</option>");
 
 //     $.ajax({
-//             type: "POST",
-//             url: "http://localhost/DB_CW2/table/payment/rental_id_json.php",
+//             type: "GET",
+//             url: "rental_id_json.php",
 //             contentType: "application/json; charset=utf-8",
 //             dataType:"json",
 //             success: function(data){
 //                 $('#rental_id').empty();
 //                 $('#rental_id').append("<option value='hide'>Rental ID</option>");
-//                 $.each(data, function(i, value) {
-//                     // You will need to alter the below to get the right values from your json object.  Guessing that d.id / d.modelName are columns in your carModels data
+//                 $.each(data, function(index, value) {
 //                     $('#rental_id').append('<option value="' +value.rental_id + '">' + value.rental_id + '</option>');
 //                 });
 //             },
@@ -126,20 +124,45 @@
 
 //             }
 //         });
-//   }
+  
+// });
 
 $(document).ready(function(){
-    var url = "http://localhost/DB_CW2/table/payment/rental_id_json.php";
+    var url = "rental_id_json.php";
     $.getJSON(url, function (data) {
-                $.each(data, function (index, value) {
-                    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-                    $('#rental_id').append('<option value="' + value.rental_id + '">' + value.rental_id + '</option>');
-                });
-            });
+        $.each(data, function (index, value) {
+            // APPEND OR INSERT DATA TO SELECT ELEMENT.
+            // console.log(value.rental_id);
+            $('#rental_id').append('<option value="' + value.rental_id  + '">' + value.rental_id + '</option>');
+
+            // $('#rental_id').append($('<option>',{ value: rental_id, text: rental_id }));
+
+            // var option = $('<option value="'+value.rental_id+'">'+value.rental_id +'</option>');
+            // $('#rental_id').append(option);
+
+            // console.log('#rental_id');
+
+            // $('#rental_id').append($('<option>', { 
+            //     value: value.value,
+            //     text : value.rental_id
+            // }));
+
+            // $('#rental_id').append('<option value="${value.rental_id}"> ${value.rental_id} </option>');
+  
         });
+    });
+});
 
+$(document).ready(function(){
+    var url = "rental_id_json.php";
+    $.getJSON(url, function (data) {
+        $.each(data, function (index, value) {
+            // APPEND OR INSERT DATA TO SELECT ELEMENT.
+            console.log(value.rental_id);
+            $('#rental_id').append('<option value="' + value.rental_id  + '">' + value.rental_id + '</option>');
 
-
+    });
+});
 
 </script>
 

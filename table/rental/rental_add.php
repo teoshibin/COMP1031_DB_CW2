@@ -30,11 +30,11 @@
 <head>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="../../css/insert.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/qpy2aGtSgsYPZzCoYWjcaBCo/recaptcha__en_gb.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <!-- <script type="text/javascript" src="insert.js"></script> -->
     <script type="text/javascript" src="film_valid.js"></script>

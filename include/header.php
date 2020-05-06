@@ -9,11 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script defer type="text/javascript" src="/DB_CW2/js/main.js"></script>
     <!-- <script src="../fontawesome/js/all.min.js"></script> -->
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-    
+    <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
     <!-- css related to table display -->
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
     <link rel="stylesheet" href="/DB_CW2/css/view.css">
     <link rel="stylesheet" href="/DB_CW2/css/loading.css">
     
@@ -36,9 +35,10 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 
     <meta name="theme-color" content="#ffffff">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-
+    
 </head>
 <body>
     <div class="loader-wrapper">

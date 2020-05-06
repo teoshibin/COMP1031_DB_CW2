@@ -13,7 +13,7 @@ header('Content-Type: application/json');
     //#2 Prepare Sql QUery 
     $statement = $connection->prepare("SELECT rental_id FROM rental");
    
-    $statement->execute('rental_id'=>);
+    $statement->execute();
     $data= $statement->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($data);
 
