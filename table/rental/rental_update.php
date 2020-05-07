@@ -10,6 +10,7 @@
   <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
   <script defer type="text/javascript" src="../../js/main.js"></script>
+  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
 </head>
 <body>
 
@@ -19,6 +20,19 @@
   require "../../include/common.php";
   require_once "../../include/login-check.php";
   require_once "../../include/header.php";
+  
+  $connection = new PDO($dsn, $username, $password, $options);
+
+  //#2 Prepare Sql QUery 
+  $statement2 = $connection->prepare("SELECT customer_id,first_name,last_name FROM customer");
+  $statement2->execute();
+  $result2 = $statement2->fetchAll();
+
+  $statement3 = $connection->prepare("SELECT staff_id,first_name,last_name FROM staff");
+  $statement3->execute();
+  $result3 = $statement3->fetchAll();
+
+  
   //update custoer info
   if (isset($_POST['submit'])) {
     try {
@@ -81,8 +95,38 @@
     <div class="content">
       <h3 class="title">Update Rental Information</h3>
 
-      <?php foreach ($rental as $key => $value): ?>
-
+      <?php foreach ($rental as $key => $value): 
+      
+        if($key == 'customer_id'){
+          ?>
+          <br>
+          <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
+          <select type="text" name="customer_id" id="customer_id" class="input">
+          <option value="hide" selected>Customer ID</option>
+          <?php foreach ($result2 as $customer) {
+              echo "<option value =$customer[customer_id]>$customer[customer_id]. $customer[first_name] $customer[last_name]</option>";
+          } ?>
+      </select>
+      <script defer>storeValue(<?php echo $value?>,"customer_id")</script>
+          
+          <?php
+          continue;
+        } elseif($key == 'staff_id'){
+          ?>
+              <br>
+              <h5 style="color: #999; font-size: 15px;"><?php echo str_replace('_', ' ', ucfirst($key)) ?></h5>
+            <select type="text" name="staff_id" id="staff_id" class="input">
+                <option value="hide" selected>Staff ID</option>
+                <?php foreach ($result3 as $staff) {
+                    echo "<option value =$staff[staff_id]>$staff[staff_id]. $staff[first_name] $staff[last_name]</option>";
+                } ?>
+            </select> 
+            <script defer>storeValue(<?php echo $value?>,"staff_id")</script>
+          <?php
+          continue;
+        }
+      ?>
+    
           <div class="input-div">
             <div class="i">
             </div>

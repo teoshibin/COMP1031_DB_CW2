@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"/>
     <link rel="stylesheet" href="/DB_CW2/css/view.css">
     <link rel="stylesheet" href="/DB_CW2/css/loading.css">
+    <link rel="stylesheet" href="/DB_CW2/css/footer.css">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="/DB_CW2/favicon/apple-icon-57x57.png">
@@ -78,5 +79,7 @@
         <br>
     </ul>
     </nav>
+
+
 
     

@@ -1,28 +1,33 @@
-<?php 
-    require "../../include/config.php";
-    require "../../include/common.php";
-    require_once "../../include/login-check.php";
-    require_once "../../include/header.php";
+<?php
+require "../../include/config.php";
+require "../../include/common.php";
+require_once "../../include/login-check.php";
+require_once "../../include/header.php";
 
-    $statement=false;
+$statement = false;
 
-    try{
+try {
 
-        //#1 Open Connection
-        $connection = new PDO ($dsn,$username,$password,$options);
-        
-        //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("SELECT   language_id, name FROM language");
+    //#1 Open Connection
+    $connection = new PDO($dsn, $username, $password, $options);
 
-       
-        $statement->execute();
-        $result = $statement->fetchAll();
+    //#2 Prepare Sql QUery 
+    $statement1 = $connection->prepare("SELECT inventory_id FROM inventory");
+    $statement1->execute();
+    $result1 = $statement1->fetchAll();
 
-    } catch (PDOException $error){
+    $statement2 = $connection->prepare("SELECT customer_id,first_name,last_name FROM customer");
+    $statement2->execute();
+    $result2 = $statement2->fetchAll();
 
-        echo "<br>".$error->getMessage();
+    $statement3 = $connection->prepare("SELECT staff_id,first_name,last_name FROM staff");
+    $statement3->execute();
+    $result3 = $statement3->fetchAll();
+} catch (PDOException $error) {
 
-    }
+    echo "<br>" . $error->getMessage();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,36 +47,38 @@
 
 <div class="content">
     <h3 class="title">New Rental</h3>
-  
-    <form name="myform" action="film_add.inc.php" onsubmit="return validateForm()" method="post">
+
+    <form name="myform" action="rental_add.inc.php" onsubmit="return validateForm()" method="post">
 
         <div class="input-div">
             <div class="i">
             </div>
             <div class="div">
-                <h5>Rental ID</h5>
-                <input type="text" name="rental_id" id="rental_id" class="input">
-            </div>
-        </div>
-
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Inventory ID</h5>
+                <h5>Inventory</h5>
                 <input type="text" name="inventory_id" id="inventory_id" class="input">
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Customer ID</h5>
-                <input type="text" name="customer_id" id="customer_id" class="input">
-            </div>
-        </div>
-        
+        <br>
+
+        <select type="text" name="customer_id" id="customer_id" class="input">
+            <option value="hide" selected>Customer ID</option>
+            <?php foreach ($result2 as $customer) {
+                echo "<option value =$customer[customer_id]>$customer[customer_id]. $customer[first_name] $customer[last_name]</option>";
+            } ?>
+        </select>
+
+        <br>
+
+        <select type="text" name="staff_id" id="staff_id" class="input">
+            <option value="hide" selected>Staff ID</option>
+            <?php foreach ($result3 as $staff) {
+                echo "<option value =$staff[staff_id]>$staff[staff_id]. $staff[first_name] $staff[last_name]</option>";
+            } ?>
+        </select>
+
+        <br>
+
         <div class="input-div">
             <div class="i">
             </div>
@@ -81,22 +88,12 @@
             </div>
         </div>
 
-        <div class="input-div">
-            <div class="i">
-            </div>
-            <div class="div">
-                <h5>Staff ID</h5>
-                <input type="text" name="staff_id" id="staff_id" class="input">
-            </div>
-        </div>
-
-
         <input class="btn btn-primary" type="submit" name="submit" style="margin-top:30px">
 
         <br>
 
         <a href="rental.php" class="btn-back" style="margin-bottom:100px;">BACK</a>
-        
+
     </form>
 </div>
 </body>

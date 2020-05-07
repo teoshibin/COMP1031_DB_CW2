@@ -1,0 +1,21 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(31, 31, 31);
+    color: white;
+    text-align: center;
+    height: 35px;
+ }
+
+ .footer-logo{
+    font-size: 30px; 
+    margin: 2px 2px;
+ }
+
+ @media screen and (max-width: 850px) {
+   .footer{
+     display: none;
+   }
+ }

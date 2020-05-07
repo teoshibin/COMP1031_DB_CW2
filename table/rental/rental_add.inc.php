@@ -22,15 +22,15 @@ if(isset($_POST['submit'])){
         $connection = new PDO ($dsn,$username,$password,$options);
         
         //#2 Prepare Sql QUery 
-        $statement = $connection->prepare("INSERT INTO rental (rental_id,rental_date,inventory_id,customer_id,return_date,staff_id,last_update) 
-        VALUES (?,NOW(),?,?,?,?,NOW()) ");
+        $statement = $connection->prepare("INSERT INTO rental (rental_date,inventory_id,customer_id,return_date,staff_id,last_update) 
+        VALUES (NOW(),?,?,?,?,NOW()) ");
 
-        $statement ->bindParam(1,$_POST['rental_id'],PDO::PARAM_INT);
-        $statement ->bindParam(2,$_POST['rental_date'],PDO::PARAM_INT);
-        $statement ->bindParam(3,$_POST['inventory_id'],PDO::PARAM_INT);
-        $statement ->bindParam(4,$_POST['customer_id'],PDO::PARAM_INT);
-        $statement ->bindParam(3,$_POST['return_date'],PDO::PARAM_INT);
-        $statement ->bindParam(4,$_POST['staff_id'],PDO::PARAM_INT);
+        // $statement ->bindParam(1,$_POST['rental_id'],PDO::PARAM_INT);
+        // $statement ->bindParam(2,$_POST['rental_date'],PDO::PARAM_INT);
+        $statement ->bindParam(2,$_POST['inventory_id'],PDO::PARAM_INT);
+        $statement ->bindParam(3,$_POST['customer_id'],PDO::PARAM_INT);
+        $statement ->bindParam(4,$_POST['return_date'],PDO::PARAM_INT);
+        $statement ->bindParam(5,$_POST['staff_id'],PDO::PARAM_INT);
 
 
     

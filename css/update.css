@@ -1,38 +1,72 @@
 /* scrollbar css */
 /* total width */
 *::-webkit-scrollbar {
-  background-color:rgba(40, 39, 39, 0);
-  width:5px
+  background-color:rgba(40, 39, 39, 0) !important;
+  width:5px !important;
 }
 
 /* background of the scrollbar except button or resizer */
 *::-webkit-scrollbar-track {
-  background-color:rgba(40, 39, 39, 0);
+  background-color:rgba(40, 39, 39, 0) !important;
 }
 
 /* scrollbar itself */
 *::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.715) !important;
+  border-radius:16px !important;
+  border:3px solid rgba(40, 39, 39, 0) !important;
+}
+
+*::-webkit-scrollbar:horizontal {
+  background-color:rgba(40, 39, 39, 0) !important;
+  height: 9px !important;
+}
+
+*::-webkit-scrollbar-track:horizontal {
+  background-color:rgba(40, 39, 39, 0) !important;
+}
+
+*::-webkit-scrollbar-thumb:horizontal {
+  background-color:rgba(255, 255, 255, 0.715) !important;
+  border-radius:16px !important;
+  border:3px solid rgba(40, 39, 39, 0)  !important;
+}
+
+
+/* dropdown scrollbar css
+select::-webkit-scrollbar {
+    background-color:rgba(40, 39, 39, 0);
+    width:5px
+}
+
+/* background of the scrollbar except button or resizer */
+select::-webkit-scrollbar-track {
+  background-color:rgba(40, 39, 39, 0);
+}
+
+/* scrollbar itself */
+select::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.715);
   border-radius:16px;
   border:3px solid rgba(40, 39, 39, 0);
 }
 
-*::-webkit-scrollbar:horizontal {
+select::-webkit-scrollbar:horizontal {
   background-color:rgba(40, 39, 39, 0);
   height: 9px;
 }
 
-*::-webkit-scrollbar-track:horizontal {
+select::-webkit-scrollbar-track:horizontal {
   background-color:rgba(40, 39, 39, 0);
 }
 
-*::-webkit-scrollbar-thumb:horizontal {
+select::-webkit-scrollbar-thumb:horizontal {
   background-color:rgba(255, 255, 255, 0.715);
   border-radius:16px;
   border:3px solid rgba(40, 39, 39, 0);
 }
 
-*::-webkit-scrollbar-corner {
+select::-webkit-scrollbar-corner {
   display: none;
 }
 
@@ -541,10 +575,12 @@ textarea:placeholder-shown {
   /* profile picture */
 .input-file-container {
   display: block;
-  width: 35%;
+  margin: auto;
+  width: 180px;
   margin-top:10px;
-  margin-left: 185px;
   margin-bottom: 20px;
+  box-sizing: border-box;
+  position: relative;
 } 
 
 .js .input-file-trigger {
@@ -613,7 +649,6 @@ textarea:placeholder-shown {
   justify-content: center;
 }
 
-
 .checkbox-label{
   margin-left: 120px;
 }
@@ -627,4 +662,8 @@ textarea:placeholder-shown {
   max-height: 150px;
   overflow-y: scroll;
 }
+
+.input-file-container {
+  /* margin-left: 168px; */
+} 
 }
