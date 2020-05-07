@@ -36,8 +36,8 @@ require "../../include/common.php";
     }
 
 if (isset($_POST['submit']) && $statement) {
-    // header("Location: address.php");
-    // exit();
+    header("Location: address.php");
+    exit();
 } else {
     echo '<p style="color:white">Please fill in all the details correctly</p>';
 } 

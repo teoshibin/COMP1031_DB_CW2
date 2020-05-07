@@ -47,7 +47,7 @@ try {
     <!-- outer most one - transparent -->
 
     <div class="top">
-        <a class="insertbtn" href="film_category_add.php" role="button" style="width: 14.5%;"><strong>Add New Film Category</strong></a>
+        <a class="insertbtn" href="film_category_add.php" role="button" style="width: 15%;"><strong>Add New Film Category</strong></a>
         <h2 class="title">Film Category</h2>
     </div>
 

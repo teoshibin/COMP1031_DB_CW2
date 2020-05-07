@@ -42,6 +42,7 @@ try {
     <script defer type="text/javascript" src="../../js/main.js"></script>
     <!-- <script type="text/javascript" src="insert.js"></script> -->
     <script type="text/javascript" src="film_actor_valid.js"></script>
+    <style>.select{font-size:13px; height: 44px;}</style>
 </head>
 
 <div class="content">

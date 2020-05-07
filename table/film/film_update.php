@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update</title>
-  <link rel="stylesheet" href="../../css/update.css">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
-  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-  <!-- <script src="https://kit.fontawesome.com/a81368914c.js"></script> -->
-  <script defer type="text/javascript" src="../../js/main.js"></script>
-  <script type="text/javascript" src="../../js/dropdown_update.js"></script>
-  <script type="text/javascript" src="film_valid.js"></script>
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head> -->
+<!-- <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> -->
+<link rel="stylesheet" href="../../css/update.css">
+<script defer type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript" src="../../js/dropdown_update.js"></script>
+<script type="text/javascript" src="film_valid.js"></script>
 
 <body>
 
@@ -21,6 +21,7 @@
 
   require "../../include/config.php";
   require "../../include/common.php";
+  require "../../include/header.php";
 
   try {
 

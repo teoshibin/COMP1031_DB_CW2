@@ -65,7 +65,7 @@
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
     <?php
-    header("location: address.php");
+    header("Location: address.php");
     exit();
     ?>
   <?php endif; ?>
