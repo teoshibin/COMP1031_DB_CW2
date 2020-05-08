@@ -74,7 +74,7 @@ try {
             </thead>
 
             <tbody>
-                <?php foreach ($result as $row) : ?>
+                <?php foreach($result as $row) : ?>
                     <tr class="tr-back">
                         <td><?php echo escape($row["film_id"]); ?></td>
                         <td><?php echo escape($row["title"]); ?></td>
