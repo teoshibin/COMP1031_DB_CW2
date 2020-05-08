@@ -15,7 +15,7 @@ if (isset($_GET["id"])) {
         //execute with PDO
         $statement->execute();
 
-        //store a string in variable
+        //store a string in variable    
         $success = "rental successfully deleted";
     } catch (PDOException $error) {
         echo "<br>" . $error->getMessage();

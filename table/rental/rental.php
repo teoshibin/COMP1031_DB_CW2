@@ -89,7 +89,7 @@ var table = $('#dtHorizontalVerticalExample').DataTable( {
   table.destroy();
       table = $('#dtHorizontalVerticalExample').DataTable( {
      "ajax": {
-         "url": "http://localhost/DB_CW2/table/rental/rental_json.php",
+         "url": "rental_json.php",
          "dataSrc": ""
      },
     "columns": [

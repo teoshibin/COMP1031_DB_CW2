@@ -65,7 +65,7 @@ var table = $('#dtHorizontalVerticalExample').DataTable( {
   table.destroy();
       table = $('#dtHorizontalVerticalExample').DataTable( {
      "ajax": {
-         "url": "http://localhost/DB_CW2/table/payment/payment_json.php",
+         "url": "payment_json.php",
          "dataSrc": ""
      },
     "columns": [
