@@ -1,20 +1,20 @@
-<!-- <?php
+<?php
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 
-// define('DB_SERVER', 'localhost');
-// define('DB_USERNAME', 'root');
-// define('DB_PASSWORD', '');
-// define('DB_NAME', 'sakila');// #TODO create database called login with a table named user
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'sakila');// #TODO create database called login with a table named user
 
-// $host = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "sakila";
-// $dsn = "mysql:host=$host;dbname=$dbname";
-// $options = array(
-//             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-//             );
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sakila";
+$dsn = "mysql:host=$host;dbname=$dbname";
+$options = array(
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            );
 
  
 /* Attempt to connect to MySQL database */
@@ -25,9 +25,9 @@ server with default setting (user 'root' with no password) */
 // if($link === false){
 //     die("ERROR: Could not connect. " . mysqli_connect_error());//print error return from .mysqli_connect_error close this script
 // }
-?> -->
+?>
 
-<?php
+<!-- <?php
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', 'localhost');
@@ -61,4 +61,4 @@ $options = array(
 // if($link === false){
 //     die("ERROR: Could not connect. " . mysqli_connect_error());//print error return from .mysqli_connect_error close this script
 // }
-?>
+?> -->

@@ -1,100 +1,64 @@
-
 <?php
-// Initialize the session
-// so that we can get user info from $_SESSION["something"]
+ob_start();
 session_start();
-
-// Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){ //isset prevent user from editing url to get in the logged in page
-  header("location: ../page/home.php");// redirect function in php
-  exit();
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { //isset prevent user from editing url to get in the logged in page
+    header("location: ../page/home.php"); // redirect function in php
+    exit();
 }
-
-// Include config file
-require_once "../include/config.php";//link
-
+require_once "../include/config.php"; //link
 $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-// Check connection
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());//print error return from .mysqli_connect_error close this script
+if ($link === false) {
+    die("ERROR: Could not connect. " . mysqli_connect_error()); //print error return from .mysqli_connect_error close this script
 }
- 
-// Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = "";
- 
-// Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-    // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo ('1 ');
+    if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
-    } else{
+    } else {
         $username = trim($_POST["username"]);
     }
-    
-    // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter your password.";
-    } else{
+    } else {
         $password = trim($_POST["password"]);
     }
-    
-    // Validate credentials
-    if(empty($username_err) && empty($password_err)){
-        // Prepare a select statement
+    if (empty($username_err) && empty($password_err)) {
+        echo ('2 ');
         $sql = "SELECT staff_id, username, password, first_name, last_name FROM staff WHERE username = ?";
-        
-        if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
+        if ($stmt = mysqli_prepare($link, $sql)) {
+            echo ('3 ');
             mysqli_stmt_bind_param($stmt, "s", $param_username);
-            
-            // Set parameters
             $param_username = $username;
-
-            // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
-                // Store result
+            if (mysqli_stmt_execute($stmt)) {
+                echo ('4 ');
                 mysqli_stmt_store_result($stmt);
-                
-                // Check if username exists, if yes then verify password
-                if(mysqli_stmt_num_rows($stmt) == 1){    //only one set of user info can appear in result                
-                    // Bind result variables
+                if (mysqli_stmt_num_rows($stmt) == 1) {    //only one set of user info can appear in result
+                    echo ('5 ');
                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $first_name, $last_name);
-                    if(mysqli_stmt_fetch($stmt)){
-                        if(password_verify($password, $hashed_password)){
-                            // Password is correct, so start a new session
-                            session_start();
-                            
-                            // Store data in session variables
+                    if (mysqli_stmt_fetch($stmt)) {
+                        if (password_verify($password, $hashed_password)) {
+                            echo ('6 ');
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;   
+                            $_SESSION["username"] = $username;
                             $_SESSION["first_name"] = $first_name;
                             $_SESSION["last_name"] = $last_name;
-                            
-                            // Redirect user to welcome page
                             header("location: ../page/home.php");
-                        } else{
-                            // Display an error message if password is not valid
+                            exit();
+                        } else {
                             $password_err = "The password you entered was not valid.";
                         }
                     }
-                } else{
-                    // Display an error message if username doesn't exist
+                } else {
                     $username_err = "No account found with that username.";
                 }
-            } else{
+            } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
-            // Close statement
             mysqli_stmt_close($stmt);
         }
     }
-    
-    // Close connection
     mysqli_close($link);
 }
-?>
