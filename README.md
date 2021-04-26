@@ -7,14 +7,18 @@ Technology used for the implementation are html, php, css, sql, js, etc.
 # Screenshots
 
 <p align="center" float="left">
-  <img src="screenshots/3.png" width="358"/>
-  <img src="screenshots/4.png" width="358"/>
+  <img src="screenshots/1.png" width="716"/>
 </p>
 
 <p align="center" float="left">
+  <img src="screenshots/2.png" width="358"/>
   <img src="screenshots/3.png" width="358"/>
-  <img src="screenshots/4.png" width="358"/>
 </p>
+
+<p align="center" float="left">
+  <img src="screenshots/4.png" width="716"/>
+</p>
+
 <p align="center" float="left">
   <img src="screenshots/5.png" width="358"/>
   <img src="screenshots/6.png" width="358"/>
